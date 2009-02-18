@@ -1,0 +1,135 @@
+\section{Integralrechnung}
+\paragraph{Ziel} mathematisch präzise Formulierung des ``Flächeninhalts'' unter dem Graphen einer Funktion
+\paragraph{Fragen}
+\begin{itemize}
+  \item Welche Funktionen sind zulässig?
+  \item Wie definiert man das Integra für diese Funktionen?
+\end{itemize}
+\paragraph{Idee}
+\begin{enumerate}
+  \item def. Integral für spezielle Funktionen (Treppenfunktionen)
+  \item betrachte Folgen von Treppenfunktionen und führe geeigneten Konvergenzbegriff ein (gleichmässige Konvergenz), $\to$ mögliche Limiten sind Regelfunktionen
+  \item falls $f_n \xrightarrow{n\to\infty}f$ (Folge von Treppenfunktionen), setze $\int_a^b f dx:= \Limi{n}\left( \int^b_a f_n dx \right)$
+    \begin{align*}
+      f_n\to f \text{folgt} \left( \int^b_a f_n dx \right)_{n\in\mb{N}} \text{konvergent}\\
+      f_n \& g_n \to f \text{zwei Folgen} \implies \Limi{n} \left( \int^b_a f_n dx \right)=\Limi{n} \left( \int^b_a g_n \right)
+    \end{align*}
+\end{enumerate}
+\subsection{Treppenfunktionen}
+\begin{itemize}
+  \item $a<b, a,b\in\mb{R}$ $\{x_0,x_1,\cdots,x_n\}$ \underline{Zerlegung} von $[a,b] \Lra a=x_0<x_1<x_2<\cdots<x_{n-1}<x_n = b$
+  \item $\phi[a,b]\to\mb{C}$ \underline{Treppenfunktion} (auf $[a,b]$) $\Lra$ $\exists$ Zerlegung $\{x_0,x_1,\cdots,x_n\}$ von $[a,b]$ so dass $\phi|_{(x_{n-1},x_n)}$ konstant $\forall k=1,\cdots,n$
+\end{itemize}
+\begin{Bem}
+  \begin{itemize}
+    \item keine Aussage über $\phi(x_0),\cdots,\phi(x_n)$
+    \item nicht verboten zu feine Zerlegungen zu betrachten
+  \end{itemize}
+\end{Bem}
+\begin{itemize}
+  \item $\tau([a,b])$ (ein Vektorraum über $\mb{C}$, $\phi, \psi$ Treppenfunktionen) Menge aller Treppenfunktionen auf $[a,b]$
+\end{itemize}
+\begin{Def}{Integral von Treppenfunktionen} $\phi:[a,b]\to\mb{C}$ Teppenfunktion mit Zerlegung $\{x_0,x_1,\cdots,x_n\}$
+  \begin{itemize}
+    \item $c_K$ = Funktionswert von $\phi$ auf $(x_{k-1},x_k)$
+    \item $\Delta x_k=x_k-x_{k-1}$
+  \end{itemize}
+  \[\int_a^b \phi(x)dx=\sum^n_{k=1}\left( c_k\cdot\Delta x_k \right)\]
+\end{Def}
+\begin{Lem}{}
+  Das Integral einer Treppenfunktion ist unabhängig von der gewählten Zerlegung
+\end{Lem}
+\begin{Bew}{}
+  \begin{align*}
+    Z=\{x_0,x_1,\cdots,x_n\} &\ \&\  Z'= \{y_0,y_1,\cdots,y_m\} & \text{Zerlegungen von} [a,b]\\
+    \phi|_{(x_{k-1},x_k)} &\ \&\  \phi|_{(y_{k-1},y_k)} & \text{konstant}\\
+    \rsa I(Z) & \rsa I(Z') &\ \ \leftarrow \text{Summen} \sum^n_{k=1}c_k\Delta x_k \ \&\ \sum^m_{k=1}c'_k\Delta y_k
+  \end{align*}
+  \subparagraph{Frage} $I(Z)=I(Z')$
+  \subparagraph{Zeige} $I(Z)=I(Z\cup Z')=I(Z')$\\
+  $Z\cup Z'$ entsteht aus $Z$ durch Hinzufügen von endlich vielen Punkten.\\
+  Angenommen $Z\cup Z' = Z\cup\{y\}, y\not\in Z$. Leicht zu sehen: $I(Z)=I(Z\cup\{y\})$
+  \begin{align*}
+    I(Z)=I(Z\cup\{y\})\xRightarrow{\text{Ind}} I(Z) = I(Z\cup\{y_1\})=I(Z\cup \{y_1\}\cup\{y_2\}) = \cdots = I(Z\cup Z')
+  \end{align*}
+\end{Bew}
+\begin{Lem}{}
+  \begin{align*}
+    \int_a^b dx \tau([a,b])\to\mb{C}
+  \end{align*}
+  \begin{enumerate}
+    \item $\int_a^b dx$ ist linear, d.h.
+      \[\forall \phi, \psi\in\tau([a,b]),\alpha, \beta, \in\mb{C}: \int_a^b\alpha\phi+\beta\psi dx = \alpha\left( \int^b_a\phi dx \right)+\beta\left( \int^b_a\phi dx \right)\]
+    \item \[\Abs{f^b_a\phi dx}\leq \int^b_a\Abs{\phi} dx \leq (b-a) \underbrace{\Norm{\phi}}_{\text{Supremum}}\]
+    \item für $\phi,\psi:[a,b]\to\mb{R}$ mit $\phi(x)\leq\psi(x)\ \forall x\in[a,b] \implies$
+      \[\int^b_a\psi dx \leq \int^b_a \psi dx\]
+  \end{enumerate}
+\end{Lem}
+\begin{Bew}
+  $\phi$ und $\psi$ Treppenfunktionen mit Zerlegung $Z$ bzw. $Z'$ $\implies$ $Z\cup Z'$ Zerlegung für $\phi$ und $\psi$
+  \[\int^b_a\alpha\phi+\beta\psi dx = (\alpha\phi)|_{(x_{k-1},x_k)}=\alpha(\phi|_{(x_{k-1},x_k)})\]
+  wobei $\Delta x_k=x_k-x_{k-1}$.\\
+  Wert von $\phi$ auf $(x_{k-1},x_k)$ =: $c_k$, Wert von $\psi$ auf $(x_{k-1},x_k)$ =: $d_k$
+  \[\sum^n_{i=1}(\alpha c_k+\beta d_k)\Delta x_k=\alpha(\sum^n_{i=1})+\beta(\sum^n_{i=1}d_k\Delta x_k)=\alpha\int^b_a \phi dx+\beta \int^b_a \psi dx\]
+\end{Bew}
+\begin{Bem}
+  $\int^b_a dx: \tau([a,b])\to\mb{C}$ linear, $\ker(\int_a^b dx) \subset \tau([a,b])$ Untervektorraum
+\end{Bem}
+\begin{Bem}
+  lineares erzeugendes System von $\tau([a,b])$ $A\subset\mb{R}$
+  \[1_A(x) = \brace{1&\text{für} x\in A\\0&\text{sonst}}\]
+  \{$1_{[c,d]}$ mit $a<c\leq d<b$ \} erzeugendes System
+\end{Bem}
+\subsection{Regelfunktionen}
+\begin{Def}{Regelfunktionen}
+  $f:[a,b] \to\mb{C}$ \underline{Regelfunktionen} (auf $[a,b]$) $\Lra$
+  \begin{itemize}
+    \item 
+      \begin{align*}
+        \forall y\in(a,b):\exists \lim_{x\searrow y}f(x)\ \&\ \lim_{x\nearrow y} f(x)\\
+        (\text{nicht nötig:} \lim_{x\searrow y} f(x) = \lim_{x\nearrow y}f(x))
+      \end{align*}
+    \item \[\exists \lim_{x\swarrow y} f(x)\ \&\ \exists \lim_{x_\nearrow y} f(x)\]
+  \end{itemize}
+\end{Def}
+\begin{Bem}
+  \[\lim_{x\searrow y} f(x)=c:\ \Lra\ \forall \varepsilon > 0 \exists \rho\ \forall 0<x-y<\rho: \Abs{f(x)-c}<\varepsilon\]
+  $R([a,b])$ Menge aller Regelfunktionen auf $[a,b]$
+  \begin{align*}
+    R([a,b])\ \text{Vektorraum über} \mb{C}\\
+    T([a,b])\subset R([a,b]) \text{Untervektorraum}
+  \end{align*}
+  \subparagraph{Frage}$R([a,b])/T([a,b])$ Vektorraum über $\mb{C}$, Dimension?
+\end{Bem}
+\begin{Bsp}
+  jede stetige Funktion ist eine Regelfunktion
+\end{Bsp}
+\begin{Bsp}
+  jede monotone Funktion auf $[a,b]$ ist eine Regelfunktion (sehe Seite 78)
+\end{Bsp}
+\begin{Bem}
+  \begin{align*}
+  f,g\in R([a,b])\implies \lambda f_{\lambda\in\mb{C}}, f+g, \Abs{f}, f\cdot g, \max(f,g), \min(f,g)
+  \end{align*}
+  sind in $R([a,b])$
+\end{Bem}
+\begin{Def}{gleichmässige Konvergenz}
+  $(f_n)_{n\in\mb{N}}$ Folge von Funktionen auf $D\subset R, f$ Funktion auf $D$.\\
+  $(f_n)_{n\in\mb{N}}$ \underline{konvergiert gleichmässig} gegen $f$ $\Lra$ $\Limi{n} \underbrace{\Norm{f-f_n}}_{\sup_{x=D}\Abs{f(x)-f_n(x)}}=0$
+\end{Def}
+\begin{Bem}
+  falls $(f_n)_{n\in\mb{N}}$ konvergiert gleichmässig $\implies$ limes ist eindeutig
+\end{Bem}
+\begin{Bem}
+  $(f_n)_{n\in\mb{N}}$ konvergiert gleichmässig gegen $f$ $\implies$ $f_n(x)\to f(x)\ \forall x\in D$
+  \[(\Abs{f(x)-f_n(x)}\leq \sup_{x\in D} \Abs{f(x)-f_n(x)}\to 0)\]
+\end{Bem}
+\begin{Bem}
+  Die Umkehrung gilt NICHT $D=(0,1]$
+  \begin{align*}
+    f=0, f_n(x)=\brace{1-nx&0\leq x\leq \frac{1}{n}\\0&\frac{1}{n}\leq x \leq 1}\\
+    \forall x\in D: f_n(x)\xrightarrow{n\to\infty}0\\
+    \Norm{f-f_n}=\sup_{x\in D} \Abs{f(x)-f_n(x)} =1\\
+    \Limi{n}\Norm{f-f_n}=1
+  \end{align*}
+\end{Bem}
