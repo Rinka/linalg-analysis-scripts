@@ -1,0 +1,211 @@
+
+%= Document-Class ==================================================================================
+\documentclass[10pt,a4paper]{article}
+
+%= Packages ========================================================================================
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman,amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage{bbm}
+\usepackage{epic,eepic,pstricks,pst-node,pst-plot}
+\usepackage{pstricks}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage{psfrag}
+\usepackage{enumerate}
+\usepackage{float}
+%\usepackage{mathtext}
+\usepackage[all, knot, poly]{xy}
+\usepackage{dsfont}
+\pagestyle{fancy}
+\usepackage{multirow, bigdelim, bigstrut}
+\usepackage{rotating}
+\usepackage{ifthen}
+\usepackage{boxedminipage}
+% \usepackage{mathtools}
+
+%= Seiten-Layout =========================================================================
+\voffset-22mm \textheight715pt 
+
+%Seitenbreite==============================================================
+
+\oddsidemargin=0.4in
+\evensidemargin=0.2in
+\textwidth=5.2in
+\headwidth=5.2in
+
+%= Index-Befehle ========================================================================
+\renewcommand{\indexname}{Stichwortverzeichnis}
+\makeindex
+
+%= Befehl-Overwriting =======================================================================
+\makeatletter
+\renewcommand{\section}{\@startsection {section}{1}{\z@}{-3.5ex \@plus -1ex \@minus -.2ex}{2.3ex \@plus.2ex}{\reset@font\Large\bfseries}}
+\renewcommand{\subsection}{\setcounter{Prop}{0}\setcounter{Lem}{0}\setcounter{Sat}{0}\setcounter{Kor}{0}\setcounter{Def}{0}\@startsection{subsection}{2}{\z@}{-3.25ex\@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont\large\bfseries}}
+\newcommand\subnummer{\@arabic\c@section.\@arabic\c@subsection}
+\makeatother
+
+%= Strings ================================================================
+\newcommand{\mainfold}{.}
+\newcommand{\prefix}{A1-}
+
+%= Eigene Befehle ==========================================================================
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\md}{d}
+\DeclareMathOperator{\Grad}{grad}
+
+\newcommand{\Diff}[2]{\displaystyle\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\End}{\hfill{\hbox{$\Box$}}\par\vspace{2mm}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ePic}[1]{\input{\mainfold/graphics/\prefix#1.eepic}}
+\newcommand{\pst}[1]{\input{\mainfold/graphics/\prefix#1.pst}}
+\newcommand{\pic}[1]{\input{\mainfold/graphics/\prefix#1.pic}}
+\newcommand{\Mx}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\im}[1]{\operatorname{Im}(#1)}
+%\newcommand{\Include}[4]{\rhead{#2.#3.20#4}\input{\mainfold/lectures/#1-#4-#3-#2.tex}}
+\newcommand{\Index}[1]{\emph{#1}\index{#1}}
+\newcommand{\Int}[4]{\displaystyle\int\limits_{#1}^{#2}#3\,\mathrm{d}#4}
+\newcommand{\diff}[1]{\operatorname{d}\!#1}
+\newcommand{\Limi}[1]{\displaystyle\lim_{#1\rightarrow\infty}}
+\newcommand{\Limo}[1]{\displaystyle\lim_{#1\rightarrow0}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\Part}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\QED}{\hfill{\hbox{(QED)}}\par\vspace{2mm}}
+\newcommand{\re}[1]{\operatorname{Re}(#1)}
+\newcommand{\s}{\hspace{2mm}}
+\newcommand{\vsa}{\vspace{1mm} \\}
+\newcommand{\vsb}{\vspace{2mm} \\}
+\newcommand{\vsc}{\vspace{3mm} \\}
+% \newcommand{\tr}[1]{\textrm{#1}}
+\newcommand{\tr}[1]{\text{#1}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\Lra}{\Leftrightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\rsa}{\rightsquidarrow}
+
+%\newcommand{\detmx}{\left| \begin{array} #1 \end{array} \right|}
+
+\newcommand{\grad}[1]{\Grad(#1)}
+\newcommand{\fr}[2]{\displaystyle\frac{#1}{#2}} % fertiger bullshit, daf�r gibts \dfrac{}{}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+% ---- DELIMITER PAIRS ----
+\def\floor#1{\lfloor #1 \rfloor}
+\def\ceil#1{\lceil #1 \rceil}
+\def\seq#1{\langle #1 \rangle}
+\def\set#1{\{ #1 \}}
+\def\abs#1{\mathopen| #1 \mathclose|}	% use instead of $|x|$ 
+\def\norm#1{\mathopen\| #1 \mathclose\|}% use instead of $\|x\|$ 
+
+% --- Self-scaling delmiter pairs ---
+\def\Floor#1{\left\lfloor #1 \right\rfloor}
+\def\Ceil#1{\left\lceil #1 \right\rceil}
+\def\Seq#1{\left\langle #1 \right\rangle}
+\def\Set#1{\left\{ #1 \right\}}
+\def\Abs#1{\left| #1 \right|}
+\def\Norm#1{\left\| #1 \right\|}
+
+%Adrians Abbildungs-Environment ==============================================
+
+\newcommand{\Sidein}{\begin{rotate}{90}\small$\in$\end{rotate}}
+
+\newcommand{\Abb}[5][]{\ensuremath{
+    \begin{array}{lc}
+      \ifthenelse{\equal{#1}{}}{}{#1:}\;\; & 
+      \begin{xy}
+        \xymatrixrowsep{1em}\xymatrixcolsep{2em}%
+        \xymatrix{ #2 \ar[r] \ar@{}[d]^<<<<{\hspace{0.001em} \Sidein}
+          & #3  \ar@{}[d]^<<<<{\hspace{0.001em} \Sidein} \\
+          #4 \ar@{|->}[r] & #5} \end{xy}
+    \end{array}
+  }%
+}
+
+%= Environments ========================================================================
+\def\thechapter{\Roman{chapter}}
+\def\thesection{\arabic{section}}
+\newenvironment{Bsp}{\paragraph{Beispiel:}\begin{quote}}{\end{quote}}
+\newenvironment{Bem}{\paragraph{Bemerkung:}\begin{quote}}{\end{quote}}
+\newenvironment{Bew}[1]{\paragraph{Beweis: #1}\begin{quote}}{$\hfill\Box$\par\vspace{2mm}\end{quote}}
+\newcounter{Lem}
+\newenvironment{Lem}[1]{\paragraph{Lemma \subnummer.\addtocounter{Lem}{1}\theLem: #1} \begin{quote}}{\end{quote}}
+\newcounter{Kor}
+\newenvironment{Kor}{\paragraph{Korollar \subnummer.\addtocounter{Kor}{1}\theKor:}\begin{quote}}{\end{quote}}
+\newcounter{Def}
+\newenvironment{Def}[1]{\paragraph{Definition \subnummer.\addtocounter{Def}{1}\theDef: #1} \begin{quote}}{\end{quote}}
+\newcounter{Prop}
+\newenvironment{Prop}{\paragraph{Proposition \subnummer.\addtocounter{prop}{1}\theProp:}\begin{quote}}{\end{quote}}
+\newcounter{Sat}
+\newenvironment{Sat}[1]{\paragraph{Satz \subnummer.\addtocounter{Sat}{1}\theSat: #1}\begin{quote}}{\end{quote}}
+\newenvironment{parquote}[1]{\paragraph{#1}\begin{quote}}{\end{quote}}
+%Der todo: Notation
+
+\def\pstexInput#1{%
+  \begin{center}
+    \begin{picture}(0,0)%
+      \special{psfile=\mainfold/graphics/A2-#1.pstex}%
+    \end{picture}%
+    \input{\mainfold/graphics/A2-#1.pstex_t}%
+  \end{center}
+}
+
+%= Titelseite ===========================================================================
+\begin{document}
+\headheight15pt
+\begin{titlepage}
+\hfill
+\vspace{20mm}
+\pagenumbering{roman}
+\begin{center}
+{\LARGE Lineare Algebra I - Vorlesungs-Script} %\vskip 3em {\large Prof.
+%Guido Mislin} \vskip 1.5em
+%{\large Basisjahr 06/07}\vspace{30mm}\\
+%{\large {\bf Mitschrift:} \vspace{2mm}\\
+%Alexander Berthold van der Bourg}\vspace{5mm}\\ %30mm
+%{\large {\bf Graphics:} \vspace{2mm}\\
+%Pirmin Weigele }\vspace{30mm}\\ %30mm
+
+\end{center}
+\vfill
+
+\end{titlepage}
+
+
+%= Inhaltsverzeichnis ==========================================================================
+\lhead{}
+\rhead{}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%= Vorlesung-Skripts ==========================================================================
+\cfoot{\thepage}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\newpage
+
+%= LinAlg I & & II ==========================================================================
+
+%LinAlg I
+\include{09-02-16}
+
+\newpage
+
+%= Stichwortverzeichnis ======================================================================
+\rhead{}
+\addcontentsline{toc}{section}{Stichwortverzeichnis}
+\printindex
+
+\end{document}
