@@ -6,15 +6,15 @@ Das kanonische Skalarprodukt (oder: Standardskalarprodukt) von $\mb{R}^n$ ist di
 gegeben durch
 \[<x,y>:=x_1y_1+\cdots+x_ny_n\]
 falls $x=(x_1,\cdots,x_n)$ und $y=(y_1,\cdots,y_n)$ sind.
-\begin{parquote}{Konvention}
-eine $1x1$ Matrix wird mit Eintrag indentifiziert % Konvention
+\begin{Def}[Konvention]
+eine $1x1$ Matrix wird mit Eintrag indentifiziert
 \[(x)\in{}M(1\times 1,K) \lra x\in{}K\]
 Dann können wir schreiben:
 \[<x,y>=(x^t)(y)\]
 \[x=\Mx{x_1,\hdots,x_n}, y=\Mx{y_1,\hdots,}\]
 \[(x_1,\cdots,x_n)\Mx{y_1,\hdots,y_n}=x_1y_1+\cdots+x_ny_n)\]
-\end{parquote}
-\begin{parquote}{Eigenschaten}$<,>$ ist bilinear: % Eigenschaften
+\end{Def}
+\begin{Bem}[$<,>$ ist bilinear]
 \begin{align*}
   <x+x',y>&=<x,y>+<x',y>\\
   <\lambda{}x,y>&=\lambda<x,y>\\
@@ -29,38 +29,38 @@ positiv defininit:
   <x,x> &=&= \Lra x=0\in\mb{R}^n
 \end{align*}
 \[\text{für} \forall x,y,x',y'\in\mb{R}^n, \lambda\in\mb{R}\]
-\end{parquote}
-\begin{parquote}{Hintergrund}euklidische Geometrie
+\end{Bem}
+\begin{Bem}[Hintergrund: euklidische Geometrie]
 \begin{align*}
   \Norm{x}&=&=\sqrt{<x,x>}
   &=&=\sqrt{x^2_1+\cdots+x_n^2}
 \end{align*}
-\end{parquote}
-\begin{parquote}{Eigenschaften von $\Norm{.}$}
+\end{Bem}
+\begin{Bem}[Eigenschaften von $\Norm{.}$]
 \begin{align*}
   \Norm{x}\geq0, \text{mit} \Norm{x}=0 \Lra x=0\\
   \Norm{\lambda{}x}=\Abs{\lambda}\Norm{x}\\
   \Norm{x+y}\leq\Norm{x}+\Norm{y}
 \end{align*}
-\end{parquote}
+\end{Bem}
 Dann definieren wir den Abstand von $x,y\in\mb{R}^n$:
 \[d(x,y)\in\mb{R}\]
 \[d(x,y):=\Norm{y-x}\]
-\begin{parquote}{Eigenschaften}
+\begin{Bem}{Eigenschaften}
 \begin{align*}
   d(x,y)\geq0, \text{mit}d(x,y)=0 \Lra x=y\\
   d(y,x)=d(x,y)\\
   d(x,z)\leq d(x,y)+d(y,z)
 \end{align*}
 \[\text{für} x,y,z\in\mb{R}^n\]
-\end{parquote}
+\end{Bem}
 Wir sind motiviert, Struktiren zu definieren, basierend auf diesen Eigenschaften, so z.B.
 \begin{itemize}
   \item Bilineare Formen (symetrisch, positiv definit)
   \item Norme
   \item Metriken
 \end{itemize}
-\begin{Bew}{1} $\Norm{.}$ und $d$: die Dreiecksungleichung folgt aus der Cauchy-Schwarzschen Ungleichung
+\begin{proof} $\Norm{.}$ und $d$: die Dreiecksungleichung folgt aus der Cauchy-Schwarzschen Ungleichung
 \begin{align*}
   \Norm{x+y}^2&=&=<x+y,x+y>\\
   &=&=\Norm{x}^2+\Norm{y}^2+2<x,y> \leq (?) \left(\Norm{x}+\Norm{y}\right)^2\\
@@ -72,8 +72,8 @@ mit Gleichheit genau dann, wenn $x$ und $y$ linear abhängig sind.
 \[\Lra\]
 \[A=\Mx{---&x&---\\---&y&---}\in M(2\times n,\mb{R})\]
 $A$ hat Rang $\leq 1$
-\end{Bew}
-\begin{Bew}{2}
+\end{proof}
+\begin{proof}
 \begin{align*}
   A\cdot{}A^t&=&=\Mx{<x,x>&<x,y>\\<x,y>&<y,y>}\in M(2\times 2),\mb{R}\\
   \det(A\cdot{}A^t)&=&=<x,x><y,y>-<x,y>^2
@@ -90,7 +90,7 @@ Es folgt:
   \det(A\cdot A^t)=\sum_{1\leq i < j \leq n} \det(A^{i,j})^2 \geq 0
 \end{align*}
 und ist $=0$ $\Lra$ alle $2\times 2$ Minoren von $A$ sind 0 $\Lra$ $rang(A)\leq 1$
-\end{Bew}
+\end{proof}
 \begin{Kor} Wir können definieren
 \begin{align*}
   \angle(x,y):=\cos^{-1}\underbrace{\frac{<x,y}{\Norm{x}\Norm{y}}}_{\in [-1,1]\in\mb{R}} \in [0,\pi]\in\mb{R}\\
