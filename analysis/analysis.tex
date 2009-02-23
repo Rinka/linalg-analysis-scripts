@@ -5,6 +5,7 @@
 %= Packages ========================================================================================
 \usepackage[utf8]{inputenc}
 \usepackage{ngerman,amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage{amsthm}
 \usepackage{bbm}
 \usepackage{epic,eepic,pstricks,pst-node,pst-plot}
 \usepackage{pstricks}
@@ -136,20 +137,18 @@
 %= Environments ========================================================================
 \def\thechapter{\Roman{chapter}}
 \def\thesection{\arabic{section}}
-\newenvironment{Bsp}{\paragraph{Beispiel:}\begin{quote}}{\end{quote}}
-\newenvironment{Bem}{\paragraph{Bemerkung:}\begin{quote}}{\end{quote}}
-\newenvironment{Bew}[1]{\paragraph{Beweis: #1}\begin{quote}}{$\hfill\Box$\par\vspace{2mm}\end{quote}}
-\newcounter{Lem}
-\newenvironment{Lem}[1]{\paragraph{Lemma \subnummer.\addtocounter{Lem}{1}\theLem: #1} \begin{quote}}{\end{quote}}
-\newcounter{Kor}
-\newenvironment{Kor}{\paragraph{Korollar \subnummer.\addtocounter{Kor}{1}\theKor:}\begin{quote}}{\end{quote}}
-\newcounter{Def}
-\newenvironment{Def}[1]{\paragraph{Definition \subnummer.\addtocounter{Def}{1}\theDef: #1} \begin{quote}}{\end{quote}}
-\newcounter{Prop}
-\newenvironment{Prop}{\paragraph{Proposition \subnummer.\addtocounter{prop}{1}\theProp:}\begin{quote}}{\end{quote}}
-\newcounter{Sat}
-\newenvironment{Sat}[1]{\paragraph{Satz \subnummer.\addtocounter{Sat}{1}\theSat: #1}\begin{quote}}{\end{quote}}
-\newenvironment{parquote}[1]{\paragraph{#1}\begin{quote}}{\end{quote}}
+\newtheorem{Bew}{Beweis}
+\newtheorem{Lem}{Lemma}
+\newtheorem{Kor}{Korollar}
+\newtheorem{Sat}{Satz}
+\newtheorem{Prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{Bsp}{Beispiel}
+\newtheorem{Def}{Definition}
+\newtheorem{Prob}{Problem}
+\theoremstyle{remark}
+\newtheorem{Bem}{Bemerkung}
+\newtheorem{Eig}{Eigenschaften}
 %Der todo: Notation
 
 \def\pstexInput#1{%
