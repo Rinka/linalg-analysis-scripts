@@ -63,7 +63,7 @@ Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, mit $\dim_KV<\infty$, und $s:V\time
   Es folgt: (eine Bastelei\ldots)
   \begin{align*}
     K^n\times K^n&\ara{\Phi_A\times\Phi_A}{}&V\times V&\ara{s}{}&K\\
-    \ara{T\timesT}{}&K^n\times K^n&\ara{\Phi_B\Phi_B}{}\uparrow&&
+    \ara{T\times T}{}&K^n\times K^n&\ara{\Phi_B\Phi_B}{}\uparrow&&
   \end{align*}
   \begin{align*}
     K^n\times K^n (x,y)&\mapsto& K(x^tM_a(s)\cdot y)=t_x^tM_B(s)T_y = (T_x)^tM_B(s)(T_y)\\
@@ -74,16 +74,16 @@ Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, mit $\dim_KV<\infty$, und $s:V\time
 \end{Bew}
 \begin{Bsp}
   $V=K^n$, mit Standardskalaprodukt $<.,.>$. Ist $B=(e_1,\cdots,e_n)$, so ist
-  \[\Mx{1&&0\\&\ddots&\\0&&1\}=M_{\text{Standardbasis}}(<.,.>)\]
+  \[\Mx{1&&0\\&\ddots&\\0&&1}=M_{\text{Standardbasis}}(<.,.>)\]
   Sei
   \begin{align*}
     A&=& (e_1,&e_2-e_1,&e_3-e_2,\cdots,&e_n-e_{n-1})\\
     &=:& (u_1,&u_2,&\cdots,&u_n
   \end{align*}
   Direkt aus der Definition:
-  \[<u_i,u_j>=\brace{ 1&\text{wenn}& i=j=1 \\ 2&\text{wenn}&i=j>1\\ -1&\text{wenn}&$\Abs{i-j}=1\\ 0&\text{sonst}&} \]
+  \[<u_i,u_j>=\begin{cases} 1& i=j=1 \\ 2&i=j>1\\ -1& \Abs{i-j}=1 \\ 0&\text{sonst}\end{cases} \]
   oder mit der Transformationsformel
-  \[T=\Mx{1&1&&0\\\cdots\\\cdots&&&1\\0&&&1\} \text{und} T^tE_N T''\]
+  \[T=\Mx{1&1&&0\\\cdots\\\cdots&&&1\\0&&&1} \text{und} T^tE_N T''\]
 \end{Bsp}
 \begin{Bem}
   Ist $A$ die darstellende Matrix bezügloich einer Basis, so haben wir:
@@ -91,13 +91,13 @@ Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, mit $\dim_KV<\infty$, und $s:V\time
     \item symmetrisch $\Lra$ $A=A^t$
     \item schiefsymmetrisch $\Lra$ $A=-A^t$
   \end{itemize}
-  Das stimmt überein mit (vgl. Übungblatt 3): $A\in M(n\times n)$ ist symmetrisch $\Lra$ $A=A^t$. $A$ ist schiefsymmetrisch oder antisymmetrisch (oder alternierend wenn $\char(K)\neq 2$) $\Lra$ $A=-A^t$
+  Das stimmt überein mit (vgl. Übungblatt 3): $A\in M(n\times n)$ ist symmetrisch $\Lra$ $A=A^t$. $A$ ist schiefsymmetrisch oder antisymmetrisch (oder alternierend wenn $\text{char}(K)\neq 2$) $\Lra$ $A=-A^t$
 \end{Bem}
 \subsection{Bilineare und quadratische Formen}
 Eine quadratische Form $V\to K$ wird zu einer Bilinearform assoziert. Falls $\dim_KV<\infty$: ``quadratische Form'' bedeutet $q:V\to K$ bezüglich einem Koordinatensystem gegeben als homogenes quadratisches Polynom. Ist $s:V\times V\to K$ eine bilineare Form, dann heisst
 \begin{align*}
   q:&V&\to&K\\
-  &v&\mapsto&q(v)=s(v,v)
+  &v& \mapsto &q(v)=s(v,v)
 \end{align*}
 die zu $s$ gehörige quadratische Form.
 \begin{Bsp}
@@ -110,14 +110,14 @@ die zu $s$ gehörige quadratische Form.
     &=& \sum^n_{i=1}a_{ii}x_i^2+2\sum_{1\leq i<j\leq n}a_{ij}x_ix_j
   \end{align*}
 \end{Bsp}
-Ist $\char(K)\neq 2$, so haben wir:
+Ist $\text{char}(K)\neq 2$, so haben wir:
 \begin{align*}
-  \{\text{symm. bilineare Formen in $K^n$}\}&\lra&\{\text{quadr. Formen auf $K^n$}\}\\
-  s&\mapst&q(v):=s(v,v)\\
-  &\mapsfrom (Polarisierungsformel)&
+  \{\text{symm. bilineare Formen in $K^n$}\}&\lra&\{\text{quadr. Formen auf} K^n\}\\
+  s&\mapsto &q(v):=s(v,v)\\
+  &\mapsfrom (\text{Polarisierungsformel}) &
 \end{align*}
 \subsubsection{Polarisierungsformel}
-Ist $s$ eine symmetrische Bilinearform und $q$ die zu $s$ gehörende quadratische Form über einem Vektorraum $V$ über $K$ mit $\char(K)\neq 2$, dann gilt: 
+Ist $s$ eine symmetrische Bilinearform und $q$ die zu $s$ gehörende quadratische Form über einem Vektorraum $V$ über $K$ mit $\text{char}(K)\neq 2$, dann gilt: 
 \begin{align*}
   s(v,w)&=& \frac{1}{2}\left( q(v+w) - q(v) - q(w) \right)\\
   &=& \frac{1}{2}\left( q(v)+q(w)-q(v+w) \right)\\
@@ -140,6 +140,6 @@ Ist $s$ eine symmetrische Bilinearform und $q$ die zu $s$ gehörende quadratisch
   $<.,.>$ auf $\mb{C}^n$
   \begin{align*}
     s(f,g)&=& \int^1_0f(x)g(x)dx\\
-    \text{auf} V&:=& \{\text{stetige Abb.\}[0,1]\to\mb{C}\}
+    \text{auf} V&:=& \{\text{stetige Abb.}\}[0,1]\to\mb{C}\}
   \end{align*}
 \end{Bsp}
