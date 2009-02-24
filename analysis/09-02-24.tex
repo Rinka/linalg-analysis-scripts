@@ -1,0 +1,189 @@
+\subsubsection{Zusammenfassung}
+\begin{itemize}
+  \item $\tau\left( [a,b] \right)$ = Vektorraum der Treppenfunktionen auf $[a,b]$
+  \item $\int: \tau[a;b]\to\mb{C}$ lineare Abbildung
+  \item Eigenschaften:
+    \begin{itemize}
+      \item lineare Abbildung
+      \item Monotonie: $f\leq g$ $\implies$ $\int^b_af\cdot dx\leq \int^b_ag\cdot dx$
+      \item Beschränktheit: $\Abs{\int^b_af\cdot dx}\leq \int^a_b\Abs{f(x)}dx\leq (b-a)\Norm{f} = \sup_{x\in[a;b]}f$
+    \end{itemize}
+  \item Regelfunktionen: $R\left( [a,b] \right)$ = Vektor nach der Regel $f\supset\tau\left( [a;b] \right)$
+  \item gleichmässige Konvergenz $f_n\to f\xLeftrightarrow{\text{def}}\Norm{f_n-f}\to 0$
+\end{itemize}
+\subsubsection{Vorgehen}
+\begin{enumerate}
+    \item Jede Regelfunktion kann man gleichmässig durch Treppenfunktionen approximieren.
+    \item Damit kann man das Integral von Regelfunktionen definieren.
+    \item Regenregeln (insbesondere Hauptsatz)
+    \item Riemannsche Summen
+\end{enumerate}
+\begin{Sat}{Approximationssatz}
+  \[f\in R{a;b}\Lra \exists \text{Folge} \phi_n\in \tau[a;b]:\phi_n\to f\text{gleichmässig}\]  
+  ist per Definition äquivalent mit
+  \[\exists \text{Folge}\phi_n\in \tau[a;b]: \Norm{\phi_n-f}\to 0\]
+  wobei
+  \[\Norm{\phi_n-f}=\sup_{x\in[a;b]}\Abs{\phi_n(x)-f(x)}\]
+  Dieser Grenzwert ist wiederum äquivalent mit
+  \[\forall\varepsilon>0 \exists\phi \in \tau[a;b]: \Norm{f-\phi}\leq \varepsilon\]
+  (eine $\varepsilon$-approximierende Treppenfunktion)
+\end{Sat}
+\begin{Bew}{$\Ra$}
+  d.h. $f\in R\implies \exists \varepsilon$-approx. Treppen. Widerspruchsbeweis:
+  \begin{align*}
+    f\in R[a;b]\\
+    \exists \varepsilon >0: f \text{besitzt keine} \varepsilon \text{-approx. Treppenfunktion}
+  \end{align*}
+  Wir konstruieren eine Intervallschachtelung $I_n=[a_n;b_n]$ s.d. $\forall_n f|_{I_n}$ besitzt keine $\varepsilon$-approx.Treppenfunktion
+  \[I_1=[a;b]\]
+  rekursiv: $M=\frac{b_n-a_n}{2} +a_n$ Mittelpunkt
+  \begin{align*}
+    I_{n+1}:=\begin{cases}
+      [a_n;M]&\text{falls} f|_{[a_n;M]}\text{keine} \varepsilon \text{-approx. Treppenfunktion bestzt}\\ [M,b_n]& \text{andernfalls}        
+    \end{cases}
+  \end{align*}
+  Sei $\xi\in I_n \forall n$
+  \begin{align*}
+    c_e&:=&\lim_{x\uparrow \xi} f(x)\\
+    c_r&:=&\lim_{x\downarrow \xi} f(x)
+  \end{align*}
+  $\implies$
+  \begin{align*}
+    \exists \delta:&\Abs{f(x)-c_e}<\varepsilon:&x\in\left[\xi-\delta;\xi\right)\\
+    &\Abs{f(x)-c_r}<\varepsilon:&x\in\left(\xi;\xi+\delta\right]\\
+  \end{align*}
+  Auf $[\xi-\delta;\xi+\delta]$ definieren wir eine Treppenfunktion:
+  \begin{align*}
+    \phi(x):=\begin{cases}
+      c_e&\xi-\delta\leq x< \xi\\
+      f(\xi)&x=\xi\\
+      c_r&\xi+\delta\geq x>\xi
+    \end{cases}
+  \end{align*}
+  Fall 1 $\implies$ $\phi$ ist eine $\varepsilon$-approx. Treppenfunktion auf $[\xi-\delta],[\delta+\delta]$. Fall 2 $\implies$ $\phi$ ist eine $\varepsilon$-approx. Treppenfunktion auf $[\xi-\delta],[\delta+\delta]$, alle $I_n \subset[\xi+\delta;\xi+\delta]$\\
+  $\blitza$
+\end{Bew}
+\begin{Bew}{$\La$}
+  $f$ Regelfunktion $\La$ $f$ besitzt $\varepsilon$-approx. Treppenfunktion $\forall \varepsilon>0$. Sei $x_0\in\left[a;b\right)$. Zu zeigen: $\exists \lim_{x\downarrow x_0} f(x)$.
+  \begin{align*}
+    \forall \varepsilon>0\ \exists\phi\in \tau[a;b]:\Norm{f-\phi}<\frac{\varepsilon}{2}\\
+  \end{align*}
+  Sei $\beta>x_0:\phi$ konstant auf $(x_0,\beta)$
+  \begin{align*}
+    \forall x,x'\in(x_0;\beta)\\
+    \Abs{f(x)-f(x')}&\leq& \Abs{f(x)-\phi(x)}+\Abs{\phi(x)^{(=\phi(x')}-f(x')}\\
+    &\leq&\Norm{f-\phi}+\Norm{\phi-f}<\varepsilon
+  \end{align*}
+  $\forall \varepsilon>0$ $\exists\beta:$ Cauchyeigenschaft gilt auf $(x_0;R)$ $\implies$ $\exists \lim_{x\uparrow x_0}f(x)$. Ähnlich: $\exists\lim_{x\uparrow x_0}f(x)$ $\forall x_0\in\left(a;b\right]$.
+\end{Bew}
+\begin{Kor}
+  \[f\in R[a;b]\ \Lra\ \exists \text{Folge}\Psi_b\in\tau[a;b]:\sum^\infty_{k=1}\phi_k=f\]
+  konvergiert konstant
+\end{Kor}
+\begin{Kor}
+  $f$ Regelfunktion auf $I$ $\implies$ $f$ fast überall stetig. d.h. $\exists A\subset I$ s.d.
+  \begin{itemize}
+    \item $f|_{I\setminus A}$ stetig
+    \item $A$ höchstens abzählbar $x\in[a;b]$
+  \end{itemize}
+\end{Kor}
+\begin{Bew}
+  %\subparagraph{Fall 1: $I$ kompakt}
+  \begin{align*}
+    \Psi_k\in\tau [I]\\
+    f=\sum\phi_k \text{normal}
+  \end{align*}
+  Ist $\phi_k$ stetig in $x\forall k$ $\implies$ $f$ stetig in $x$.\\
+  Ist $x$ Unstetigkeitsstelle von $f$, $\exists k$: $\phi_k$ unstetig in $x$, höchstens abzählbare viele $k$.
+  \begin{itemize}
+    \item Eine Treppenfunktion hat endlich viele Unstetigkeitsstellen
+  \end{itemize}  
+  \{ Unstetigkeitsstellen von $f$\} $\subset$ (höchstens abzählbare Vereinigung von endlichen Mengen) $\implies$ höchstens abzählbar
+  %\subparagraph{Fall 2: $I$ nicht kompakt}
+  \[I=\overbrace{U_\alpha}^{\text{höchstens abzählbar}}\overbrace{I_\alpha}^{\text{kompakt}}\]
+\end{Bew}
+\begin{Sat}
+  \[f\in R\left( [a:b] \right)\implies f \text{beschränkt auf} [a;b]\]
+\end{Sat}
+\begin{Bew}
+  \begin{align*}
+    \varepsilon =1\\
+    \exists \overbrace{\phi}^{\text{\underline{beschränkt}}}\in\tau\left( [a;b] \right):\Norm{f-\phi}\leq 1\\
+    \implies \Norm{f}=\Norm{f-\phi + \phi}\leq \Norm{f-\phi}+\Norm{\phi}=\leq 1+\Norm{\phi}
+  \end{align*}
+\end{Bew}
+\begin{Def}{Integration von Regelfunktionen}
+  \ldots auch bekannt als ``Regelintegral''\\
+  Sei $f\in R[a;b]$
+  \[\int_a^bf(x)fx:\Limi{n}\int^b_a\phi_n(x)dx\]
+  wobei $\phi_n$ eine approximierene Folge von Treppenfunktionen ist (d.h. $\Norm{\phi_n-f}\to 0$)
+\end{Def}
+\subparagraph{zu zeigen:}
+\begin{enumerate}
+  \item Die Folge $I_n:=\int^b_a\phi_n(x)dx$ konvergiert $\forall \Norm{\phi_n-f}\to 0$
+  \item Der Grenzwert ist von der Wahl der approximierenden Folge unabhängig
+\end{enumerate}
+\begin{Bew}{von 1}
+  \[\Abs{I_n-I_m}=^{\text{Linearität}}\Abs{\int^b_a\left( \phi_n(x)-\phi_m(x) \right)dx}\leq^{\text{beschränkt}} (b-a)\Norm{\phi_n-\phi_m}\]
+  \[\Norm{\phi_n-f}\to 0 \xRightarrow{\text{Dreiecksungleichung}} \forall\varepsilon>0\ \exists N: \Norm{\phi_n-\phi_m}<\varepsilon\ \forall n,m> N\]
+  $\implies$ $I_n$ Cauchyfolge $\implies$ $I_n$ konvergiert
+\end{Bew}
+\begin{Bew}{von 2}
+  Seien $\phi_n, \psi_n\in \tau[a;b]$
+  \begin{align*}
+    \Norm{\phi_n-f}\to0\\
+    \Norm{\psi_n-f}\to0
+  \end{align*}
+  \begin{align*}
+    \{X_n\}=\psi_1,\phi_1,\psi_2,\phi_2,\psi_3,\phi_3,\cdots\\
+    X_n:=\begin{cases}
+      \phi_{\frac{n}{2}}& n \text{gerade}\\
+      \psi_{\frac{n+1}{2}}& n \text{ungerade}
+    \end{cases}
+  \end{align*}
+  $\implies$ $I_n(\phi)$ und $I_n(\psi)$ Teilfolgen von $I_n(X)$
+  \begin{align*}
+    \implies \Norm{X_n-f}\to 0\\
+    I_n(x)=\int x_n\\ I_n(\phi)=\int \phi_n\\ I_n(\psi)=\int \psi_n\\
+  \end{align*}
+  $\implies$
+  \begin{align*}
+    \lim I_n(\phi)=\lim I_n(X)=\lim I_n(\psi)
+  \end{align*}
+\end{Bew}
+\begin{Bsp}{Dirichlet}
+  eine Funktion, die keine Regelfunktion ist.
+  \begin{align*}
+    f:[0;1]\to\mb{R}\\
+    f(x)=\begin{cases}
+      1 & x\in \mb{Q}\\
+      0 & x\in \mb{R}\setminus\mb{Q}
+    \end{cases}
+  \end{align*}
+  $f$ unstetig $\forall x$ intuitiv: $\int^1_0 f(x)fx =0$
+\end{Bsp}
+\begin{Bsp}{Riemann}
+  sog. modifizierte Dirichlet-Funktion
+  \begin{align*}
+    g:[0;1]\to\mb{R}\\
+    g(x)=\begin{cases}
+      \frac{1}{q}  & x=\frac{p}{q}, p,q \text{teilerfremd}, q>0\\
+      0 & x\in \mb{R}\setminus \mb{Q}
+    \end{cases}
+  \end{align*}
+  $g\in R[0;1]$ und $int^b_ag(x)dx=0$
+\end{Bsp}
+\subsubsection{Eigenschaften}
+\begin{Sat}
+  \[\forall f, g\in R [a;b] \forall \alpha,\beta\in \mb{C} \text{gelten}\]
+  \begin{description}
+    \item[Linearität] \[\int^b_a(\alpha f+ \beta g)dx = \alpha \int^b_af\cdot dx+\beta\int^b_a g\cdot dx\]
+    \item[Beschränktheit] \[\Abs{\int^b_a f(x)\cdot dx}\leq \int^b_a\Abs{f(x)}dx\leq (b-a)\Norm{f}\]
+    \item[Monotonie] \[f\leq g \implies \int^b_af(x)dx\leq \int^b_ag(x)dx\]
+  \end{description}
+  ($f,g$ reellwertig $f(x)\leq g(x)\forall x$)
+\end{Sat}
+\begin{Sat}{Additivität}
+  Sei $f\in R[a;b]$ und sei $c\in (a;b)$
+  \[\int^b_af(x)dx=\int^c_a f(x)dx+\int^b_cf(x)dx\]
+\end{Sat}
