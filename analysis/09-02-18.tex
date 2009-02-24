@@ -77,7 +77,7 @@
 \end{Bem}
 \begin{Bem}
   lineares erzeugendes System von $\tau([a,b])$ $A\subset\mb{R}$
-  \[1_A(x) = \brace{1&\text{für} x\in A\\0&\text{sonst}}\]
+  \[1_A(x) = \begin{cases}1&\text{für} x\in A\\0&\text{sonst}\end{cases}\]
   \{$1_{[c,d]}$ mit $a<c\leq d<b$ \} erzeugendes System
 \end{Bem}
 \subsection{Regelfunktionen}
@@ -127,7 +127,7 @@
 \begin{Bem}
   Die Umkehrung gilt NICHT $D=(0,1]$
   \begin{align*}
-    f=0, f_n(x)=\brace{1-nx&0\leq x\leq \frac{1}{n}\\0&\frac{1}{n}\leq x \leq 1}\\
+    f=0, f_n(x)=\begin{cases}1-nx&0\leq x\leq \frac{1}{n}\\0&\frac{1}{n}\leq x \leq 1\end{cases}\\
     \forall x\in D: f_n(x)\xrightarrow{n\to\infty}0\\
     \Norm{f-f_n}=\sup_{x\in D} \Abs{f(x)-f_n(x)} =1\\
     \Limi{n}\Norm{f-f_n}=1
