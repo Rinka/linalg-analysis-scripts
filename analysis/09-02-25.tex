@@ -1,0 +1,223 @@
+\begin{Bew}
+  $f=\phi$ Treppenfunktion trivial
+  \[f=\lim\phi_n\ \text{gleichmässig}\]
+  \begin{align*}
+    \phi_n\in \tau[a;c]
+    \phi_n^l &:=& \phi_n|_{[a;b]}&\in\tau[a;b]\\
+    \phi_n^r &:=& \phi_n|_{[b;c]}&\in\tau[b;c]\\
+  \end{align*}
+  \begin{align*}
+    \int^c_a\phi_n(x)dx = \int^b_a\phi_n^l(x)dx+\int^c_b \int^r_n(x)dx\\
+    \Norm{\phi_n-f}\to0\\
+    \Norm{\phi_n^l-f}_{[a;b]}\leq \Norm{\phi_n-f}\geq \Norm{\phi_b^+f}_{[b;c]}
+  \end{align*}
+  \begin{align*}
+    \int^c_a\phi_n(x)dx &=& \int^b_a\phi_n^l(x)dx&+&\int^c_b \int^r_n(x)dx\\
+    =\int^c_a f \cdot dx & &=\int^b_a f(x) \cdot dx & & =\int^c_b f(x) dx
+  \end{align*}
+  $\implies$
+  \begin{align*}
+    \phi_n^l&\to f|_{[a;b]}\\
+    \phi_n^r&\to f|_{[b;c]}\\
+  \end{align*}
+\end{Bew}
+\begin{Def}
+  $f\in R[a;b]$, $b>a$
+  \[\int^a_bf(x)dx := \int^b_af(x)dx\]
+  \[\int^a_af(x)dx := 0 \]
+\end{Def}
+\begin{Sat}
+  $f\in RI(): \forall a,b,c \in I$
+  \[\int^c_af(x)dx = \int^b_af(x)dx + \int^c_bf(x)dx\]
+\end{Sat}
+\begin{Bem}
+  \begin{description}
+    \item[Linearität]
+    \item[Beschränktheit]: \[\Abs{\int^b_af(x)dx}\leq \Abs{\int^b_a\Abs{f(x)}dx}\leq \Abs{b-a}\Norm{f}\]
+    \item[Monotonie]
+  \end{description}
+  \begin{align*}
+    f\leq g; b>a\\
+    \int^b_a f(x)dx \geq \int^b_ag(x)dx
+  \end{align*}
+\end{Bem}
+\begin{Bem}
+  $f$ stetig ($[a;b]$) $\implies$ $\Norm{f} = \max\Abs{f}$\\
+  reellwertig $\xRightarrow{\text{ZWS}}$ $f$ nimmt alle Werte zwischen $0$ und $\max\Abs{f}$ % zwischen <> und - nachprüfen
+  \begin{align*}
+    \exists\xi\in [a;b]:\\
+    \int^b_af(x)dx=(b-a)f(\xi)
+  \end{align*}
+\end{Bem}
+\begin{Sat}{Mittelwertsatz}
+  Sei $f:[a;b]\to \underline{\mb{R}}$ \underline{stetig}. Sei $p:[a;b]\to\mb{R}$ Regelfunktion mit $p\geq 0$. Dann $\exists \xi\in [a;b]$ s.d.
+  \[\int^b_a f(x)p(x)dx=f(\xi)\int^b_a p(x)dx\]
+  Falls $\int p \neq 0$
+  \begin{align*}
+    \frac{\int f(x)p(x)dx}{\int p(x)dx}=f(\xi)=\int^b_a f(x)\tilde{p}(x)dx\\
+    \tilde{p}(x)=\frac{p(x)}{\int^b_ap(x)dx}\\
+    \implies \int^b_a \tilde{p}(x) dx=1
+  \end{align*}
+\end{Sat}
+\begin{Bew}
+  $f$ besitzt ein Maximum $M$ und ein Minimum $m$
+  \begin{align*}
+    m\leq f(x) \leq M\ \forall x\in [a;b]\\
+    m p(x)\leq f(x)p(x)\leq M p(x)\\
+  \end{align*}
+  $\xRightarrow{\text{Monotonie}}$
+  \begin{align*}
+    \int^b_am p(x)dx &\leq& int^b_a f(x)p(x)dx &\leq& \int^b_a M p(x)dx\\
+    = m\int^b_ap(x)dx & & & &=M \int^b_a p(x)dx
+  \end{align*}
+  $\implies \exists \mu\in [m;M]$:
+  \begin{align*}
+    \int^b_af(x)p(x)dx = \mu \int^b_a p(x) dx    
+  \end{align*}
+  ZWS $\implies$ $\exists \xi \in [a;b]$:
+  \[\mu=f(\xi)\]
+\end{Bew}
+\begin{Sat}
+  Sei $f:[a;b]\to \mb{R}$ Regelfunktion mit $f\geq 0$ und $\int^b_af(x)dx=0$. Dann ist $f(x_0)=0$ an jeder Stetigkeitsstelle $x_0$. Ferner gilt: $f=0$ fast überall.
+\end{Sat}
+\begin{Bew}{(Widerspruchsbeweis)}
+  Sei $x_0$ eine Stetigkeitsstelle mit $f(x_0)>0$. $f$ stetig in $x_0$ $\implies$ $\exists x_0 \in [a:b]\subset[a:b]$ s.d.
+  \[f(x)>\frac{1}{2}f(x_0)\ \forall x\in [\alpha:\beta]\]
+  Sei
+  \[\phi(x):=\begin{cases}
+    \frac{1}{2}f(x_0)&x\in [\alpha;\beta]\\
+    0 & x\not\in [\alpha;\beta]
+  \end{cases}\]
+  Treppenfunktion, deshalb Regelfunktion
+  \[\implies f\geq \phi \implies \underbrace{\int^\beta_\alpha f(x)dx}_{=0} \geq \int^\beta_\alpha\phi(x)dx=\frac{\beta-\alpha}{2}f(x_0)>0\]
+  $\blitza$
+\end{Bew}
+\begin{Sat}
+  $f$ Regelfunktion $\implies$ $f$ besitzt höchstens abzählbar viele Unstetigkeitsstellen $\implies$ $f=0$ fast überall
+\end{Sat}
+\begin{Kor}
+  $f:[a;b]\to\mb{R}$ stetig, $f\geq 0$, $\int_a^bf(x)dx=0$ $\implies$
+  \begin{align*}
+    f(x)=0\ \forall x\in [a;b]    
+  \end{align*}
+\end{Kor}
+\subsection{Fundamentalsatz der Analysis}
+\begin{Sat}
+  Sei $f:I\to\mb{C}$ Regelfunktion und sei $a\in I$. Für jedes $x\in I$ definiert man
+  \[F(x):=\int_a^x f(t)dt\ F:I\to\mb{C}\]
+  Dann ist $F$ eine Stammfunktion zu $f$ (d.h. $F$ ist stetig und fast überall differenzierbar (und $F'=f$ fast überall)) mit
+  \begin{align*}
+    F_+'(x_0)=f_+(x_0)\\
+    F_-'(x_0)=f_-(x_0)
+  \end{align*}
+  $\forall x_0 \in I$
+\end{Sat}
+\begin{Bew}
+  $\forall x_1,x_2\in I$ gilt
+  \begin{align*}
+    F(x_2)-F(x_1)=\int_a^{x_2}f(t)dt-int^{x_1}_a f(t)dt =\\
+    =\int^{x_2}_a+\int^a_{x_1}= \int^{x_2}_{x_1}f(t)dt    
+  \end{align*}
+  Sei $\tau\subset I$ Teilintervall. $\forall x_1, x_2\in \tau$
+  \begin{align*}
+    \Abs{f(x_2)-F(x_1)}=\Abs{\int^{x_2}_{x_1}f(t)dt}\leq^{\text{Bijektivität}} \Abs{x_2-x_1}\Norm{f}_\tau
+  \end{align*}
+  $\implies$ $F|_\tau$ Lipschitz-stetig $\implies$ $F|_\tau$ stetig $\forall \tau \implies$ \underline{$F$ stetig auf $I$}.\\
+  Wir berechnen $F_+'(x_0)$. $f$ Regelfunktion $\implies \exists f_+(x_0)$. $\forall \varepsilon>0 \exists \delta >0$
+  \begin{align*}
+    \Abs{f(x)-f_+(x_0)}<\varepsilon\ \forall x\in(x_0, x_0+\delta)\\
+  \end{align*}
+  Für $x\in (x_0, x_0+\delta)$
+  \begin{align*}
+    \Abs{ \frac{F(x)-F(x_0)}{x-x_0} -f_+(x_0) } = \\ \Abs{ \frac{1}{x-x_0} \int_{x_0}^x f(t)dt-\frac{f_+(x_0)}{x-x_0} \int_{x_0}^x <Fehlt da nicht was?> dt} = \\
+    \Abs{\frac{1}{x-x_0}}\int_{x_0}^x\left( f(t)-f_+(x_0) \right)dt \leq\\
+    \frac{1}{\Abs{x-x_0}}\Abs{x-x_0}\Norm{f(x)-f_+(x_0)}_{x_0;x} \leq \varepsilon
+  \end{align*}
+\end{Bew}
+\begin{Kor}
+  Sei $f:I\to\mb{C}$ Regelfunktion und sei $\Phi$ eine Stammfunktion zu $f$. Dann $\forall a,b\in I$
+  \begin{align*}
+    \int^b_af(x)dx&=&\Phi(b)-\Phi(a)\\
+    &=:&\Phi|^b_a
+  \end{align*}
+\end{Kor}
+\begin{Bew}
+  $\Phi$ und $F$ sind Stammfunktionen zu $f$, insbesondere $\Phi'=F'$ fast überall. Eindeutigkeitssatz $\implies \exists c$ konstant s.d.
+  \[\Phi(x)=F(x)+c\ \forall x\in I\]
+  \begin{align*}
+    \int^b_af(x)dx=F(b)=F(b)-\underbrace{F(a)}_{=0}=\\
+    =\left( \Phi(b)-c \right) - \left( \Phi(a)-c \right) = \Phi(b)-\Phi(a)
+  \end{align*}
+\end{Bew}
+\begin{Kor}
+  Jede Regelfunktion beseitzt eine Stammfunktion  
+\end{Kor}
+\begin{Def}
+  Eine Funktion heisst fast überall stetig differenzierbar, wenn sie die Stammfunktion zu einer Regelfunktion ist. (Wo sie nicht stetig differenzierbar ist, besitzt sie linke und Rechte Grenzwerte)
+\end{Def}
+\begin{Bsp}
+  \[f(x)=\begin{cases}
+    0& x=0\\
+    x^2\sin\frac{1}{x}&x\neq 0
+  \end{cases}\]
+  $f$ ist in $\mb{R}\setminus\{0\}$ differenzierbar. $f'$ besitzt linke und rechte Grenzwerte, in 0 nicht. Also keine Regelfunktion.
+\end{Bsp}
+\begin{Bem}
+  Mit dem Lebesgne-Integral kann man solche Funktionen aus einem Integral erhalten.
+\end{Bem}
+\begin{Eig}{Charakterisierung}
+  $f$ fast überall stetig differenzierbar auf $I$ $\implies$ $\exists A\subset I$, $A$ höchstens abzählbar s.d.
+  \begin{enumerate}
+    \item $f$ ist auf $I\setminus A$ differenzierbar
+    \item $f'$ ist auf $I\setminus A$ stetig
+    \item $\forall x\in A$ existieren $f_+'(x)$ und $f_-'(x)$
+  \end{enumerate}
+\end{Eig}
+\begin{Def}{unbestimmtes Integral}
+  Das unbestimmte Integral der Regelfunktion $f$ ist die Gesamtheit aller Stammfunktionen zu $f$.
+\end{Def}
+\begin{Not}{unbestimmtes Integral}
+  \[\int f(x)dx\]
+  In Tabellen wird oft
+  \[\int xdx = \frac{x^2}{2}\]
+  geschrieben
+\end{Not}
+\begin{Bsp}
+  \[\int xdx = \frac{x^2}{2} + C\]
+\end{Bsp}
+\begin{Eig}
+  \begin{align*}
+    \int x^adx &=&  \frac{x^{a+1}}{a+1}\ a\in \mb{C}\setminus \{-1\}\\
+    \int \frac{1}{x}dx &=&  \ln\Abs{x}\\
+    \int e^{cx} dx &=&  \frac{1}{c}e^{cx},\ c\neq 0\\
+    \int \sin x \cdot dx &=& -\cos x\\
+    \int \cos x \cdot dx &=& \sin x
+  \end{align*}
+\end{Eig}
+\begin{Sat}
+  Seien $f_1$ und $f_2$ Regelfunktionen auf $I$
+  \begin{align*}
+    f_1=f_2 \text{f.ü.} \implies \int f_1 dx=\int f_2 dx
+  \end{align*}
+  Insbesondere $\forall a,b \in I$
+  \begin{align*}
+    \int^b_af(x)dx = \int^b_a f_2(x)dx
+  \end{align*}
+\end{Sat}
+\begin{Bew}
+  Sei $F_1$ / $F_2$ Stammfunktion zu $f_1$ / $f_2$
+  \begin{align*}
+    \implies F_1'=F_2'\ \text{f.ü.}\\
+    \implies F_1=F_2+C
+  \end{align*}
+\end{Bew}
+\begin{Bem}{Anwendung}
+  \begin{align*}
+    f(x)=\begin{cases}
+      \frac{1}{q} & x=\frac{p}{q}, p,q \text{teilerfremd}\\
+      0 & x\neq \mb{Q}
+    \end{cases}\\
+    \int^b_a f(x)dx =0
+  \end{align*}
+\end{Bem}
+
