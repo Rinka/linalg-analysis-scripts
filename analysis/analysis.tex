@@ -26,7 +26,8 @@
 \usepackage{ifthen}
 \usepackage{boxedminipage}
 \usepackage{mathtools}
-% \usepackage{mathtools}
+\usepackage{ulsy}
+\usepackage{trfsigns}
 
 %= Seiten-Layout =========================================================================
 \voffset-22mm \textheight715pt 
@@ -69,7 +70,7 @@
 \newcommand{\pst}[1]{\input{\mainfold/graphics/\prefix#1.pst}}
 \newcommand{\pic}[1]{\input{\mainfold/graphics/\prefix#1.pic}}
 \newcommand{\Mx}[1]{\begin{pmatrix}#1\end{pmatrix}}
-\newcommand{\im}[1]{\operatorname{Im}(#1)}
+%\newcommand{\im}[1]{\operatorname{Im}(#1)}
 %\newcommand{\Include}[4]{\rhead{#2.#3.20#4}\input{\mainfold/lectures/#1-#4-#3-#2.tex}}
 \newcommand{\Index}[1]{\emph{#1}\index{#1}}
 \newcommand{\Int}[4]{\displaystyle\int\limits_{#1}^{#2}#3\,\mathrm{d}#4}
@@ -150,7 +151,7 @@
 \theoremstyle{remark}
 \newtheorem{Bem}{Bemerkung}
 \newtheorem{Eig}{Eigenschaften}
-%Der todo: Notation
+\newtheorem{Not}{Notation}
 
 \def\pstexInput#1{%
   \begin{center}
@@ -200,7 +201,8 @@
 
 %Analysis I
 \include{09-02-18}
-
+\include{09-02-24}
+\include{09-02-25}
 
 \newpage
 
