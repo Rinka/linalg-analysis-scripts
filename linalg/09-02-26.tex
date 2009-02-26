@@ -1,0 +1,131 @@
+\begin{Def}
+  Eine sesquilineare Form heisst \underline{hermitesch}, falls
+  \[s(w,v)=s(v,w)\ \forall v,w\in V\]
+\end{Def}
+\begin{Bsp}
+  $<.,.>_c$ auf $\mb{C}^n$ ist hermitesch.
+\end{Bsp}
+\begin{Bem}
+  Man spricht von \underline{hermiteschen Form}, diese sind immer sesquilinear
+\end{Bem}
+\begin{Def}
+  Sei $\dim_\mb{C} V < \infty$, und $B:=(V_i)_{1\leq i \leq n}$ eine Basis. Ist $s$ eine sesquilineare Form, so definieren wir
+  \[M_B(s):=\left( s(v_i,v_j) \right)_{1\leq i \leq n}\]
+  die \underline{darstellende Matrix}. Sind $z,w\in V$
+  \begin{align*}
+    z&=& z_1v_1+\cdots+z_nv_n\\
+    w&=& w_1v_1+\cdots+w_nv_n
+  \end{align*}
+  dann haben wir
+  \begin{align*}
+    s(z,w)&=&\sum^n_{i,j=1}z_i\bar{w_j}a_{ij} \text{wobei} a_{ij} = s(v_i,v_j)\\
+    &=& (z_1\cdots z_n)\Mx{a_{11}&\cdots&a_{1n}\\ \vdots & & \vdots \\ a_{n1} & \cdots & a_{nn}} \Mx{\bar{w_1} \\ \vdots \\ \bar{w_n}}
+    &=&  z^t M_B(s)\cdot \bar{w}
+  \end{align*}
+\end{Def}
+\begin{Prop}
+  Sei $V$ ein endlich dim. $\mb{C}$ Vektorraum und $B=(v_i)_{1\leq i \leq n}$. Wir haben eine Bijektion
+  \[\{\text{sesquilineare Form auf $V$}\}\ \lra\ M(n\times n, \mb{C})\]
+  Unter dieser Bijektion haben wir:
+  \[\{\text{hermitesche Formen}\}\ \lra\ \{A\in M(n\times n, \mb{C}): A^t=\bar{A}\}\]
+  Man sagt: eine Matrix $A\in M(n\times n, \mb{C})$ mit $A^t=\bar{A}$ ist \underline{hermitesch}.
+\end{Prop}
+\begin{Sat}{Transformationsformel}
+  Sei $A=(u_1,\cdots,u_n)$ eine andere Basis mit Transformationsmatrix $T$:
+  \[\text{TODO: hier einfügen}\]
+  Dann gilt: 
+  \[M_A(s)=T^t\cdot M_B(s)\cdot \bar{T}\]
+  Mit $g(v):=s(v,v)$ gilt die Polarisierungsformel
+  \begin{align*}
+    s(v,w)=\frac{1}{4}\left( q(v+w)-q(v-w)+iq(v+iw)-iq(v-iw) \right)
+  \end{align*}
+\end{Sat}
+\begin{Def}
+  Sei $K=\mb{R}$ oder $\mb{C}$, $V$ ein $K$-Vektorraum und $s:V\times V\to K$ eine Billinearform $\begin{cases}
+    \text{symmetrisch} & K= \mb{R} \\
+    \text{hermitesch} & K=\mb{C}
+  \end{cases}$
+  heisst \underline{positiv definit}, falls $s(v;v)>0$ $\forall 0 \neq v\in V$
+\end{Def}
+\begin{Bsp}
+  $<.,.>$ ist positiv definit auf $\mb{R}^n$\\
+  $<.,.>_c$ ist psoitiv definit auf $\mb{C}^n$
+\end{Bsp}
+\begin{Def}
+  Ein \underline{Skalarprodukt} ist $ \begin{cases}
+    \text{positiv definite symetrische bilineare Form} & K=\mb{R}\\
+    \text{eine positiv definite hermetische Form} & K=\mb{C}
+  \end{cases}$ 
+\end{Def}
+\begin{Def}
+  Skalarprodukt oft $<.,.>$, Norm $\Norm{v} := \sqrt{<v,v>}$
+\end{Def}
+\begin{Def}{Euklidischer Vektorraum}
+  Vektorraum über $\mb{R}$ mit Skalarprodukt
+\end{Def}
+\begin{Def}{Untärer Vektorraum}
+  Vektorraum über $\mb{C}$ mit Skalarprodukt
+\end{Def}
+\begin{Bsp}
+  \begin{align*}
+    V=\left\{ f:[0,1]\to\mb{R} \text{stetig} \right\} \text{mit} <f,g>=\int_0^1f(x)g(x)dx
+    V=\left\{ f:[0,1]\to\mb{C} \text{stetig} \right\} \text{mit} <f,g>=\int_0^1f(x)\overline{g(x)}dx
+  \end{align*}
+  in beiden Fällen
+  \[\Norm{f}=\sqrt{\int_0^1\Abs{f(x)}^2dx}\]
+  ``$L^2$-Norm''
+\end{Bsp}
+\begin{Bem}
+  In einem beliebigen euklidischen bzw. unitären Vektorraum gilt die Cauchy-Schwarz'sche Ungleichtung
+  \[\Abs{<v,w>}\leq \Norm{v}\Norm{w}\ \forall v,w\in V\]
+  mit $=$ genau dann, wenn $v$ und $w$ linear abhängig sind.
+\end{Bem}
+\begin{Bew}
+  (Skizze) klar falls $v=0$ oder $w=0$, also nehmen wir an, dass $v\neq 0$ und $w\neq 0$
+  1. Reduktion: zum Fall $\Norm{v}=\Norm{w}=1$.
+  \begin{align*}
+    v_1:=\frac{v}{\Norm{v}} & w_1:=\frac{w}{\Norm{w}}\\
+    \Norm{v_1}=1 & \Norm{w_1}=1
+  \end{align*}
+  2. Reduktion:  Es reicht aus, zu zeigen: $\Re <v,w>\leq 1$ = genau dann wenn $V=W$
+  \begin{align*}
+    \Abs{<v,w>}&=& \mu<v,w> & \mu\in \mb{C}, \Abs{\mu}=1 \\
+    &=& <\mu v,w>\in \mb{R}_\geq \\
+    &=& \Re <v',w> \text{wobei} v':=\mu v
+  \end{align*}
+  Cauchy-Schwarz'sche Ungleichung $\leq$, Gleicheit: $v,w$ linear unabhängig $\implies$ $v',w$ linear unabhängig $\implies$ $v'\neq w$
+\end{Bew}
+\begin{Eig}
+  \begin{align*}
+     & = \text{falls} \\
+    <v-w,v-w> \geq 0 & v-w=0\\
+    <v,v> - <v,w> - <w,v> + <w,w> \geq 0 & v=w\\
+    1-<v,v>-\overline{<v,w>} + 1 \geq 0 & v=w
+  \end{align*}
+\end{Eig}
+\begin{Bsp}
+  Ist $T:V\to\mb{R}^n$ oder $T:V\to\mb{C}^n$ ein Isomorphismus, dann ist $s:V\times V\to\mb{R}$ (bzw. $s:V\times V\to\mb{C}$) gegeben durch
+  \[s(x,y)=<T_x,T_y>\]
+  bzw.
+  \[s(x,y)=<T_x,T_y>_c\]
+  ein Skalarprodukt.
+\end{Bsp}
+\begin{Def}
+  Sei $V$ ein exklusiver, bzw. unitärer Vektorraum
+  \begin{itemize}
+    \item $v,w\in V$ heisst orthogonal, falls $<v,w>=0$
+    \item $U,W\subset V$ heissen orthogonal (geschrieben $U\perp V$) falls $U\perp W$ $\forall u\in U$, $w\in W$
+    \item $U\subset W$ das orthagonale Koplement ist $U^\perp=\left\{ v\in V: u\perp v \forall u\in U \right\}$
+    \item $v_1,\cdots, v_n$ sind orthogonal, falls $v_i\perp v_j$ $\forall i\neq j$
+    \item $v_1,\cdots, v_n$ sind orthonormal, falls $v_i\perp v_j$ $\forall i\neq j$ und $\Norm{v_i}=1$ $\forall i$
+    \item $V$ ist orthagonale direkte Summe von Untervektorräumen $V_1,\cdots,V_r$ falls 
+      \begin{align*}
+        V=V_1\bigoplus \cdots \bigoplus V_r\\
+        V_i\perp V_j \forall i\neq j
+      \end{align*}
+  \end{itemize}
+  \[C([-1,1],\mb{R}):=\left\{ f:[-1;1]\to \mb{R} \text{stetig} \right\}\]
+  dann ist $C([-1,1]\mb{R})$ die orthogonale direkte Summe von $C([-1,1]\mb{R})_\text{gerade}$ und $C([-1,1]\mb{R})_\text{ungerade}$. gerade: $f(-x)=f(x)$ und ungerade: $f(-x)=-f(x)$
+  \[f(x)=\underbrace{\frac{f(x)+f(-x)}{2}}_\text{gerader Teil} + \underbrace{\frac{f(x)-f(-x)}{2}}_\text{ungerader Teil}\]
+  $g$ gerade, $h$ ungerade $\implies$ $gh$ ungerade $\implies$ $<g,h> = \int_{-1}^1g(x)h(x)=0$
+\end{Def}
