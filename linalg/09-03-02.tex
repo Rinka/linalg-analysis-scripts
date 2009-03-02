@@ -1,0 +1,136 @@
+\begin{Bem}
+  Ist $v_1,\cdots,v_n$ eine orthonormale Familie mit $v_i \neq 0\forall i$, so gilt 
+  \begin{enumerate}
+    \item $(i)(v_1,\cdots,v_n)$ ist linear unabhängig ($c_1v_1+\cdots+c_nv_n=0$ $\implies$ $c_i <v_i,v-i>+\cdots+c_i<v_i,v_i>+\cdots+c_n<v_n,v_i>=0$ $\implies$ $c_i\Norm{v_i}^2=0$ $\implies$ $c_i=0$)
+    \item $\left(\frac{v_1}{\Norm{v_i}},\cdots,\frac{v_n}{\Norm{v_i}}\right)$ ist orthonormal
+  \end{enumerate}
+\end{Bem}
+\begin{Sat}
+  Ist $(v_1,\cdots,v_n)$ eine orthonormale Basis von $V$, so gilt folgendes für beliebiges $v\in V$
+  \[v=\sum^n_{i=1}<v_i,v_j>v_i\]
+  \begin{align*}
+    v&=&\sum^b_{i=1}c_iv_i\\
+    <v,v_j>&=& \sum^n_{i=1}c_i<v_i,v_j>\\
+    &=& c_j<v_i,v_j>
+    &=& c_j
+  \end{align*}
+\end{Sat}
+\begin{Prop}
+  Sei $K$ $=\mb{R}$ oder $\mb{C}$ und $(V,<.,.>)$ ein euklidischer bzw. unitärer Vektorraum über $K$
+  \begin{enumerate}
+    \item Ist $n:=\dim_KV<\infty$ und $(v_1,\cdots,v_d)$ eine orthonormale Familie von Vektoren von $V$, so existieren $v_{d+1},\cdots,v_n$, so dass $(v_1,\cdots,v_n)$ eine orthonormale Basis von $V$ ist.
+    \item Ist $U\subset V$ ein endlichdimensionaler Untervektorraum, so gilt $V=U\bigoplus U^\perp$, orthonormal direkte Summe.
+  \end{enumerate}
+\end{Prop}
+\begin{Bew}
+  Es gibt triviale Fälle: $d=n$ in 1., $U=0$ in 2. Auch: der Fall $(d=0)$ in 1. $\La$ $d=1$: $0\neq v\in V$ beliebiger Vektor, wir nehmen $b_1=\frac{v}{\Norm{v}}$\\
+  Beweis durch Induktion nach $N$ mit Indunktionsannahme 1. gilt für $n\leq N$ $N=1$ okay.
+  \subparagraph{Plan:}Wir zeigen IA $\implies$ 2. für $\dim_KU\leq N$ und IA $\implies$ 1. für $n\leq N+1$.\\
+  IA $\xRightarrow{\dim U \leq N}$ $\exists$ orthonormale Basis $(u_1,\cdots,u_d)$ von $U$ $d:=\dim U$. Für beliebiges $v\in V$ gilt:
+  \[v-\sum^n_{i=1}<v_i,v_j>u_i\in U^\perp\]
+  denn
+  \[\left<v-\sum^n_{i=1}<v_i,u_i>u_i,u_j\right>=<v,u_j>-\sum^n_{i=1}<v,u_j><u_i,u_j>=0\]
+  Und: 1. für $\dim V\leq N+1$ folgt aus IA und 2. für $U\leq N$
+  \begin{align*}
+    1\leq d<n=\dim V \geq N+1\\
+    \implies 1\leq d \leq N \text{und} 1\leq \dim V-d \geq N\\
+  \end{align*}
+  Sei $U:= span(v_1,\cdots,v_d)$ Aus 2. haben wir $V=U\bigoplus U^\perp$ Nach IA, $\exists$ orthonormale Basis $(v_{d+1},\cdots,v_n)$ von $U^\perp$ Es folgt, dass $(v_1,\cdots,v_n)$ ist eine orthonormale Basis von $V$.
+\end{Bew}
+\begin{Eig}
+  Praktisches Verfahren zu testen ob ein symmetrisch bilineare bzw. hermetische Form ein Skalaprodukt ist (falls $\dim_KV<\infty$). Verfahren:
+  \begin{itemize}
+    \item wählen $U\subset V$ nicht trivialer Untervektorraum (z.B. $U=span(v), 0 \neq v\in V$)
+    \item Berechnen $U^\perp$
+    \item Testen:
+      \begin{itemize}
+        \item Ist $V=U\bigoplus U^\perp$?
+        \item Ist die Einschränkung von der Form auf $U$ ein Skalarprodukt? 
+        \item Ist die Einschränkung von der Form auf $U^\perp$ ein Skalarprodukt?
+      \end{itemize}
+  \end{itemize}
+\end{Eig}
+\begin{Bsp}
+  $\mb{R}^3\times\mb{R}^3\to\mb{R}$
+  \begin{align*}
+    M:=\Mx{3&1&2\\
+    1&3&-1\\
+    2&-1&2}
+  \end{align*}
+  Wir betrachten die entsprechende Bilinearform
+  \[(x,y)\mapsto t_x\cdot M \cdot y\]
+  \begin{align*}
+    U&=& \span(e_1)\\
+    U^\perp&=& \left\{ (x_1,x_2,x_3 :3x_1+x_2+2x_3=0\right\}\\
+    &=& \span\left( (1,-3,0),(0,2,-1) \right)
+  \end{align*}
+  \begin{table}
+    \centering
+    \begin{tabular}{c|c}
+      $U:$ 1-dimensional & $U^\perp$: 2-dim\\
+      $s(e_1,e_1)=3$ & =24
+    \end{tabular}
+  \end{table}
+  Die darstellende Matrix:
+  \[s|_{U^\perp}\rsa \Mx{24&-21\\-21&18}\]
+  \begin{align*}
+    U &\cong& \mb{R}^2\\
+    W&=&\span(e_1)\in\mb{R}^2\\
+    W^\perp&=&\left\{ (x_1,x_2)|24x_1-21x_2=0 \right\}\\
+    &=& \span(21,24)\\
+  \end{align*}
+  $W$ 1-dim, $W^\perp$ 1-dim\\
+  \begin{align*}
+    (s|_{U^\perp})(e_1,e_2)=24\\
+    \Mx{21&24}\Mx{24&-21\\-21&18}\Mx{21&18}=-216
+  \end{align*}
+  $\implies$ kein Skalarprodukt
+\end{Bsp}
+\subsection{Volumen}
+\begin{Def}{Volumen}
+  \begin{tabular}{ccccc}
+    Skalarprodukt & $\rsa$ & Norm & $\rsa$ &Metrik\\
+    $<.,.>$ & & $\Norm{v}:=\sqrt{<v,v>}$ & & $d(x,y)=\Norm{y,x}$
+  \end{tabular}
+  $K=\mb{R}$ $\rsa$ Volumen ($\dim V < \infty$)
+\end{Def}
+\subsubsection{Spat}
+\begin{Def}{Spat}
+  $u_1,\cdots,u_n$ orthonormale Basis. Dann ist der von $(u_1,\cdots,u_n)$ aufgespannte Spat definiert als
+  \begin{align*}
+    \left\{ \sum^n_{i=1}c_iu_i|0\leq c_i\leq 1\ \forall i \right\}
+  \end{align*}
+  Vol(Spat):=1\\
+  Falls $v_1,\cdots,v_n\in V$ beliebig sind, dann hat der von $(v_1,\cdots,v_n)$ aufgespannte Spat
+  \[\text{Vol} = \Abs{\det\Mx{a_{11}&\cdots&a_{1n}\\ \vdots & & \vdots \\ a_{n1}&\cdots&a_{nn}}}\ v_i=\sum^n_{j=1}a_{ij}u_i\]
+  Sei $b_ij:=<v_i,v_j>$ und $B:=\Mx{b_{11}&\cdots&b_{1n}\\ \vdots & & \vdots \\ b_{n1}&\cdots&b_{nn}}$ Wir haben $b_{ij}=\sum^n_{k=1}a_{ik}a_{jk}$, also $B=A\cdot A^t$. Es folgt:
+  \[\text{Vol}=\sqrt{(\det A)^2}=\sqrt{\det B}\]
+  Vorteile:
+  \begin{itemize}
+    \item keine Wahl von orthonormaler Basis nötig
+    \item auch sinnvoll für eine Kollektion $v_1,\cdots,v_m$ evzl. $m\neq n$
+  \end{itemize}
+\end{Def}
+\begin{Bsp}{$m=1$}
+  \begin{align*}
+    \det B &=& \Norm{v_1}^2\\
+    \sqrt{\det B}&=& \Norm{v_1}
+  \end{align*}
+\end{Bsp}
+\begin{Def}{Grammsche Determinante}
+  Im $m$-dim Volumen $:=\sqrt{G(v_1,\cdots,v_m)}$ wobei
+  \[G(v_1,\cdots,v_m):=\det\Mx{<v_i,v_j>}_{1\leq i,j\leq m}\]
+  die sogenannte \underline{Grammsche Determinante} ist.
+\end{Def}
+\begin{Bem}
+  Es gilt $G(v_1,\cdots,v_m)=0$ $\Lra$ $v_1,\cdots,v_m$ lineare abhängig, weil
+  \[A=(a_{ij})\in M(m\times n,\mb{R})\]
+  mit
+  \[G(v_1,\cdots,v_m)=\det (A,A^t)=\sum(m\times m \text{Minor})\]
+\end{Bem}
+\begin{Bem}
+  \[\text{Vol}(v_1,\cdots,v_m):=\sqrt{G(v_1,\cdots,v_m)}\]
+  ist 0 falls $\exists i:v_i=0$\\
+  sonst:
+  \[\text{Vol}(v_1,\cdots,v_m)=\Norm{v_1}\cdots\Norm{v_m}\text{Vol}(\frac{v_1}{\Norm{v_1}},\cdots,\frac{v_m}{\Norm{v_m}}\]
+\end{Bem}
