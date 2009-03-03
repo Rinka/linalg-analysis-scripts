@@ -1,0 +1,162 @@
+\begin{Def}
+  Sit $f$ eine fast überall differenzierbare Funktion, so bezeichnet $f'$ irgendeine Regelfunktion, die fast überall gleich zur Ableitung von $f$ ist.
+\end{Def}
+\begin{Sat}{Hauptsatz}
+  Sei $f$ eine fast überall stetig differenzierbare Funktion auf $I$. Dann 
+  \begin{align*}
+    \int f'(x)\md x=f\\
+    \int_a^bf'(x)=f(b)-f(a)\ a,b\in I
+  \end{align*}
+\end{Sat}
+\begin{Not}{Leibnitz-Notation}
+  \begin{align*}
+    f'=\Diff{f}{x}\\
+    \int\Diff{f}{x}\md x=f\\
+    \int df=f\\
+    \int^b_adf=\Delta F:=f(b)-f(a)
+  \end{align*}
+\end{Not}
+\subsection{Integrationstechniken}
+\begin{Eig}{Integrationstechniken}
+  \begin{enumerate}
+    \item Linearität
+    \item Partielle Integration
+    \item Substutionsregel
+  \end{enumerate}
+\end{Eig}
+\subsubsection{Partielle Integration}
+\begin{Sat}
+  Seien $U$ und $V$ fast überall stetig differenzierbar Funktionen auf $I$, so ist auch $UV$ fast überall stetig differenzierbar und
+  \begin{align*}
+    \int uv'\md x=uv-\int u'v\md x\\
+    \int^b_auv'\md x=(uv)|^b_a-\int^b_au'v\md x
+  \end{align*}
+\end{Sat}
+\begin{Bew}
+  $u,v$ stetig und $u,v$ Regelfunktionen $\implies$ $u'v+uv'$ Regelfunktion. Fast überall: $u'v+uv'=(uv)'$ Kettenregel.
+  \begin{align*}
+    \int(u'v+uv')\md x=\int(uv)'\md x=uv
+  \end{align*}
+\end{Bew}
+\begin{Bsp}
+  \begin{align*}
+    \int\ln x\md x=\int 1 \cdot \ln x \md x=\int\Diff{x}{x}\ln x\md x=\\
+    =x\ln x-\int x\Diff{\ln x}{x} \md x=x\ln x-\int x\frac{1}{x}\md x=x\ln x-x
+  \end{align*}
+\end{Bsp}
+\begin{Bsp}
+  \begin{align*}
+    \int \cos^2x\md x=\int \cos x \cdot \cos x\md x = \int(\Diff{}{x}\sin x)\cos x \md x=\\
+    =\sin x \cos x -\int \sin x \Diff{}{x}\cos x \md x = \sin x \cos x +\int \sin^2 x\\
+    \int(\cos^2x-\sin^2x)\md x = \sin x \cos x\\
+    \int(\cos^2x+\sin^2x)\md x = x\\
+    \int \cos^2x\md x=\frac{\sin x\cos x+ x}{2}
+  \end{align*}
+\end{Bsp}
+\begin{Bsp}
+  \begin{align*}
+    \int\sqrt{1+x^2}=\int\Diff{x}{x}\sqrt{1+x^2}\md x=x\sqrt{1+x^2}-\int x\frac{2x}{2\sqrt{1+x^2}}\md x=\\
+    =x\sqrt{1+x^2} \int\frac{1+x^2}{\sqrt{1+x^2}}\md x+\int\frac{1}{\sqrt{1+x^2}}=\\
+    =x\sqrt{1+x^2}-\int\sqrt{1+x^2}\md x+\arcsinh x\\
+    \int\sqrt{1+x^2}\md x=\frac{x\sqrt{1+x^2}+\arcsinh x}{2}
+  \end{align*}
+\end{Bsp}
+\subsubsection{Substitutionsregel}
+\begin{Sat}{Substitutionsregel}
+  Sei $f$ Regelfunktion auf $I$, $F$ eine Stammfunktion zu $f$, $t:[a;b]\to I$ stetig differenzierbar und streng monoton. Dann ist $F\circ t$ eine Stammfunktion zu
+  \[(f\circ t)t'\ \text{auf}\ [a;b]\]
+  und
+  \[\int^b_af(t(x))t'(x)\md x=\int^{t(b)}_{t(a)}f(t)\md t\]
+  \[(I=[t(a);t(b)]\ \text{oder}\ [t(b);t(a))\]
+\end{Sat}
+\begin{Not}
+  \[f\Diff{t}{x}\md x=\int f\md t\]
+\end{Not}
+\begin{Bew}
+  Kettenregel:
+  \begin{align*}
+    \Diff{}{x}(F\circ t)=(F'\circ t)t'\stackrel{\text{f.ü.}}{=}(f\circ t)t'\\
+    \int^b_af(t(x))t'(x)\md x=int^b_a\Diff{}{x}(F\circ t)\md x=F\circ t|^b_a=F(t(b))-F(t(a))\\
+    \int^{t(b)}_{t(a)}f(t)\md t=F|^{t(b)}_{t(a)}=F(t(b))-F(t(a))
+  \end{align*}
+\end{Bew}
+\begin{Bsp}
+  \begin{align*}
+    \int^b_af(x+c)\md x\stackrel{t(x)=x+c}{=}\int^b_af(x+c)t'\md x=\\
+    =\int^{b+c}_{a+c}f(t)\md t
+  \end{align*}
+\end{Bsp}
+\begin{Bsp}
+  \begin{align*}
+    \int^b_af(cx)\md x\stackrel{t(x)=cx}{=}\frac{1}{c}\int^b_af(cx)t'\md x=\frac{1}{c}\int^{cb}{ca}f(t)\md t
+  \end{align*}
+  $c=-1$
+  \begin{align*}
+    \int^b_af(-x)\md x=-\int^{-b}_{-a}f(x)\md x=\int^{-a}_{-b}f(x)\md x
+  \end{align*}
+\end{Bsp}
+\begin{Kor}
+  \begin{align*}
+    f(-x)=-f(x)\\
+    \int^a_{-a}f(x)=0
+  \end{align*}
+\end{Kor}
+\begin{Bew}
+  \begin{align*}
+    \int^a_{-a}f(-x)\md x=-\int^a_{-a}f(x)\md x=\int^a_{-a}f(x)\md x
+  \end{align*}
+\end{Bew}
+\begin{Bsp}
+  \begin{align*}
+    \int\frac{t'(x)}{t(x)}\md x\stackrel{f=\frac{1}{t}}{=}\int f(t)\md t=\\
+    =\int\frac{1}{t}\md t=\ln\Abs{t}
+  \end{align*}
+\end{Bsp}
+\subsubsection{Rationale Funktionen}
+$\ra$ Pratialbruchzerlegung
+\[\int\frac{\md x}{x+a}=\ln\Abs{x+a}\]
+\[\int\frac{Bx+C}{x^2+2bx+c}\md x=\cdots\]
+Wobei $x^2+2bx+c$ keine reelen Lösungen ergeben darf.
+\begin{Sat}
+  Eine rationale Funktion kann man mittels rationaler Funktionen, des Logarithmus sowie des Arcustangens integrieren.
+\end{Sat}
+\subsection{Reihenintegration}
+\begin{Sat}
+  Sei $f_n$ eine Folge Regelfunktionen auf $[a;b]$. Konvergiert die Reihe $\sum f_n$ normal, so ist 
+  \[f:\sum^\infty_{n=1}f_n\]
+  eine Regelfunktion und
+  \[\int^b_af(x)\md x=\sum^\infty_{n=1}\int^b_af_n(x)\md x\]
+  \[(\int\sum = \sum\int)\]
+  Insbesondere gilt der Satz für Potenzreichen in ihren Konvergenzintervallen.
+\end{Sat}
+\begin{Bew}
+  $\forall\varepsilon >0 \exists N$:
+  \begin{align*}
+    \sum^\infty_{n=N}\Norm{f_n}<\frac{\varepsilon}{2}
+  \end{align*}
+  $\forall p\geq N$
+  \begin{align*}
+    \Norm{f-\sum^p_{n=1}f_n}<\frac{\varepsilon}{2}
+  \end{align*}
+  $f_n$ Regelfunktion $\implies$ $\sum^p_{n=1}f_n$ Regelfunktion $\implies$ $\exists$ Treppenfunktion $\phi$ mit
+ \begin{align*}
+   \Norm{\sum^p_{n=1}f_n-\phi}<\frac{\varepsilon}{2}
+ \end{align*}
+ $\implies$
+ \begin{align*}
+   \Norm{f-\phi}\leq \Norm{f-\sum^p_{n=1}f_n}+\Norm{\sum^p_{n=1}f_n-\phi}<\varepsilon
+ \end{align*}
+ $\implies$ $f$ Regelfunktion
+ \begin{align*}
+   \Abs{\int_a^bf(x)\md x-\sum^p_{n=1}\int^b_af_n(x)\md x}\leq\\
+   \leq \int^b_a\Abs{f(x)-\sum^p_{n=1}f_n(x)}\md x\leq \\
+   \leq \Abs{b-a}\Norm{f-\sum^p_{n=1}f_n}<\\
+   < \Abs{b-a}\frac{\varepsilon}{2}
+ \end{align*}
+\end{Bew}
+\begin{Bsp}
+  \begin{align*}
+    \arctan x= \int^x_0\frac{1}{1+t^2}\md t=\int^x_0\sum^\infty_{n=0}(-1)^nt^{2n}\md t\stackrel{\Abs{x}<1}{=}\\
+    \sum^\infty_{n=0}(-1)^n\frac{x^{2n+1}}{2n+1}
+  \end{align*}
+\end{Bsp}
