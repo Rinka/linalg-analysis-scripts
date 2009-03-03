@@ -5,8 +5,8 @@
   \item Eigenschaften:
     \begin{itemize}
       \item lineare Abbildung
-      \item Monotonie: $f\leq g$ $\implies$ $\int^b_af\cdot dx\leq \int^b_ag\cdot dx$
-      \item Beschränktheit: $\Abs{\int^b_af\cdot dx}\leq \int^a_b\Abs{f(x)}dx\leq (b-a)\Norm{f} = \sup_{x\in[a;b]}f$
+      \item Monotonie: $f\leq g$ $\implies$ $\int^b_af\cdot \md x\leq \int^b_ag\cdot \md x$
+      \item Beschränktheit: $\Abs{\int^b_af\cdot \md x}\leq \int^a_b\Abs{f(x)}\md x\leq (b-a)\Norm{f} = \sup_{x\in[a;b]}f$
     \end{itemize}
   \item Regelfunktionen: $R\left( [a,b] \right)$ = Vektor nach der Regel $f\supset\tau\left( [a;b] \right)$
   \item gleichmässige Konvergenz $f_n\to f\xLeftrightarrow{\text{def}}\Norm{f_n-f}\to 0$
@@ -115,16 +115,16 @@
 \begin{Def}{Integration von Regelfunktionen}
   \ldots auch bekannt als ``Regelintegral''\\
   Sei $f\in R[a;b]$
-  \[\int_a^bf(x)fx:\Limi{n}\int^b_a\phi_n(x)dx\]
+  \[\int_a^bf(x)fx:\Limi{n}\int^b_a\phi_n(x)\md x\]
   wobei $\phi_n$ eine approximierene Folge von Treppenfunktionen ist (d.h. $\Norm{\phi_n-f}\to 0$)
 \end{Def}
 \subparagraph{zu zeigen:}
 \begin{enumerate}
-  \item Die Folge $I_n:=\int^b_a\phi_n(x)dx$ konvergiert $\forall \Norm{\phi_n-f}\to 0$
+  \item Die Folge $I_n:=\int^b_a\phi_n(x)\md x$ konvergiert $\forall \Norm{\phi_n-f}\to 0$
   \item Der Grenzwert ist von der Wahl der approximierenden Folge unabhängig
 \end{enumerate}
 \begin{Bew}{von 1}
-  \[\Abs{I_n-I_m}=^{\text{Linearität}}\Abs{\int^b_a\left( \phi_n(x)-\phi_m(x) \right)dx}\leq^{\text{beschränkt}} (b-a)\Norm{\phi_n-\phi_m}\]
+  \[\Abs{I_n-I_m}=^{\text{Linearität}}\Abs{\int^b_a\left( \phi_n(x)-\phi_m(x) \right)\md x}\leq^{\text{beschränkt}} (b-a)\Norm{\phi_n-\phi_m}\]
   \[\Norm{\phi_n-f}\to 0 \xRightarrow{\text{Dreiecksungleichung}} \forall\varepsilon>0\ \exists N: \Norm{\phi_n-\phi_m}<\varepsilon\ \forall n,m> N\]
   $\implies$ $I_n$ Cauchyfolge $\implies$ $I_n$ konvergiert
 \end{Bew}
@@ -171,19 +171,19 @@
       0 & x\in \mb{R}\setminus \mb{Q}
     \end{cases}
   \end{align*}
-  $g\in R[0;1]$ und $int^b_ag(x)dx=0$
+  $g\in R[0;1]$ und $int^b_ag(x)\md x=0$
 \end{Bsp}
 \subsubsection{Eigenschaften}
 \begin{Sat}
   \[\forall f, g\in R [a;b] \forall \alpha,\beta\in \mb{C} \text{gelten}\]
   \begin{description}
-    \item[Linearität] \[\int^b_a(\alpha f+ \beta g)dx = \alpha \int^b_af\cdot dx+\beta\int^b_a g\cdot dx\]
-    \item[Beschränktheit] \[\Abs{\int^b_a f(x)\cdot dx}\leq \int^b_a\Abs{f(x)}dx\leq (b-a)\Norm{f}\]
-    \item[Monotonie] \[f\leq g \implies \int^b_af(x)dx\leq \int^b_ag(x)dx\]
+    \item[Linearität] \[\int^b_a(\alpha f+ \beta g)\md x = \alpha \int^b_af\cdot \md x+\beta\int^b_a g\cdot \md x\]
+    \item[Beschränktheit] \[\Abs{\int^b_a f(x)\cdot \md x}\leq \int^b_a\Abs{f(x)}\md x\leq (b-a)\Norm{f}\]
+    \item[Monotonie] \[f\leq g \implies \int^b_af(x)\md x\leq \int^b_ag(x)\md x\]
   \end{description}
   ($f,g$ reellwertig $f(x)\leq g(x)\forall x$)
 \end{Sat}
 \begin{Sat}{Additivität}
   Sei $f\in R[a;b]$ und sei $c\in (a;b)$
-  \[\int^b_af(x)dx=\int^c_a f(x)dx+\int^b_cf(x)dx\]
+  \[\int^b_af(x)\md x=\int^c_a f(x)\md x+\int^b_cf(x)\md x\]
 \end{Sat}

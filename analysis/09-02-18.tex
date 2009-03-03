@@ -9,10 +9,10 @@
 \begin{enumerate}
   \item def. Integral für spezielle Funktionen (Treppenfunktionen)
   \item betrachte Folgen von Treppenfunktionen und führe geeigneten Konvergenzbegriff ein (gleichmässige Konvergenz), $\to$ mögliche Limiten sind Regelfunktionen
-  \item falls $f_n \xrightarrow{n\to\infty}f$ (Folge von Treppenfunktionen), setze $\int_a^b f dx:= \Limi{n}\left( \int^b_a f_n dx \right)$
+  \item falls $f_n \xrightarrow{n\to\infty}f$ (Folge von Treppenfunktionen), setze $\int_a^b f \md x:= \Limi{n}\left( \int^b_a f_n \md x \right)$
     \begin{align*}
-      f_n\to f \text{folgt} \left( \int^b_a f_n dx \right)_{n\in\mb{N}} \text{konvergent}\\
-      f_n \& g_n \to f \text{zwei Folgen} \implies \Limi{n} \left( \int^b_a f_n dx \right)=\Limi{n} \left( \int^b_a g_n \right)
+      f_n\to f \text{folgt} \left( \int^b_a f_n \md x \right)_{n\in\mb{N}} \text{konvergent}\\
+      f_n \& g_n \to f \text{zwei Folgen} \implies \Limi{n} \left( \int^b_a f_n \md x \right)=\Limi{n} \left( \int^b_a g_n \right)
     \end{align*}
 \end{enumerate}
 \subsection{Treppenfunktionen}
@@ -34,7 +34,7 @@
     \item $c_K$ = Funktionswert von $\phi$ auf $(x_{k-1},x_k)$
     \item $\Delta x_k=x_k-x_{k-1}$
   \end{itemize}
-  \[\int_a^b \phi(x)dx=\sum^n_{k=1}\left( c_k\cdot\Delta x_k \right)\]
+  \[\int_a^b \phi(x)\md x=\sum^n_{k=1}\left( c_k\cdot\Delta x_k \right)\]
 \end{Def}
 \begin{Lem}{}
   Das Integral einer Treppenfunktion ist unabhängig von der gewählten Zerlegung
@@ -55,25 +55,25 @@
 \end{Bew}
 \begin{Lem}{}
   \begin{align*}
-    \int_a^b dx \tau([a,b])\to\mb{C}
+    \int_a^b \md x \tau([a,b])\to\mb{C}
   \end{align*}
   \begin{enumerate}
-    \item $\int_a^b dx$ ist linear, d.h.
-      \[\forall \phi, \psi\in\tau([a,b]),\alpha, \beta, \in\mb{C}: \int_a^b\alpha\phi+\beta\psi dx = \alpha\left( \int^b_a\phi dx \right)+\beta\left( \int^b_a\phi dx \right)\]
-    \item \[\Abs{f^b_a\phi dx}\leq \int^b_a\Abs{\phi} dx \leq (b-a) \underbrace{\Norm{\phi}}_{\text{Supremum}}\]
+    \item $\int_a^b \md x$ ist linear, d.h.
+      \[\forall \phi, \psi\in\tau([a,b]),\alpha, \beta, \in\mb{C}: \int_a^b\alpha\phi+\beta\psi \md x = \alpha\left( \int^b_a\phi \md x \right)+\beta\left( \int^b_a\phi \md x \right)\]
+    \item \[\Abs{f^b_a\phi \md x}\leq \int^b_a\Abs{\phi} \md x \leq (b-a) \underbrace{\Norm{\phi}}_{\text{Supremum}}\]
     \item für $\phi,\psi:[a,b]\to\mb{R}$ mit $\phi(x)\leq\psi(x)\ \forall x\in[a,b] \implies$
-      \[\int^b_a\psi dx \leq \int^b_a \psi dx\]
+      \[\int^b_a\psi \md x \leq \int^b_a \psi \md x\]
   \end{enumerate}
 \end{Lem}
 \begin{Bew}
   $\phi$ und $\psi$ Treppenfunktionen mit Zerlegung $Z$ bzw. $Z'$ $\implies$ $Z\cup Z'$ Zerlegung für $\phi$ und $\psi$
-  \[\int^b_a\alpha\phi+\beta\psi dx = (\alpha\phi)|_{(x_{k-1},x_k)}=\alpha(\phi|_{(x_{k-1},x_k)})\]
+  \[\int^b_a\alpha\phi+\beta\psi \md x = (\alpha\phi)|_{(x_{k-1},x_k)}=\alpha(\phi|_{(x_{k-1},x_k)})\]
   wobei $\Delta x_k=x_k-x_{k-1}$.\\
-  Wert von $\phi$ auf $(x_{k-1},x_k)$ =: $c_k$, Wert von $\psi$ auf $(x_{k-1},x_k)$ =: $d_k$
-  \[\sum^n_{i=1}(\alpha c_k+\beta d_k)\Delta x_k=\alpha(\sum^n_{i=1})+\beta(\sum^n_{i=1}d_k\Delta x_k)=\alpha\int^b_a \phi dx+\beta \int^b_a \psi dx\]
+  Wert von $\phi$ auf $(x_{k-1},x_k)$ =: $c_k$, Wert von $\psi$ auf $(x_{k-1},x_k)$ =: $\md_k$
+  \[\sum^n_{i=1}(\alpha c_k+\beta \md_k)\Delta x_k=\alpha(\sum^n_{i=1})+\beta(\sum^n_{i=1}\md_k\Delta x_k)=\alpha\int^b_a \phi \md x+\beta \int^b_a \psi \md x\]
 \end{Bew}
 \begin{Bem}
-  $\int^b_a dx: \tau([a,b])\to\mb{C}$ linear, $\ker(\int_a^b dx) \subset \tau([a,b])$ Untervektorraum
+  $\int^b_a \md x: \tau([a,b])\to\mb{C}$ linear, $\ker(\int_a^b \md x) \subset \tau([a,b])$ Untervektorraum
 \end{Bem}
 \begin{Bem}
   lineares erzeugendes System von $\tau([a,b])$ $A\subset\mb{R}$
