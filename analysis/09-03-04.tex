@@ -1,0 +1,178 @@
+\subsection{Reimannsche Summen}
+\begin{itemize}
+  \item alte Definition des Regelintegrals (äquivalent)
+  \item Approximationstechnik
+  \item Man kann Resultate über Summen erweitern (z.B. Höldersche Ungleichung, Cauchy-Schwarzsche Ungleichung)
+\end{itemize}
+\begin{Def}{Zerlegung}
+  $[a;b]$ kompates Intervall\\
+  Eine Zerlegung von $[a;b]$ ist die Wahl $x_0,x_1,x_2,\cdots,x_n$ s.d.
+  \[a=x_0<x_1<x_2<\cdots<x_{n-1}x_n=b\]
+\end{Def}
+\begin{Not}
+  $Z:=\{x_0,x_1,\cdots,x_n\}$
+\end{Not}
+\begin{Def}{Feinheit der Zerlegung}
+  \begin{align*}
+    \Delta x_k:=x_k -x_{k-1}
+  \end{align*}
+  Die \underline{Feinheit} der Zerlegung ist $\max \{\Delta x_1, \Delta x_2, \cdots , \Delta x_n\}$
+\end{Def}
+\begin{Def}
+  Die Riemannsche Summe von $f$ bezüglich der Zerlegung $Z$ und der Wahl von Stützstellen $\xi=:\left( \xi_1,\cdots,x_n \right)$
+  \[\xi_k\in \left[ x_{k-1};x_k \right]\]
+  ist die Summe
+  \[S(f;Z;\xi):=\sum^n_{k=1}f\left( \xi_k \right)\Delta x_k\]
+\end{Def}
+\begin{Sat}
+  Sei $f:\left[ a;b \right]\to \mb{C}$ eine Regelfunktion. Dann gilt folgendes:
+  \[\forall \varepsilon>0\ \exists \delta>0\]
+  sd. für jede Zerlegung $Z$ der Feinheit $\leq \delta$ und für jede Wahl Stützstellen $\xi$ gilt
+  \[\Abs{S\left( f;Z;\xi \right)-\int^b_af(x)\md x}<\varepsilon\]
+\end{Sat}
+\begin{Bew}
+  (Idee)
+  \begin{enumerate}
+    \item Satz gilt, falls $f$ eine Treppenfunktion ist. Beweis durch Indunktion nach der Anzahl Sprungstellen
+    \item $\exists \phi$ Treppenfunktion s.d.
+      \[\Norm{f-\phi}<\frac{\varepsilon}{3(b-a)}\]
+      1) $\implies$ $\exists Z,\xi$
+      \[\Abs{S\left(\phi;Z;\xi\right) -\int^b_a\phi(x)\md x}<\frac{\varepsilon}{3}\]
+      3-Ecks Ungleichung
+  \end{enumerate}
+\end{Bew}
+\begin{Kor}
+  Sei $f:[a;b]\to\mb{C}$ Regelfunktion. Sei $Z_1,Z_2,Z_3,\cdots$ Folge Zerlegungen von $[a;b]$ mit Feinheit $(Z_n)\to 0$. Für jede Wahl Stützstellen $\xi_m$ aus $Z_n$
+  \[\Limi{n}S\left( f;Z_n;\xi_m \right)=\int^b_af(x)\md x\]
+\end{Kor}
+\begin{Def}{$p$-Norm}
+  Seu $f[a;b]\to\mb{C}$ Regelfunktion. Die $p$-Norm von $f$ (mit $p\geq 1$)
+  \[\Norm{f}_p:=\sqrt[p]{\int^b_a\Abs{f(x)}^p\md x}\]
+\end{Def}
+\begin{Sat}
+  Seien $f,g:[a;b]\to\mb{C}$ Regelfunktionen. Seien $p,q\geq 1$ mit $\frac{1}{p}+\frac{1}{q}=1$. Dann haben wir
+  \[\int_a^b\Abs{f(x)g(x)}\md x\leq \Norm{f}_p\Norm{g}_q\]
+  Höldersche Ungleichung\\
+  Spezialfall: $p=q=2$ Cauchy-Schwarzsche Ungleichung
+\end{Sat}
+\begin{Bew}
+  (Idee)
+  \begin{enumerate}
+    \item Man approximiert die 3 Integrale durch Riemannsche Summen
+    \item Man benützt die Höldersche Ungleichung für Summen
+    \item Man nimmt die Grenzwerte
+  \end{enumerate}
+\end{Bew}
+\subsection{Das uneigentliche Integral}
+\begin{Sat}
+  Seien $a,b\in\bar{\mb{R}}$
+  \[-\infty\leq a<b\leq +\infty\]
+  Sei $I$ ein Intervall mit Randwerten $a$ und $b$ (z.B. $I=[a;b]$, $I=[a;b)$). Sei $f$ eine Regelfunktion auf $I$. Wir wollen $\int^b_af(x)\md x$ definieren, wenn möglich.
+  \subparagraph{Fall 0}
+  \begin{align*}
+    a,b\in\mb{R},\ I=[a;b]\\
+    \int^b_af(x)\md x \text{Regelintegral}
+  \end{align*}
+  \subparagraph{Fall 1}
+  \begin{align*}
+    b\in\bar{\mb{R}},\ I=[a;b)\\
+    \int^b_af(x)\md x=\lim_{\beta\uparrow b}\int^\beta_af(x)\md x
+  \end{align*}
+  Falls der Grenzwert existiert.
+  \subparagraph{Fall 2}
+  \begin{align*}
+    a\in\bar{\mb{R}}, b\in \mb{R}, b>a, I=(a;b]\\
+    \int^b_af(x)\md x=\lim_{\alpha\downarrow a}\int^b_\alpha f(x)\md x
+  \end{align*}
+  Falls der Grenzwert existiert.
+  \subparagraph{Fall 3}
+  \begin{align*}
+    a,b\in\bar{\mb{R}}, a<b, I=(a;b)\\
+    \int^b_aF(x)\md x:=\overbrace{\int^c_af(x)\md x}^\text{Fall 2} + \overbrace{\int^b_cf(x)\md x}^\text{Fall 1}\\
+  \end{align*}
+  Sei $c\in(a;b)$ falls beide Integrale auf der rechten Seite existieren!
+\end{Sat}
+\begin{Def}{Wert eines Integrals}
+  Existiert das uneigentliche Integral von $f$, so heisst $\int^b_af(x)\md x$ \underline{konvergent} so heisst der Grenzwert \underline{Wert} des Integrals
+\end{Def}
+\begin{Def}{absolut konvergentes Integral}
+  Konvergiert das Integral von $\Abs{f}$, so heisst das Integrals \underline{absolut konvergent}
+\end{Def}
+\begin{Bsp}
+  $I=(0;+\infty)$
+  \begin{align*}
+    F_s(x):=\int\frac{1}{x^s}\md x=\begin{cases}
+      \ln x& s=1\\
+      \frac{x^{1-s}}{1-s}&s\neq 1
+    \end{cases}\\
+    F_s(x)\xrightarrow{x\to\infty}0\ \Lra\ s>1, \text{divergiert sonst}\\
+    F_s(x)\xrightarrow{x\to0}0\ \Lra\ s<1, \text{divergiert sonst}\\
+  \end{align*}
+  \[\int_a^{+\infty}\frac{1}{x^s}\md x\]
+  existiert genau dann, wenn $a>0$ und $s>1$ und hat den Wert $\frac{a^{1-s}}{s-1}$
+  \[\int_0^a\frac{1}{x^s}\md x\]
+  existiert genau dann, wenn $s<1$ und hat den Wert $\frac{a^{1-s}}{1-s}$
+\end{Bsp}
+\begin{Bsp}
+  $e^{-x}\in R(\mb{R})$
+  \begin{align*}
+    \int_0^{+\infty}e^{-x}\md x=\lim_{a\to+\infty}\int_0^ae^{-x}\md x=\\
+    =\lim_{a\to+\infty}\left( e^{-x} \right)|^a_0=\lim_{a\to+\infty}\left[ -e^{-a}+e^0 \right]=1
+  \end{align*}
+\end{Bsp}
+\begin{Bsp}
+  $f(x)=\frac{x}{1+x^2}\in R(\mb{R})$
+  \begin{align*}
+    \int f(x)\md x=\frac{1}{2}\ln (1+x^2)
+  \end{align*}
+  divergiert $x\to\pm\infty$. Deshalb existieren
+  \[\int_0^{+\infty}f(x)\md x\ \text{und}\ \int^0_{-\infty}f(x)\md x\]
+  nicht. Aber:
+  \[\int_{-R}^Rf(x)\md x=0\]
+  \[\lim_{R\to+\infty}\int^R_{-R}f(x)\md x=0\]
+\end{Bsp}
+\begin{Bsp}
+  Sei $F(x) = \begin{cases}
+    x^2\sin\frac{1}{x}&x\neq 0\\
+    0 & x=0
+  \end{cases}$.
+  Sei $f=F'\in R\left(\mb{R}\setminus \{0\}\right)$ aber keine Regelfunktion auf $\mb{R}$ $x>$
+  \begin{align*}
+    \int^\pi_0f(x)\md x=\lim_{\varepsilon\downarrow 0}\int^x_\varepsilon f(x)\md x=\\
+    =\lim_{\varepsilon\downarrow 0}F(x)|^x_\varepsilon=\lim_{\varepsilon\to 0}\left( F(x)-F(\varepsilon) \right)=F(x)
+  \end{align*}
+\end{Bsp}
+\subsection{Majorantenkriterium}
+\begin{Sat}{Majorantenkriterium}
+  Seien $f$ und $g$ Regelfunktionen $[a;b)$ mit $\Abs{f}\leq g$. Existiert $\int_a^b g(x)\md x$, so existiert auch $\int^b_a f(x)\md x$  
+\end{Sat}
+\begin{Bew}
+  Sei
+  \begin{align*}
+    F(u)=\int^u_af(x)\md x\\
+    G(u)=\int^u_ag(x)\md x\\
+    \forall u,v\in [a;b)\\
+    \Abs{F(u)-F(v)}=\Abs{\int^u_bf(x)\md x}\leq \Abs{f^u_v\Abs{f(x)}\md x}\leq\\
+    \leq \Abs{\int^u_vg(x)\md x}=\Abs{G(u)-G(v)}
+  \end{align*}
+  $G(u)$ $u\to 0$ existiert $\implies$ $G$ erfüllt das Cauchykriterium. $\implies$ $F$ erfüöllt das Cauchykriterium $\implies$ $\lim_{n\to b}F(u)$ existiert
+\end{Bew}
+\section{Kurven (Kapitel 12)}
+\begin{align*}
+  \gamma:I&\to& \mb{R}^n\\
+  \gamma:t&\mapsto&\left(x_1(t),x_2(t),x_3(t),\cdots,x_n(t)\right)
+\end{align*}
+$x_i:I\to\mb{R}$ \underline{Komponentenfunktionen}
+\begin{Def}{parametrisierte Kurve}
+  Eine parametrisierte Kurve (kurz: Kurve) ist eine Abbildung $\gamma:I\to\mb{R}^n$, deren Komponentenfunktionen stetig sind.
+\end{Def}
+\begin{Def}{differenzierbare Kurve}
+  Eine Kurve heisst differenzierbar, wenn jede Komponentenfunktion differenzierbar ist. Analog für stetig differenzierbar.
+\end{Def}
+\begin{Def}{Spur}
+  Das Bild $\gamma(I)\in\mb{R}^n$ heisst die Spur von $\gamma$.
+  \[\text{Spur}(\gamma)\]
+\end{Def}
+\begin{Bem}
+  Eine Kurve ist eine Abbildung und ihre Spur ist eine Teilmenge
+\end{Bem}
