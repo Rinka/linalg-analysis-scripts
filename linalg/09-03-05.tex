@@ -1,0 +1,129 @@
+\begin{Sat}{Hadamard'sche Ungleichung}
+  \[Vol(v_1,\cdots,v_m)\leq \Norm{v_1}\cdots\Norm{v_m}\]
+  für $0\neq v_i\in V$, $i=1,\cdots,m$. Mit Gleichheit genau dann wenn $v_1,\cdots,v_m$ orthogonal sind.
+\end{Sat}
+\begin{Bew}
+  Durch fallende Induktion nach
+  \[\max\left\{ \Abs{I}:I\subset\left\{ 1,\cdots,m \right\}|(v_i)_{i\in I}\ \text{orthogonal} \right\}\]
+  \subparagraph{Fall $\max\left\{ \cdots \right\}=m$} das bedeutet, $v_1,\cdots,v_m$ sind orthogonal. Dann:
+  \[G(v_1,\cdots,v_m)=\det\Mx{\Norm{v_1}^2& &0\\ & \ddots & \\ 0 & & \Norm{v_m}^2}=\Norm{v_1}^2\cdots\Norm{v_m}^2\]
+  Die ist der Induktionsanfang.\\
+  Sei $r\in\mb{N}$, $1\leq r <m$. Induktionsanahme: Ungleichung für den Fall
+  \[\max\left\{ \Abs{I}:(v_i)_{i\in I}\ \text{orthogonal} \right\}>r\]
+  Sei $v_1,\cdots,v_m$, so dass $\max\left\{ \cdots \right\}=r$. o.B.d.A: $v_1,\cdots,v_r$ orthagonal. Wir schreiben:
+  \begin{align*}
+    v_m & =\underbrace{v_m-\sum^r_{i=1}\frac{\langle v_m,v_i\rangle }{\langle v_i,v_i\rangle }v_i}_{\tilde{v}_m \in \Span (v_1,\cdots,v_r)^\perp} +\underbrace{\sum^r_{i=1}\frac{\langle v_m,v_i\rangle }{\langle v_i,v_i\rangle }v_i}_{\tilde{\tilde{v}}_m\in \Span (v_1,\cdots,v_r)}\\
+    & < \tilde{v_m},\tilde{\tilde{v_m}}=0
+  \end{align*}
+  \begin{itemize}
+    \item $v=\tilde{v}+\tilde{\tilde{v}}$
+    \item $<\tilde{v},\tilde{\tilde{v}}>=0$
+    \item $\Norm{v}^2=\Norm{\tilde{v}}^2+\Norm{\tilde{\tilde{v}}}^2$
+  \end{itemize}
+  Das ist eine \underline{Orthogonale Projektion}
+  Wir haben 
+  \[G(v_1,\cdots,v_m)=G(v_1,\cdots,v_{m-1},\tilde{v_m})\]
+  weil (Spalten- und Zeilenumforumgen\ldots). Es folgt:
+  \begin{align*}
+    Vol(v_1,\cdots,v_m)=Vol(v_1,\cdots,v_{m-1},\tilde{v_m}) &\leq \Norm{v_1}\cdots\Norm{v_{m-1}}\Norm{\tilde{v_m}}\\
+    & <\Norm{v_1}\cdots\Norm{v_{m-1}}\Norm{\tilde{v_m}}
+  \end{align*}
+\end{Bew}
+\begin{Def}{Gram-Schmidt-Orthagonalisierungsverfahren}
+  \[\tilde{v_r}:=v_r-\sum^{r-1}_{i=1}\frac{<v_r,\tilde{v_i}>}{<\tilde{v_i},\tilde{v_i}>}\tilde{v_i}, \text{für} 1,2,\cdots\]
+  gegeben: eine Kollektion $(v_1,\cdots,v_n)$ oder abzählbar unendlich $(v_1,v_2,\cdots)$. Das Verfahren produziert $(\tilde{v_1},\tilde{v_2},\cdots)$, mit:
+  \begin{align*}
+    \span(\tilde{v_1},\tilde{v_2},\cdots&=&\span(v_1,v_2,\cdots)\\
+    \span(\tilde{v_1},\cdots,\tilde{v_m})&=& \span(v_1,\cdots,v_m)\ \forall m\\
+    (\tilde{v_1},\tilde{v_2},\cdots) & & \text{sind orthogonal}
+  \end{align*}
+\end{Def}
+\begin{Bsp}
+  $C([-1,1],\mb{R})$ mit $<f,g>=\int^1_{-1}f(x)g(x)\md x$
+  \begin{align*}
+    (1,x,x^2,\cdots)\\
+    \xrightarrow{\text{GS}}& \frac{<x^2,1>}{<1,1>}=\frac{2/3}{2}\\
+    (1,x,x^2-\frac{1}{3},x^3-\frac{3}{5}\cdots)
+  \end{align*}
+  Bis auf Normalisierung bekommen wir die Legendre-Polynome.
+\end{Bsp}
+\begin{Faz}
+  \begin{tabular}[htbp]{rcrcr}
+    Bilinearform & $\xrightarrow{\text{+ def, symm}}$& Norm &$\xrightarrow{\text{}}$& Metrik\\
+    Sesquilinearform & $\xrightarrow{\text{+ def, hermitesch}}$ & \\
+  \end{tabular}
+  Norm:
+  \begin{align*}
+    \Norm{.}:V\to\mb{R}_{\geq 0}\\
+    \Norm{x}=0\ \Lra \ x=0\\
+    \Norm{\lambda x}=\Abs{\lambda}\Norm{x}\\
+    \Norm{x+y}\leq \Norm{x} +\Norm{y}\\
+  \end{align*}
+  Metrik:
+  \begin{align*}
+    d:V\times V\to\mb{R}_{\leq 0}\\
+    d(x,<)=0\ \Lra\ x=y\\
+    d(x,y)=d(y,x)\\
+    d(x,z)\leq d(y,y) + d(y,z)
+  \end{align*}
+  Aber: nicht jede Metrik, nicht einmal jede transinvariante Metrik kommt von einer Norm.
+\end{Faz}
+\begin{Bem}
+  Eine Norm kommt von einer +def, symm Bilinearform
+  \[\Lra\ \Norm{x+y}^2+\Norm{x-y}^2=2\left(\Norm{x}^2+\Norm{y}^2\right)\ \forall x,y\in V\]
+\end{Bem}
+\begin{Def}{ausgeartete Bilinearform}
+  Eine Bilinearform $s:V\times V\to K$ ist ausgeartet (oder: entartet), falls eine oder beide der induzierten Abbildungen $V\to V^*$ \underline{nicht} injektiv ist.
+  \begin{align*}
+    v \mapsto & \left( w\mapsto s(v,w) \right)\\
+    v \mapsto & \left( w\mapsto s(w,v) \right)\\
+  \end{align*}
+\end{Def}
+\begin{Bem}
+  Falls $\dim_K V <\infty$, dann:
+  % Hier diagram\ldots
+  \begin{align*}
+    v\mapsto & \left(w\mapsto s(v,w)\right) & \text{injektiv}\\
+    &\updownarrow \\
+    v\mapsto & \left(w\mapsto s(w,v)\right) & \text{injektiv}\\
+    &\updownarrow \\
+    &s \text{ist nicht ausgeartet}\\
+    &\updownarrow \\
+    &\text{die darstennelde Matrix ist invertierbar}
+  \end{align*}
+  \begin{align*}
+    s(v,w) & = v^t\cdot A \cdot w\\
+    & = \left( A^t\cdot v \right)^t
+  \end{align*}<++>
+\end{Bem}
+\begin{Sat}
+  Sei $V$ ein $K$-Vektorraum, $s:V\times V\to K$ eine symmetrische oder schiefsymmetrische Bilinearform. Für $U\subset V$ Untervektorraum, schreiben wir noch
+  \[U^\perp := \left\{ v\in V:s(u,v)=0\ \forall u\in U \right\}\]
+  ($s(v,u)=0\ \Lra\ s(u,v)=0$ weil $s$ symm. bzw. schiefsymm.)
+\end{Sat}
+\begin{Prop}
+  Sei $V$ ein endlich dimensionaler $K$-Vektorraum und $s:V\times V\to K$ eine nicht ausgeartete symmetrische oder schiefsymmetrische Bilinearform. Sei $U\subset V$ ein Untervektorraum. Dann gilt:
+  \[\dim U+\dim U^\perp=\dim V\]
+\end{Prop}
+\begin{Bew}
+  Sei $(v_i)_{i=1,\cdots n}$ eine Basis mit $n:=\dim V$, und $A$ die darstellende Matrix von $s$ bzw. $(v_i)$. Wir haben dann:
+  \[s(x,y)=x^t\cdot A \cdot y\]
+  und $A^t=\pm A$, $\det A\neq 0$
+  \begin{align*}
+    U^\perp &= \left\{ x\in V_i| x^t\cdot A \cdot y=0\ \forall y\in U \right\}
+    &= \left\{ x\in V_i| (x\cdot A)^t \cdot y=0\ \forall y\in U \right\}
+  \end{align*}
+  Sei $F:V\to V$ lin.Abb. $\lra$ $A$. Dann:
+  \begin{align*}
+    F(U^\perp) &=\left\{ Ax|(Ax)^ty=0\ \forall y\in U \right\}
+    &=\left\{ Ax|\tilde{x}^ty=0\ \forall y\in U \right\}
+  \end{align*}
+  Es folgt: mit
+  \[B:=\Mx{| & & |\\ u_1 & \cdots & u_d \\ | & & |}\]
+  $(u_1,\cdots,u_d)$ Basis von $U$, dann ist $F(U^\perp)=\Ker B$. Jetzt:
+  \[\dim U^\perp = \dim F(U^\perp)=\dim \Ker B=n-\dim U\]
+\end{Bew}
+\begin{Kor}
+  $\dim U<\infty$, $s:V\times V\to K$ nicht ausgeartet, (schief-) symm.
+  \[U\subset \implies \left( U^\perp \right)^\perp = U\]
+\end{Kor}<++>
