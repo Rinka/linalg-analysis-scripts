@@ -1,0 +1,115 @@
+\begin{Bem}
+  Es ist \underline{nicht} immer der Fall, dass $V=U\bigoplus U'$, weil es ist möglich, dass $U\cup U^\perp\neq 0$. 2 Extremfälle:
+  \begin{itemize}
+    \item $U$ ist isotropisch ($s|_{U'}$ ist trivial) $\Lra$ $U\subset \underbrace{U^\perp}_{\dim V-\dim U}$
+    \item $s|_U$ ist auch nicht ausgeartet $\Lra$ $U\cup U^\perp=0$ $\Lra$ $V=U\bigoplus U^\perp$
+  \end{itemize}
+  Aus 1. ist klar:
+  \[\dim U \leq \frac{1}{2}\dim V\ \forall \text{isotrop} U\subset V\]
+\end{Bem}
+\subsection{Orthogonale und unitäre Endomorphismen}
+$K=\mb{R}$ oder $\mb{C}$
+\begin{Def}{orthogonaler bzw. unitärer Endomorphismus}
+  Sei $V, \langle, \rangle$ ein ortho. bzw. unitärer Vektorraum. Ein Endomprhismus $F:V\to V$ heisst \underline{orthogonal} bzw. \underline{unitär} falls
+  \[\left\langle F(v), F(w) \right\rangle = \left\langle v, w \right\rangle\ \forall v,w\in V\]
+\end{Def}
+\begin{Bem}
+  Das ist äquivalent zu
+  \[\Norm{F(v)}=\Norm{v}\ \forall v\in V\]
+\end{Bem}
+\begin{Eig}{orthogonaler bzw. unitärer Endomorphismus}
+  Sei $F$ ein ortho. bzw. unitärer Endomorphismus. Dann:
+  \begin{itemize}
+    \item $F$ ist injektiv
+    \item Falls $\dim_KV<\infty$, $F$ ist bijektiv, und $F'$ ist auch ortho. bzw. unitär
+    \item Für jeden Eigenwert $\lambda\in K$ gilt $\Abs{\lambda}=1$. Eigenvektor $v$:
+      \[\Norm{v}=\Norm{F(v)}=\Norm{\lambda v}=\Abs{\lambda}\Norm{v}\]
+  \end{itemize}
+  Falls $V=\mb{R}^n$ oder $\mb{C}^n$ mit Standardskalarprodukt
+  \begin{align*}
+    \left\langle v,w \right\rangle = v^tw&\text{bzw}&\left\langle v,w \right\rangle_c=v^t\bar{w}    
+  \end{align*}
+  Ist $F$ zur Matrix $A$ entsprechend, dann
+  \begin{align*}
+    \left\langle F(v),F(w) \right\rangle=\left\langle v,w \right\rangle\ &\Lra& (Av)^tAw=v^tw\\
+    & &\text{bzw.} (Av)^t\overline{Aw}=v^tw\\
+    \Lra\ v^tA^tAw=v^tw&\Lra&A^tA=E_n\\
+    \text{bzw}\Lra\ v^tA^t\bar{A}\bar{w}=v^t\bar{w}&\Lra&A^t\bar{A}=E_n
+  \end{align*}
+\end{Eig}
+\begin{Def}{ortho. bzw. unitäre Matrix}
+  $O(n):= A\in GL_n(\mb{R})$ heisst \underline{orthogonal} falls $A^tA=E_n$\\
+  $U(n):= A\in GL_n(\mb{C})$ heisst \underline{unitär} falls $A^t\bar{A}=E_n$
+\end{Def}
+\begin{Not}
+  \[O_n:=\left\{ A\in GL_n(\mb{R})|A\ \text{orthogonal} \right\}\]
+  \[O_n:=\left\{ A\in GL_n(\mb{C})|A\ \text{unitär} \right\}\]
+  Weil
+  \[A,B\in O(n)\implies (AB)^t(AB)=B^tA^tAB=B^tB=E_n\implies AB\in O(n)\]
+  haben wir $O(n)\subset GL_n(\mb{R})$ ist eine Untergruppe. Ähnlich: $U(n)\subset GL_n(\mb{C})$ ist eine Untergruppe.
+\end{Not}
+\begin{Not}
+  \[SO(n)=O(n)\cap SL_n(\mb{R})\]
+  \[SU(n)=U(n)\cap SL_n(\mb{C})\]
+\end{Not}
+\begin{Not}{ortho. bzw. unitärer Vektorraum}
+  \[O(V)=\left\{ F\in GL(V)|\text{ortho.} \right\}\]
+  \[U(V)=\left\{ F\in GL(V)|\text{unitär} \right\}\]
+\end{Not}
+\begin{Bem}
+  \[A\in O(n)\implies \det A\in \left\{ \pm 1 \right\}\]
+  \[A\in U(n)\implies \det A\in \left\{ \pm z\in\mb{C}: \Abs{Z}=1 \right\}\]
+\end{Bem}
+\begin{Eig}{Charakterisierungen von ortho. bzw. unitären Matrizen}
+  Äquivalente Charakterisierungen von orthogonalen bzw. unitären Matrizen $A\in GL_n(\mb{R})$:\\
+  $A$ ist orthogonal $\Lra$ $A^{-1}=A^t$ $\Lra$ $A^tA=E_n$ $\Lra$ $AA^t=E_n$ $\Lra$ die Spalten von $A$ bilden eine Orthonormalbasis von $\mb{R}^n$ $\Lra$ die Zeilen von $A$ bilden eine Orthonormalbasis von $\mb{R}^n$.\\
+  Ähnlich:\\
+  $A$ ist unitär $\Lra$ $A^{-1}=\bar{A}^t$ $\Lra$ $A^t\bar{A}=E_n$ $\Lra$ $\bar{A}A^t=E_n$ $\Lra$ die Spalten von $A$ bilden eine Orthonormalbasis von $\mb{C}^n$ $\Lra$ die Zeilen von $A$ bilden eine Orthonormalbasis von $\mb{C}^n$.\\
+  Für $n=1$
+  \begin{align*}
+    O(1)=\left\{ \pm 1 \right\}& & U(1)=\left\{ z\in\mb{C}:\Abs{z}=1 \right\}\cong S^1\\
+    SO(1)=\left\{ 1 \right\}& &SU(1)=\left\{ 1 \right\}
+  \end{align*}
+  Für $n=2$: $(a,b)\in\mb{R}^2$, $a^2+b^2=1$
+  \begin{align*}
+    O(2)=\left\{ \Mx{\cos\theta&-\sin\theta\\ \sin\theta&\cos\theta}|\theta\in\mb{R} \right\}\cup\left\{ \Mx{\cos\theta&\sin\theta\\ \sin\theta&-\cos\theta}|\theta\in\mb{R} \right\} \\
+    SO(2)=\left\{ \Mx{\cos\theta&-\sin\theta\\ \sin\theta&\cos\theta}|\theta\in\mb{R} \right\}\cong S^1\\
+  \end{align*}
+  $(z,w)\in\mb{C}^2$, $\Abs{z}^2+\Abs{w}^2=1$, $(-\bar{w},\bar{z})\perp(z,w)$
+  \begin{align*}
+    U(2)=\left\{ \Mx{z& -\lambda\bar{w}\\ w &\lambda\bar{z}}|(z,w)\in\mb{C}^2, \Abs{z}^2+\Abs{w}^2=1, \lambda\in\mb{C}, \Abs{\lambda}=1\right\} \cong S^3 \times S^1
+  \end{align*}
+  \begin{align*}
+    SU(2)=\left\{ \Mx{z& -\bar{w}\\ w &\bar{z}}|(z,w)\in\mb{C}^2, \Abs{z}^2+\Abs{w}^2=1\right\}\cong S^3
+  \end{align*}
+  $SO(3)$ eine explizite Beschreibung ist möglich (später)
+\end{Eig}
+\begin{Prop}
+  Sei $V$ ein endlich dimensionaler $\mb{C}$-Vektorraum mit Skalarprodukt $\left\langle , \right\rangle$, und sei $F:V\to V$ ein unitärer Endomorphismus. Dann besitzt $V$ eine Orthonormalbasis von Eigenvektoren von $F$.
+\end{Prop}
+\begin{Bew}
+  Durch Indunktion nach $\dim V$. $\dim V=0,1$ trivial. $\dim V\geq 2$ Weil $\mb{C}$ algebraisch abgeschlossen ist, gibt es einen Eigenwert $\lambda\in\mb{C}$. Sei $v\in V$ ein Eigenvektor, mit $\Norm{v}=1$. Weil $F$ untär ist, haben wir $F(v^\perp)=v^\perp$. Wir haben $\dim v^\perp =\dim V-1$
+  \begin{align*}
+    w\in v^\perp \left\langle v,w \right\rangle \implies \left\langle v,w \right\rangle = 0\\
+    \lambda\left\langle v,F(w) \right\rangle = \left\langle \lambda v,F(w) \right\rangle=\left\langle F(v),F(w) \right\rangle=0\\
+    \implies F(v^\perp)\subset v^\perp
+  \end{align*}
+  Aus der Induktionsannahme folgt, dass $\exists$ Orthonormalbasis von $v^\perp$ von Eigenvektoren von $F$. Zusammen mit $v$ $\stackrel{V=\Span\bigoplus v^\perp}{\rsa}$ Orthonormalbasis von $V$
+\end{Bew}
+\begin{Kor}
+  Sei $A\in U(n)$. Dann $\exists S\in U(n)$, $\theta_1,\cdots,\theta_n\in\mb{R}$ so dass
+  \[SAS^{-1}=\Mx{e^{i\theta_1}&\cdots&0\\ \vdots&\ddots&\vdots\\0&\cdots&e^{i\theta_n}}\]
+\end{Kor}
+\begin{Prop}
+  Sei $V$ ein endlich dimensionaler $\mb{R}$-Vektorraum mit Skalarprodukt $\left\langle , \right\rangle$, und sei $F:V\to V$ ein orthogonaler Endomorphismus. Dann besitzt $V$ eine Orthonormalbasis $\left( v_1^+,\cdots,v_r^+,v_1^-,\cdots,v_s^-,w_1,w_1',\cdots,w_t,w_t' \right)$
+  \begin{itemize}
+    \item $F(v^+_i)=v_i^+$
+    \item $F(v_i^-)=-v_i^-$
+    \item $F(w_i)=(\cos\theta_i)w_i+(\sin\theta_i)w_i'$
+    \item $F(w_i')=(-\sin\theta w_i)+(\cos\theta_i)w_i'$
+  \end{itemize}
+  mit $\theta_i\in\mb{R}$, $0<\Abs{\theta}<\phi$, $i=1,\cdots,t$
+\end{Prop}
+\begin{Bew}
+  Durch Induktion nach $\dim V$: $\dim V=0,1,2$ trivial. $\dim >2$ (nächstes mal)
+\end{Bew}
