@@ -1,0 +1,149 @@
+\begin{Bsp}
+  Sei $k\in\mb{Z}\setminus\{0\}$
+  \begin{align*}
+    \gamma_k:&\mb{R}\to\mb{C}\cong \mb{R}^2\\
+    &t\mapsto e^{ikt}
+  \end{align*}
+  $\Abs{\gamma(t)}=1$ $\forall t$ $\Spur\gamma_k=S^1$
+  $k>0$: Gegenuhrzeigersinn\\
+  $k<0$: Uhrzeigersinn
+\end{Bsp}
+\begin{Bsp}{Schraubenlinie}
+  $\gamma:\mb{R}\to\mb{R}^3$
+  \[t\mapsto (r\cos t, r\sin t, h t)\]
+\end{Bsp}
+\begin{Def}{Tangentialvektor einer Kurve}
+  Sei $\gamma:I\to\mb{R}^n$ differenzierbar.
+  \[\dot{\gamma}:=(\dot{x}_1(t),\dot{x}_2(t),\dots)\]
+  $\dot{\gamma}$ heisst der Tangentialvektor oder Geschwindigkeitsvektor zur Stelle $t$.
+\end{Def}
+\begin{Def}{Geschwindigkeit einer Kurve}
+  $\Norm{\dot{\gamma}(t)}$ heisst Geschwindigkeit. Der Geschwindigkeitsvektor hängt vom Parameter ab, nicht von der Stelle in $\mb{R}^n$.
+\end{Def}
+\begin{Def}{reguläre Kurve}
+  Eine stetig differenzierbare Kurve $\gamma:I\to\mb{R}^n$ heisst regulär an der Stelle $t_0\in I$, wenn $\dot{\gamma}(t_0)\neq 0$. Sie heisst regulär, wenn sie an allen STellen regulär ist.
+\end{Def}
+\begin{Bsp}
+  $\gamma(t)=(t^3,t^3), t\in\mb{R}$ $\Spur \gamma= (y=x)$ $\dot{\gamma}(t)=(3t^2,3t^2)$ $\dot{\gamma}=(0,0)$ nicht regulär! Aber der Punkt $(0,0)$ ist nicht singulär.
+\end{Bsp}
+\begin{Def}{Tangentialeinheitsvektor}
+  Ist $\gamma$ an der Stelle $t_0$ regulär, so definiert man
+  \[T\gamma(t_0):=\frac{\dot{\gamma}(t_0)}{\Norm{\dot{\gamma}(t_0)}}\]
+  als Tangentialeinheitsvektor. $\Norm{T_\gamma}=1$
+\end{Def}
+\begin{Def}{Parametrisierte Kurve}
+  Sei $f:J\to\mb{R}$ stetig differenzierbar. Der parametrisierte Graph von $f$ ist die Kurve
+  \begin{align*}
+    \gamma_f:&J\to\mb{R}^2\\
+    &t\mapsto (t,f(t))
+  \end{align*}
+  $\Spur(\gamma_f)=\Graph (f)$
+  \[\dot{\gamma_f}(t)=(1,f'(t))\neq 0\ \forall t\]
+\end{Def}
+\begin{Eig}{parametrisierter Graph}
+  Ein parametrisierter Graph ist regulär
+\end{Eig}
+\begin{Sat}
+  Sei $\gamma:I\to\mb{R}^2$, $t\mapsto(x(t),y(t))$ stetig differenzierbar. Wenn $\dot{x}(t)$ keine Nullstennen hat, gibt es eine stetig differenzierbare Funktion
+  \[f:J\to\mb{R}^2\]
+  wobei
+  \[J:=x(I)\]
+  s.d.
+  \[\Graph f=\Spur \gamma\]
+\end{Sat}
+\begin{Bem}
+  $\dot{y}\neq 0$ $\rsa$ Graph von $x(y)$
+\end{Bem}
+\begin{Sat}
+  Sei $t_0\in I$, $x_0:=x(t_0)$
+  \[f'(x_0)=\frac{\dot{y(t_0)}}{\dot{x}(t_0)}\]
+  \[y=\Diff{f}{x}=\frac{\Diff{y}{t}}{\Diff{x}{t}}\]
+  Ist $\gamma$ w-mal stetig differenzierbar, so ist es $f$ auch und
+  \[f''\underbrace{(x_0)}_{=x(x_0)}\frac{\dot{x}\ddot{y}-\ddot{x}\dot{y}}{\dot{x}^3}\]
+\end{Sat}
+\begin{Bew}
+  $\dot{x}\neq 0$ $\implies$ $x(t)$ streng monoton $\implies$ invertierbar. $\exists$ Umkehrabbildung
+  \begin{align*}
+    \tau:J\to I\\
+    \tau(x(t))=t\ \forall t\\
+  \end{align*}
+  stetig differenzierbar
+  \[\tau=\frac{1}{\dot{x}}\]
+  \begin{align*}
+    \gamma(t)=(x(t),y(t))&=\left( x(t),y(\tau(x(t))) \right)\\
+    &=\left( x(t),(y\circ \tau)(x(t))\right)\\
+    &=(x(t),f\left( x(t) \right)\\
+  \end{align*}
+  \begin{align*}
+    f:=y\circ \tau\\
+    \gamma_f:x\mapsto(x,f(x))\\
+    \Spur \gamma=\Spur \gamma_f=\Graph f
+  \end{align*}
+  \begin{align*}
+    f'(x_0)=\dot{y}t(t_0)\tau'(x_0)=\dot{y}(t_0)\frac{1}{\dot{x}(t_0)}\\
+f''=\left( \Diff{}{x}\dot{y} \right)\frac{1}{\dot{x}}+\dot{y}\Diff{}{x}\left( \frac{1}{\dot{x}} \right)=\\
+    =\left( \ddot{y}\tau' \right)\frac{1}{\dot{x}}+\dot{y}\left( -\frac{1}{\dot{x}^2}\ddot{x}\tau' \right)=\\
+    =\ddot{y}\frac{1}{\dot{x}}\frac{1}{\dot{x}}-\dot{y}\frac{1}{\dot{x}^2}\ddot{x}\frac{1}{\dot{x}}=\\
+    =\frac{\dot{x}\ddot{y}-\ddot{x}\dot{y}}{\dot{x}^3}
+  \end{align*}
+\end{Bew}
+\begin{Eig}
+  \begin{align*}
+    \dot{x}\neq 0 \rsa y=f(x)\\
+    \dot{y}\neq 0 \rsa x=g(y)\\
+    \gamma\text{regulär} \implies\ \forall t \exists \text{Umgebung $I$ von $t$ s.d.} \\
+    \dot{x}(\tau)\neq 0\ \forall \tau\in I\\
+    \dot{y}(\tau)\neq 0\ \forall \tau\in I
+  \end{align*}
+\end{Eig}
+\subsection{Die Bogenlänge}
+\begin{Def}
+  Sei $\gamma:I\to\mb{R}^n$. Sei $Z=(t_0,t_1,\cdots,t_n)$ $t_i\in I$ $t_0<t_1<\cdots<t_n$ Länge des Sehnenpolygons.
+  \[S(Z):=\sum^m_{i=1}\Norm{\gamma(t_i)-\gamma(t_{i-1})}\]
+  Gilt $Z^*\supset Z$, dann $S(Z^*)\geq S(Z)$
+  \[Z_1\subset Z^*, Z_2\subset Z^* \implies S(Z^*)\geq \max\left( S(Z_1),S(Z_2) \right)\]
+  Idee: $s(\gamma):=\sup_ZS(2)$
+\end{Def}
+\begin{Def}{rektifizierbare Kurve}
+  Eine Kurve $\gamma$ heisst rektifizierbar, wenn die Menge der Längen aller einbeschriebenen Sehnenpolygone beschränkt ist.
+\end{Def}
+\begin{Sat}
+  Sei $\gamma:[a;b]\to\mb{R}^n$ fast überall stetig differenzierbar, (d.h. jede Komponente ist fast überall stetig differenzierbar). Dann ist $\gamma$ rektifizierbar (1) und
+  \begin{align*}
+    s(\gamma)=\int^b_a\Norm{\dot{\gamma}(t)}\md t\geq 0& & (2)
+  \end{align*}
+\end{Sat}
+\begin{Bem}
+  Ist $\gamma_f$ der pramametrisierte Graph von $f$
+  \[\gamma_f(t)=(t,f(t))\]
+  so ist
+  \[\dot{\gamma}_f(t)=(1,f'(t))\]
+  \[\Norm{\dot{\gamma}_f}=\sqrt{1+f'^2}\]
+  \[s(\gamma_f)=\int^b_a\sqrt{1+f'(t)}\md t\]
+\end{Bem}
+\begin{Not}
+  Sei $f=(f_1,\cdots,f_n)$ ein $n$-Tupel Funktionen
+  \[\int f(x)\md x:=\left( \int f_1\md x, \int f_2\md x,\cdots,\int\ f_n\md x \right)\]
+\end{Not}
+\begin{Lem}
+  \[\Norm{\int^b_af(x)\md x}\leq \int^b_a\Norm{f(x)}\md x\]
+  Beweis
+  \begin{enumerate}
+    \item Lemma gilt für Treppenfunktionen
+    \item Approximationssazu
+  \end{enumerate}
+\end{Lem}
+\begin{Bew}
+  Sei $Z=(t_0,\cdots,t_m)$ eine Zerlegung von $[a;b]$    
+  \begin{align*}
+    S(Z)&=\sum^m_{i=1}\Norm{\gamma(t_i)-\gamma(t_{i-1}}\\
+    &=\sum\Norm{\int^{t_i}_{t_{i-1}}\dot{\gamma}(t)\md t}\\
+    &\stackrel{\text{Lemma}}{\leq}\sum^m_{i=1}\int^{t_i}_{t_{i-1}}\Norm{\dot{\gamma}}\md t\\
+    &=\int^b_a\Norm{\dot{\gamma}}\md t    
+  \end{align*}
+  ($\Norm{\dot{\gamma}}$ ist eine Regelfunktion) Diese Abschätzung gilt für alle Zerlegungen. $\implies$ $\gamma$ rektifizierbar.
+  \[s(\gamma)\leq \int^b_a\Norm{\dot{\gamma}}\md t\]
+  = für (2)
+  \[\forall \varepsilon>0\ \exists Z: S(Z)\geq f(\Norm{\dot{\gamma}}-\varepsilon\]
+  Treppenfunktionen + Approximationssatz
+\end{Bew}
