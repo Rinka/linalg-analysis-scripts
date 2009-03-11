@@ -1,0 +1,232 @@
+\begin{Bsp}{Länge des Kreisbogens}
+  \begin{align*}
+    \gamma:&[0,\phi]\to\mb{R}^2\\
+    &t\mapsto \left( r \cos t, r\sin t \right) = \gamma(t)\\
+  \end{align*}
+  \begin{align*}
+    \dot{\gamma}(t)=\left( -r\sin t, r\cos t \right)\\
+    \Norm{\dot{\gamma}(t)}^2=r^2\sin^2t+r^2\cos^2t=r^2\\
+    s(\gamma)=\int^\phi_0r\md t=rt|^\phi_0=r\phi
+  \end{align*}
+  \begin{align*}
+    y=\sqrt{r^2-x^2}\\
+  \end{align*}
+  \begin{align*}
+    \gamma:&[a;r]\to\mb{R}^2\\
+    &x\mapsto \left( x,\sqrt{r^2-x^2} \right)
+  \end{align*}
+  \begin{align*}
+    a:=r\cos\phi\\
+    s(\gamma)=\int^r_a\sqrt{1+f'^2}\md x\\
+    \sqrt{1+f'^2}=\sqrt{1+\frac{x^2}{r^2-x^2}}=\sqrt{\frac{r^2-x^2+x^2}{r^2-x^2}}=
+    =\frac{1}{\sqrt{r^2-x^2}} = r\int_a^r\frac{\md x}{\sqrt{r^2-x^2}}\\
+    \xi=\frac{x}{r}
+    =r\int_{\frac{a}{r}}^1\frac{r\md \xi}{\sqrt{r^2-r^2\xi^2}}=r\int_{\frac{a}{r}}^1\frac{\md\xi}{\sqrt{1-\xi^2}}\\
+    =-r\arccos\xi|^1_{\frac{1}{r}}=-r(\arccos 1- \arccos \cos \phi)= r\phi
+  \end{align*}
+\end{Bsp}
+\subsection{Parameterwechsel}
+\begin{Def}{$C^k$-Parametertransformation}
+  Sei $k=0,1,2,\cdots,\infty$. Eine Abbildung $\sigma:I\to J$ heisst $C^k$-Parametertransforumation, wenn
+  \begin{enumerate}
+    \item $\sigma\in C^k(I;J)$
+    \item $\sigma$ ist umkehrbar
+    \item $\sigma^{-1}\in C^k(J;I)$
+  \end{enumerate}
+  Sei 
+  \begin{align*}
+    \gamma:&I\to\mb{R}^n\\
+    \underbrace{\beta}_{\gamma\circ\sigma^{-1}}:&J\to\mb{R}^n
+  \end{align*}
+\end{Def}
+\begin{Bsp}{Gegenbeispiel}
+  \begin{align*}
+    \sigma:&\mb{R}\to\mb{R}\\
+    &x\mapsto x^3
+  \end{align*}
+  $\sigma$ umkehrbar, $\sigma\in C^1$. $\sigma\not\in C^1$ $\sigma$ ist eine $C^0$-Paramentertransformation, aber keine $C^0$-Parametertransforumation.
+\end{Bsp}
+\begin{Def}{Umparametrisierung}
+  Sei 
+  \begin{align*}
+    \gamma:&I\to\mb{R}^n\\
+    \underbrace{\beta}_{\gamma\circ\sigma^{-1}}:&J\to\mb{R}^n
+  \end{align*}
+  Ist $\gamma$ $C^k$-Kurve, $\sigma$ $C^k$ Parametertransformation, dann $\beta$ $C^k$-Kurve. $\beta$ heisst due Umparametrisierung von $\gamma$ mittels $\sigma$.
+\end{Def}
+\begin{Not}
+  \begin{align*}
+    \gamma:\underbrace{I}_{t\in}to\underbrace{\Sigma}_{\sigma \in}
+  \end{align*}
+\end{Not}
+\begin{Bsp}
+  \begin{align*}
+    \gamma:&[0;\phi]\to\mb{R}^2\\
+    &t\mapsto(r\cos t, r\sin t)
+  \end{align*}
+  \begin{align*}
+    \sigma:&[0;\phi]\to[a;1]\\
+    &t\mapsto r\cos t=: x
+  \end{align*}
+  \begin{align*}
+    \beta(x)=\left( x;\sqrt{r^2-x^2} \right)
+  \end{align*}
+  orientierungsumkehrend
+\end{Bsp}
+\begin{Def}{orientierungstreu/-umkehrend}
+  Eine Parametertransformation $\sigma:I\to J$ heisst orientierungstreu ($\dot\sigma>0$), wenn sie streng monoton wächst oder orientierungsumkehrend,($\dot\sigma<0$) wenn sie streng monoton fällt.
+\end{Def}
+\begin{Bem}
+  Ist $\gamma$ reklifizierbar, so ist $\beta=\gamma\circ\sigma^{-1}$ und $S(\gamma)=S(\beta)$
+\end{Bem}
+\begin{Bew}
+  $S(0)=\sup S(2)$ das hängt von der Parametrisierung nicht ab.
+\end{Bew}
+\begin{Bew}
+  \begin{align*}
+    S(\gamma)\int^b_a\Norm{\dot\gamma}\md t\\
+    \dot\beta=\frac{\dot\gamma}{\dot\sigma}\\
+    \sigma:[a;b]\to[c;d]\\
+    \int^b_a\Norm{\dot\gamma}\md t=\int^d_c\Norm{\dot\Gamma}\frac{\md \sigma}{\dot\sigma}=\\
+    \begin{cases}
+      \int^d_c\Norm{\dot\beta}\md \sigma&\dot\sigma>0 (c>d)\\
+      -\int^d_c\Norm{\dot\beta}\md \sigma&\dot\sigma<0 (\Abs{\dot\sigma}=-\dot\sigma) (d>c)
+    \end{cases}\\
+    \begin{cases}
+      \int^d_c\Norm{\dot\beta}\md \sigma&\dot\sigma>0 (c>d)\\
+      \int^c_d\Norm{\dot\beta}\md \sigma&\dot\sigma<0 (\Abs{\dot\sigma}=-\dot\sigma) (d>c)
+    \end{cases}\\
+    =S(\beta)
+  \end{align*}
+\end{Bew}
+\begin{Def}{Umorientierung}
+  \begin{align*}
+    \sigma:&[a;b]\mapsto[-a;-b]\\
+    &t\mapsto -t
+  \end{align*}
+\end{Def}
+\begin{Not}
+  \begin{align*}
+    \gamma:[a;b]\to\mb{R}^n\\
+    \gamma^-:[-a;-b]\to\mb{R}^n\\
+    \gamma^-(t):=\gamma(-t)
+  \end{align*}
+\end{Not}
+\begin{Def}{Umparametrisierung auf Bogenlänge}
+  Sei $\gamma:I\to\mb{R}^n$ regulär und fast überall stetig differenzierbar. Sei $t_0\in I$
+  \[S(t)=\int^t_{t_0}\Norm{\dot\gamma(\tau)}\md \tau, t\in I\]
+  \begin{align*}
+    S:I\to J=S(I)\\
+    \dot S(T)=\Norm{\dot\varphi(t)}>0
+  \end{align*}
+  $\implies$ $s$ orientierungstreu.
+  \begin{align*}
+    \beta:=\gamma\circ s^{-1}\\
+    \beta'(s)=\dot\gamma(t(s))\frac{1}{\dots(t(s))}=\frac{\dot\gamma}{\Norm{\dot\gamma}}(t(s))
+  \end{align*}
+  \[\Norm{\beta'(s)}=1\ \forall s\in J\]
+\end{Def}
+\subsection{Sektorfläche einer ebenen Kurve}
+\begin{Def}{Sektorfläche}
+  $\gamma:I\to\mb{R}^2$. $F_i$ = orientierte Fläche des $i$-ten Dreiecks.
+  \[F(Z):=\sum_iF_i\]
+\end{Def}
+\begin{Lem}
+  Seien $(0,0),(x,y),(\tilde x,\tilde y)$ die Ecken eines Dreiecks in $\mb{R}^2$. Die orientierte Fläche des Dreiecks ist
+  \[F=\frac{1}{2}\left( x\tilde y-\tilde x y \right)\]
+  \[=(x,y)\times(\tilde x, \tilde y)\]
+  \[=\det\Mx{x&\tilde x\\y&\tilde y}=\det\Mx{x&y\\ \tilde x&y}\]
+\end{Lem}
+\begin{Bew}
+  \begin{align*}
+    \rho:=\Norm{(x,y)}\\
+    \tilde\rho:=\Norm{(\tilde x, \tilde y)}\\
+    F=\frac{1}{2}\rho h\\
+    h=\tilde\rho\sin\psi\\
+    F=\frac{1}\rho\tilde\rho\sin\psi
+  \end{align*}
+  \begin{align*}
+    z=x+iy=\rho e^{i\phi}\\
+    w=\tilde x+i\tilde y=\tilde\rho e^{i\tilde\phi}\\
+    \psi=\tilde\phi-\phi\\
+    \bar z w=\rho\tilde\rho e^{i(\tilde\phi-\psi)}\\
+    \Im(\bar z w)=\rho\tilde\rho\sin\psi=2F\\
+    \bar z w=(x-iy)(\tilde x+i \tilde y)=\\
+    =(x\tilde{x}+<\tilde{y}+i(x\tilde{y}-\tilde{x}y)\\
+    \Im \bar z w=x\tilde{y}-\tilde{x}y
+  \end{align*}
+\end{Bew}
+\begin{Not}
+  \begin{align*}
+    \Delta x:=\tilde{x}-x\\
+    \Delta y:=\tilde{y}-y\\
+  \end{align*}
+  \[F=\frac{1}{2}\left[ x(y+\Delta y)-(x+\Delta x)y\right]\]
+  \[F=\frac{1}{2}\left( x\Delta y-y\Delta x \right)\]
+\end{Not}
+\begin{Bew}
+  Sei $\gamma:[a;b]\to\mb{R}^2$ Kurve, $Z:=\underbrace{t_0}_{=a}<t_1<\cdots<\underbrace{t_n}_{=b}$ Zerlegung. $(x;y_i):=\gamma(t_i)$
+  \begin{align*}
+    \Delta x_i:=x_i-x_{i-1}\\
+    \Delta y_i:=y_i-y_{i-1}
+  \end{align*}
+  $\implies$
+  \begin{align*}
+    F_i=\frac{x_{i-1}\Delta y_i-y_{i-1}\Delta x_i}{2}\\
+    F(Z):=\sum^n_{i=1}F_i
+  \end{align*}
+\end{Bew}
+\begin{Def}
+  Der Fahrstrahl an die Kurve $\gamma$ überstreicht den orientierten Flächeninhalt $F(\gamma)$, wenn
+  \[\forall \varepsilon>0\ \exists \delta>0\ \text{s.d.}\ \forall \text{Zerlegung} Z \text{des Fahrstrahls} \leq \delta\]
+  gilt
+  \[\Abs{F(Z)-F(\delta)}\leq \varepsilon\]
+\end{Def}
+\begin{Sat}{Sektorformel von Leibniz}
+  Sei $\gamma:[a;b]\to\mb{R}^2$ fast überall stetig differenzierbar. Dann
+  \[F(\gamma)=\frac{1}{2}\int^b_a(x\dot y-\dot xy)\md t\]
+\end{Sat}
+\begin{Bew}
+  \begin{align*}
+    \Delta x_i=x(t_i)-x(t_{i-1})=\int^{t_i}_{t_{i-1}}\dot x(t)\md t\\
+    \Delta y_i=\int^{t_i}_{t_{i-1}}\dot y(t)\md t\\
+    2F_i=\int^{t_i}_{t_{i-1}}\left( x_{i-1}\dot y-y_{i-1}\dot x \right)\md t\\
+    \Abs{2F_i-\int^{t_i}_{t_{i-1}}\left( x\dot y-\dot x y\right)\md t}=\\
+    =\Abs{\int^{t_i}_{t_{i-1}}\left[ (x_{i-1}-x)\dot y-(y_{i-1}-y)\dot x \right]\md t}\leq\\
+    \leq \Abs{\int^{t_i}_{t_{i-1}}(x_{i-1}-x)\dot y\md t }+\Abs{\int^{t_i}_{t_{i-1}}(y_i-y)\dot x\md t}\\
+  \end{align*}
+  $\gamma$ fast überall stetig differenzierbar $\implies$ $\gamma$ stetig und fast überall differenzierbar $\xRightarrow{\text{verallgemeinerter Schrankensatz}}$ $\exists L:\Abs{\dot x}<L, \Abs{\dot y}<L$ fast überall und
+  \begin{align*}
+    \Abs{x(t)-x_{i-1}}=\\
+    \Abs{x(t)-x(t_{i-1})}\leq L(t-t_{i-1})\\
+    \Abs{y(t)-y_{i-1})}\leq L(t-t_{i-1})\\
+    J_i\leq 2L^2\int^{t_i}_{t_{i-1}}(t-t_{i-1})\md t=\\
+    =2L^2\frac{1}{2}(t-t_{i-1})^2|^{t_i}_{t_{i-1}}=\\
+    =L^2(t_i-t_{i-1})^2
+  \end{align*}
+  Ist die Feinheit $\leq \delta$, so ist $t_i-t_{i-1}\leq \delta$
+  \begin{align*}
+    J_i\leq L^2\delta(t_i-t_{i-1})
+  \end{align*}
+  \begin{align*}
+    \Abs{F(Z)-\frac{1}{2}\int^b_a(x\dot y-\dot xy)\md t}=\\
+    =\Abs{\sum_{i=1}^nF_i(Z)-\sum\frac{1}{2}\int^{t_i}_{t_{i-1}}(x\dot y-\dot xy)\md t}\\
+    \leq \frac{1}{2}\sum^n_{i-1}J_i\leq \frac{1}{2}\sum^n_{i=1}L^2\delta(t_i-t_{i-1})=\\
+    =\frac{1}{2}L^2\delta(t_1-t_0+t_2-t_1+\cdots)=\\
+    =\frac{1}{2}L^2\delta(b-a)\leq \varepsilon
+  \end{align*}
+  für
+  \[\delta=\frac{2\varepsilon}{L^2(b-a)}\]
+\end{Bew}
+\begin{Bsp}
+  \begin{align*}
+    \gamma:&[0,\phi]\to\mb{R}^2\\
+    t\mapsto(r\cos t,r\sin t)
+  \end{align*}
+  \begin{align*}
+    \dot\gamma=(-r\sin t, r\cos t,r\cos t)\\
+    F=\frac{1}{2}\int_0^\phi(r^2\cos^2t+r^2\sin^2t)\md t=\\
+    =\frac{r^2}{2}\int^\phi_0\md t=\frac{r^2\phi}{2}\\
+    \phi=2\phi \implies \pi r^2
+  \end{align*}
+\end{Bsp}
