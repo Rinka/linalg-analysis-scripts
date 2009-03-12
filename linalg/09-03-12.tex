@@ -1,0 +1,86 @@
+\begin{Faz}
+  \begin{tabular}[htb]{cc}
+    $\dim_\mb{R}V$&$\left\langle .,. \right\rangle$ Skalarprodukt\\
+    $F:V\to V$ orthogonaler Endomorphismus\\
+    $\implies$ $\exists$ orthogonale Basis& +1 oder -1 Eigenvektoren
+  \end{tabular}
+    \[ F(\alpha w_i+\beta w_i')=\left( \alpha \cos \Theta_i - \beta\sin\Theta_i \right)w_i+\left( \alpha\sin\Theta_i\beta\cos\Theta_i \right)w_i',\ \Theta_i\in \mb{R}\]
+\end{Faz}
+\begin{Bew}{Fortsetzung}
+  Durch Induktion nach $\dim V$, Induktionsanfang: $\dim V\leq 2$ $\dim V=2$ bezüglich beliebiger Basis ($w_1,w_1'$).
+  \[V:\Mx{\cos\Theta&-\sin\Theta\\ \sin\Theta&\cos\Theta} \text{oder} \Mx{\cos\Theta&\sin\Theta\\ -\sin\Theta&\cos\Theta}\]
+  Matrix 1: $w_1,w_2$ ist wie oben, Matrix 2: chaakteristisches Polynom $t^2-1=(t-1)(t+1)$ $\to$ (+1-Eigenvektor, -1-Eigenvektor)
+  \begin{enumerate}
+    \item Fall: $\exists$ reeller Eigenwert
+      \[\lambda\in\mb{R},\ \Abs{\lambda}=1\ v\in V\ F(v)=\lambda v\]
+      wir zeigen, dass $F(v^\perp)=v^\perp$ genau wie im Fall einees unitären Endomorphismus
+      \begin{align*}
+        \dim(v^\perp)=\dim V-1 \stackrel{IA}{\rsa} v^\perp: \text{orthonormale Basis}\\
+        V=\span(v)\bigoplus v^\perp
+      \end{align*}
+    \item Fall: $\not\exists$ reeller Eigenwert
+      \[\implies P_F(t)=\prod^{(\dim V)/2}_{i=1}Q_i(t)\]
+      $Q_i(t)$ irreduzibles quadratisches Polynom. Aus dem Satz von Cayley-Hamilton folgt:
+      \[\implies \exists \overbrace{v}^{\neq 0}\in V,\ i\text{mit} Q_i(F)v=0\]
+      Sei $0\neq v_0\in V$ beliebigen Vektor $P_F(F)v_0=0$
+      \begin{align*}
+        &Q_1(F)Q_2(F)\cdots+_{\frac{\dim V}{2}}(F)v_0=0\\
+        \implies \exists j:\ & Q_j(F)Q_{j+1}(F)\cdots+_{\frac{\dim V}{2}}(F)v_0=0\\
+        \text{aber}\ & Q_{j+1}(F)\cdots Q_{\dim V}{2}(F)v_0\neq 0\\
+      \end{align*}
+      $\implies$ wir nehmen $i:=j$ und $v:=Q_{j+1}(F)\cdots Q_{\frac{\dim V}{2}(F)v_0}$.\\
+      Beh: $U:=\Span(v,F(v))$ ist ein $F$-invariante Vektorraum. $Q_i(F)_v=0$ $\implies$ $\exists a,b\in\mb{R}$ mit $F(F(v))=av + bF(V)$. Es folgt: $U^\perp$ ist auch $F$-invariant. $V=U\bigoplus U^\perp$ $\stackrel{IA}{\rsa}$ Basen von $U$ und von $U^\perp$ wie oben. Die Vereinigung dieser Basen ist wie erwünscht.
+  \end{enumerate}
+\end{Bew}
+\begin{Kor}
+  Sei $A\in O(n)$. Dann gibt es ein $S\in O(n)$ und $r,s,t\in \mb{N}$, $\Theta_1,\cdots,\Theta_t\in\mb{R}$ mit
+  \[SAS^{-1}=\Mx{E_r&&&&0\\ &-E_s&&&\\&&D_{\Theta_1}&&\\&&&\ddots&\\0&&&&D_{\Theta_t}}\]
+  wobei
+  \[D_\Theta:=\Mx{\cos\Theta&-\sin \Theta\\ \sin\Theta&\cos\Theta}\]
+\end{Kor}
+\begin{Bsp}
+  \[A:=\Mx{0&1&0&&0\\&0&1&&\\&&\ddots&\ddots&\\&&&0&1\\ 1&&&&0 }\in U(n)\]
+  \begin{align*}
+    A(z_1,\cdots,z_n)=(z_2,\cdots,z_n,z_1)\\
+    A(1,S,S^2,\cdots,S^{n-1})=(S,S^2,\cdots,S^{n-1},1)\\
+    S:=e^{2\pi i/n}\ S^n=1
+  \end{align*}
+  $\implies$ $(1,S,S^2,\cdots,S^{n-1})$ ist Eigenvektor zum Eigenwert $S$. Ähnlich: für $0\leq j \leq n-1$ haben wir $(1,S^j,S^{2j},\cdots,S^{(n-1)j})$ ist Eigenvektor zum Eigenwert $S^j$. $1,S,S^2,\cdots,S^{n-1}$ sind paarweise verschieden $\implies$ $(1,S^j,S^{2j},\cdots,S^{(n-1)j})$ ist eine Basis von Eigenvektoren. Normalisierung:
+  \[\left( \frac{1}{\sqrt{n}}\left( 1,S^j,S^{2j},\cdots,S^{(n-1)j} \right) \right)_{j=0,1,\cdots,n-1}\]
+  ist eine orthonormale Basis von Eigenvektoren
+\end{Bsp}
+\begin{Faz}
+  \begin{tabular}[htb]{l}
+    $(K=\mb{C})$ unitärer Endomorpismus von $V$\\
+    $(K=\mb{R})$ orthogonaler Endormophismus von $V$\\
+    $\implies$ $V=\bigoplus_{\text{Eigenwerte} \lambda} \eig (F;\lambda)$ orthogonale direkte Summe
+  \end{tabular}
+\end{Faz}
+\begin{Bsp}
+  \[A=\Mx{\frac{3}{13}& \frac{4}{5}&\frac{36}{65}\\\frac{4}{13}&-\frac{3}{5}&\frac{48}{65}\\\frac{12}{13}&0&-\frac{5}{13}}\in O(3)\]
+  $\det A=1$ 2 komplex konjugierte + 1 reller oder 3 reelle Eigenwerte $\implies$ $+1$ ist ein Eigenwert. \ldots $\rsa$ Eigenvektor $(6,3,4)$ zum Eigenwert 1. $\to$ v mit $\Norm{v}=1$ $v=\frac{1}{\sqrt{61}}(6,3,4)$ | $v^\perp=\Span\left( (1,-2,0),(2,0,-3) \right)$ $\xrightarrow{\text{Gram-Schmidt}}$ \[(1,-2,0),(\frac{8}{5},\frac{4}{5},-3)\] Normalisieren:
+  \[\frac{1}{\sqrt{5}}(1,-2,0), \sqrt{1}{\sqrt{305}}(8,4,-15)\]
+  Und wir berechnen
+  \[S:=\Mx{\frac{6}{\sqrt{61}}&\frac{1}{\sqrt{5}}&\frac{8}{\sqrt{305}}\\\frac{3}{\sqrt{61}}&-\frac{2}{\sqrt{5}}&\frac{4}{\sqrt{305}}\\\frac{4}{\sqrt{61}}&0&-\frac{15}{\sqrt{305}}}\]
+  bekommen wir 
+  \[\underbrace{S^{-1}}_{=S^t}AS=\Mx{1&0&0\\0&-\frac{57}{65}&\frac{4\sqrt{61}}{65}&\\0&-\frac{4\sqrt{61}}{65}&-\frac{57}{65}}\]
+\end{Bsp}
+\subsection{Beschreibung von $SO(3)$ und $O(3)$}
+\begin{Eig}
+  Sei $A\in SO(3)$. Dann: entweder es gibt 1 reelle und 2 komplex konjugierte Eigenwerte oder 3 reelle Eigenwerte. $\lambda\in \mb{C}$ $\implies$ $\lambda\cdot\bar\lambda=1$. Eigenwerte $+1 (\times 3)$ $\Lra$ $A=E_3$ oder $-1(\times 2)$ / $+1$. Wenn $\not\Lra$ $A=E^3$, dann ist $\dim\eig(A,1)=1$.\\
+  \[A:\eig(A,1)^\perp \to\eig (A,1)^\perp\]
+  ist eine Drehung durch einen Winkel $\Theta\in (0,2\phi)$. Bezüglich Basis $(v_1,v_2,v_3)$, $v_1\in\eig(A,1)$, $\Norm{v_1}=1$ sieht $A$ aus wie
+  \[\Mx{1&0&0\\0&\cos\Theta&-\sin\Theta\\0&\sin\Theta&\cos\Theta}\]
+\end{Eig}
+\begin{Eig}
+  Sei $A\in O(3)$
+  Falls $\det A=1$, haben wir $A\in SO(3)$\\
+  Falls $\det A=-1$, haben wir $-A\in SO(3)$\\
+  Dann bekommen wir die folgende Beschreibung von $A\in O(3)$ mit $\det A=-1$:
+  \begin{itemize}
+    \item $A=-E_3$
+    \item oder $\dim \eig(A,-1)=1$\\
+      $v_1\in\eig(A,-1)$, $\Norm{v_1}=1$\\
+      $A:\eig(A,-1)^\perp\to\eig(A,-1)^\perp$ ist eine Drehung um den Winkel $\Theta-\pi\in(-\pi,\pi)$ (Spiegelung oder Spiegelung mit Drehung)
+  \end{itemize}
+\end{Eig}
