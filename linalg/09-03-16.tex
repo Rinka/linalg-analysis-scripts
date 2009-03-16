@@ -1,0 +1,101 @@
+\subsection{Selbstadjugierte Endomorphismen}
+$V$,$\left\langle , \right\rangle$, $K$-Vektorraum mit Skalaprodukt. ($K$=$\mb{R}$ oder $\mb{C}$). Ist $F:V\to V$ ein Endomorphismus, so heisst $F^*:V\to V$ \underline{adjugierter Endomorpismus} falls 
+\[\left\langle F(v),w \right\rangle = \left\langle v,F^*(w) \right\rangle\ \forall v,w\in V\]
+\begin{Def}
+  $F:V\to V$ ist \underline{adjugiert} falls
+  \[\left\langle F(v),w \right\rangle=\left\langle v,F(w) \right\rangle\ \forall v,w\in V\]
+\end{Def}
+\begin{Eig}
+  Falls $V=\mb{R}^n$ mit Standardskalarprodukt, so zu $F$ ist eine assoziierte Matrix $A\in M(n\times n,\mb{R})$, dann ist $A^t zu F^*$ assoziiert.
+  Falls $V=\mb{C}^n$, dann ist 
+  \[F\lra A\in M(n\times n,\mb{C})\]
+  \[F*\lra \bar{A}^t\in M(n\times n,\mb{C})\]
+\end{Eig}
+\begin{Bew}
+  \[\left\langle Av,w \right\rangle=(Av)^t\bar{w}=v^tA^t\bar{w}=v^t\bar{A}^tw=\left\langle v,\bar{w}^tw \right\rangle\]
+\end{Bew}
+\begin{Bem}
+  $F^*$ ist eindeutig falls für $\tilde F^*$ gilt
+  \[\left\langle F(v),w \right\rangle=\left\langle v,\tilde F^*(w) \right\rangle\]
+  dann ist
+  \[0=\left\langle v,\tilde F^*(w)-F^*(w) \right\rangle\]
+  $\implies$
+  \begin{align*}
+    0=\left\langle \tilde F^*(w)-F^*(w),\tilde F^*(w)-F^*(w) \right\rangle\\
+    =\Norm{\tilde F^*(w)-F^*(w)}^2\\
+    \implies \tilde F^*(w)=F^*(w)
+  \end{align*}
+\end{Bem}
+\begin{Faz}
+  Im Fall $V=\mb{R}^n$ bzw. $\mb{C}^n$ mit Standardskalarprodukt ist ein selbstadjungierter Endomorphismus durch eine symmetrische bzw. hermitische Matrix gegeben.
+\end{Faz}
+\begin{Lem}
+  Jeder Eigenwert eines selbstadjugierten Endomorphismus ist reell.
+\end{Lem}
+\begin{Bew}
+  Ist $F(v)=\lambda v$ mit $v\neq 0$, so gilt
+  \[\lambda\left\langle v,v \right\rangle=\left\langle \lambda v,v \right\rangle=\left\langle F(v),v \right\rangle=\left\langle v,F(v) \right\rangle=\left\langle v,\lambda v \right\rangle=\bar \lambda\left\langle v,v \right\rangle \implies \lambda=\bar\lambda \]
+\end{Bew}
+\begin{Bem}{Prä-Hilbertraum}
+  bezeichnet einen $K$-Vektorraum ($K$=$\mb{R}$ oder $\mb{C}$) mit Skalarprodukt. Euklidische bzw. unitäre Vektorräume sind endlichdimensional,
+\end{Bem}
+\begin{Prop}
+  Sei $V$ ein euklidischer bzw. unitärer Vektorraum und $F:V\to V$ ein selbstadjugierter Endomorphismus. Dann gibt es eine orthonormale Basis von Eigenvektoren.
+\end{Prop}
+\begin{Bew}
+  Falls $V$ ein unitärer Vektorraum ist: durch Induktion nach $\dim V$, $\exists$ Eigenwert $\lambda$, Eigenvektor $v$, oBdA haben wir $\Norm{v}=1$. Wir behaupten:
+  \[F(v^\perp)\in V^\perp\]
+  \[\left\langle v,w \right\rangle =0\implies \left\langle v,F(w) \right\rangle =\left\langle F(v),w \right\rangle =\left\langle \lambda v,w \right\rangle =\lambda\left\langle v,w \right\rangle =0\]
+  IA$\implies$ $\exists$ orthonormale Basis von $v^\perp$. Dies, zusammen mit $v$, gibt eine Basis von $V$. Fall eines euklidischen Vektorraums: Das gleiche Argumente ist gültig, sobald wir wissen, dass $F$ einen Eigenwert besitzt. Man wählt eine Basis von $V$, so:
+  \[F\lra A\in M(n\times n,\mb{R})\ \ [n=\dim V]\]
+  mit $A=A^t$. Wir betrachten $A$ als komplexe Matrix, so dass 
+  \[A=\bar A\implies \bar A^t=A^t=A \implies A\ \text{ist hermetisch}\]
+  Sei $\lambda$ ein (komplexer) Eigenwert von $A$. Weil $A$ hermetisch ist, haben wir $\lambda\in \mb{R}$. Wir haben 
+  \[\det(A-\lambda E_n)=0\]
+  Dann:
+  \[\det(F-\lambda id_V)=0\]
+  also $\lambda$ ist Eigenwert von $F$.
+\end{Bew}
+\begin{Kor}
+  Sei $A\in M(n\times n,\mb{R})$ symmetrisch. Dann $\exists$ $S\in O(n)$ mit
+  \[S^tAS=\diag (\lambda_1,\cdots,\lambda_n),\ \lambda_1,\cdots,\lambda_n\in\mb{R}\]
+  Sei $A\in M(n\times n,\mb{C})$ hermetisch. Dann $\exists$ $S\in U(n)$ mit
+  \[\bar S^tAS=\diag (\lambda_1,\cdots,\lambda_n),\ \lambda_1,\cdots,\lambda_n\in\mb{R}\]
+\end{Kor}
+\begin{Kor}
+  Sei $F:V\to V$ wie in der Proposition oben. Dann ist $V$ die orthogonale direkte Summe von diesen Eigenräumen:
+  \[V=\bigoplus_{\text{Eigenwerte} \lambda}\eig(F;\lambda)\]
+\end{Kor}
+\begin{Faz}
+  $\rsa$ Praktisches Verfahren: $A$ symmetrisch bzw. hermetische Matrix\\
+  $\hookrightarrow$ berechnen $\eig(A;\lambda)$\\
+  $\hookrightarrow$ wählen von jedem eine orthonormale Basis
+\end{Faz}
+\begin{Bsp}
+  \begin{align*}
+    A=\Mx{5&3&3+3i\\3&5&-3-3i\\3-3i&-3+3i&2}\\
+    P_A(t)=\det(tE_3-A)=(t-5)^2(t-2)+\cdots = t^3-12t^2+256=(t+4)(t-8)^2\\
+    \eig(A;-4)=\Ker\Mx{9&3&3+3i\\3&9&-3-3i\\3-3i&-3+3i&6}=\Span \left\{ \Mx{1\\-1\\-1+i} \right\} \\
+    \eig(A;\delta)=\Ker\Mx{-3&3&3+3i\\3&-3&-3+3i\\3-3i&-3+3i&-6}=\Span\left\{ \Mx{1\\1\\0} ,\Mx{2\\0\\1-i} \right\} \rsa \Mx{1\\1\\0},\Mx{1\\-1\\1-i}
+  \end{align*}
+  bzw.
+  \[\Mx{\frac{\sqrt{2}}{2}&\frac{\sqrt{2}}{2}&0},\Mx{\frac{1}{2}&-\frac{1}{2}&\frac{1-i}{2}}\]
+  Wir bekommen:
+  \[S:=\Mx{\frac{1}{2}&\frac{\sqrt{2}}{2}&\frac{1}{2}\\ -\frac{1}{2}&\frac{\sqrt{2}}{2}&-\frac{1}{2}\\ \frac{-1+i}{2}&0&\frac{1-i}{2}}\]
+  dan:
+  \[\bar S^tAS=\diag(-4,8,8)\]
+\end{Bsp}
+\begin{Bem}
+  Das Resultat von der Proposition oben im Fall eines euklidischen Vektorraums ist klar, auch aus geometrischem Grund.
+  \[\text{symm. Matrizen}\setminus \mb{R}\ \rsa\ \text{quadratische Formen}\]
+  (Prop aktuelle-7) $S^tAS$ aus der Transformationsformel.\\
+  \ldots und man kann auch einen alternativen Beweis in diesem Fall geben.
+  \[A\in M(n\times n,\mb{R}), A^t=A\ \rsa\ q:\mb{R}^n\to\mb{R},q(v):=v^tAv\]
+  (Faktum aus der Analysis)
+  \[\exists x\in\mb{R}^n, \Norm{x}=1\ \text{mit} q(x)\geq g(x')\ \forall x'\in\mb{R}n^n, \Norm{x'}=1\]
+  Dann für $v\in\mb{R}^n, v\perp x$ haben wir $Av\perp x$. In der Tat haben wir 
+  \[(Av-q(x)v)\perp x\ \forall v\in\mb{R}^n\]
+  denn
+  \[\left\langle Av-q(x)v, v\right\rangle +2\lambda\left\langle Av-q(x)v,x \right\rangle =(v+\lambda x)^t(A-q(x)E_n)(v+\lambda x)\leq 0\ \forall \lambda\in\mb{R}\]
+  (Details im Buch, 5.6.4)
+\end{Bem}
