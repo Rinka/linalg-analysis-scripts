@@ -1,0 +1,214 @@
+\begin{Eig}{Sektorformel}
+  \begin{enumerate}
+    \item Additivität: $c\in(a;b)$
+      \[F(\gamma)=F\left(\gamma_{|_{[a;c]}}\right)+F\left( \gamma_{|_{[c;b]}} \right)\]
+    \item Orientierungsumkehrung
+      \[F(\gamma^-)=-F(\gamma)\]
+      \[\gamma(t):=\gamma(-t)\]
+    \item
+      \[A:\mb{R}^2\to\mb{R}^2\]
+      \[\Mx{e&f\\g&h}\Mx{x\\y}\mapsto \Mx{ex+fy\\gx+hy}\]
+      \begin{gather*}
+        (A\gamma)(t)=A\gamma(t)\\
+        d(A\gamma)=A\dot\gamma\\
+        x\dot y-y\dot x=\det\Mx{\gamma&|&\dot\gamma}=\det\Mx{x&\dot x\\y&\dot y}\\
+        F(\gamma)=\frac{1}{2}\det\Mx{\gamma&|&\dot\gamma}\md t\\
+        \det\Mx{A\gamma&|&A\dot\gamma}=\det\Mx{A(\gamma&|&\dot\gamma)}=\det A\det\Mx{\gamma&|&\dot\gamma}\\
+        F(A\gamma)=\det A\cdot F(\gamma)\\
+        \text{insbesondere}\\
+        \det A=1(\text{d.h.}\ A\in SL(2;\mb{R}))\\
+        F(A\gamma)=F(\gamma)
+      \end{gather*}
+  \end{enumerate}
+\end{Eig}
+\begin{Def}{Geschlossene Kurve}
+  Eine Kurve $\gamma:[a;b]\to\mb{R}^n$ heisst geschlossen, wenn
+  \[\gamma(a)=\gamma(b)\]
+  gilt.
+\end{Def}
+\begin{Def}{umschlossener orienterierter Flächeninhalt}
+  Sei $\gamma:[a;b]\to\mb{R}^n$ geschlossen und so dass $F(\gamma)$ existiert, so heisst $F(\gamma)$ der umschlossene orienterierte Flächeninhalt.
+\end{Def}
+\begin{Bem}
+  $\gamma(a)=\gamma(b)$
+  \begin{align*}
+    \int_a^b\md (xy)\md t=(xy)|^b_a=0\\
+    F(\gamma)=\int^b_ax\dot y\md t=-\int^b_a\dot x y\md t
+  \end{align*}
+  (wenn $\gamma$ geschlossen)
+\end{Bem}
+\begin{Bem}
+  Polarkoordinaten
+  \begin{gather*}
+    (x,y)\in\mb{R}^2\\
+    \rho e^{i\phi} = x+iy=:z\in\mb{C}\\
+    \gamma:[a;b]\to\mb{R}^2\\
+    \dot z= \dot \rho e^{i\phi}+i\rho\dot\phi e^{i\phi}
+  \end{gather*}
+  \begin{align*}
+    t\mapsto& (x(t),y(t))\\
+    t\mapsto&z(t)\\
+    t\mapsto&\rho(t)e^{i\phi(t)}
+  \end{align*}
+  Man erlaubt $\rho(t)<0$
+\end{Bem}
+\begin{Bem}{Länge}
+  \begin{gather*}
+    L=\int_a^b\Norm{\dot \gamma}\md t=\int^b_a\sqrt{\dot\bar z\dot z}\md t\\
+    \bar z=\rho e^{i-\phi},\ \dot\bar z=\dot\rho e^{-i\phi}-i\rho\dot\phi e^{-i\phi}\\
+    z=x+iy,\ \bar z=x-iy,\\
+    \dot z=\dot x+iy,\ \dot\bar z=\dot x-i\dot y\\
+    \bar z\dot z=(x\dot x+y\dot y)+i(x\dot y-\dot xy)\\
+    =\frac{1}{2}\int\Im(\bar z\dot z)\md t\\
+    \bar z\dot z=\rho e^{-i\phi}\left(\dot \rho e^{i\phi}+ \rho\dot\phi e^{i\phi}\right) = \rho\dot\phi+i\rho^2\dot\phi=\\
+    =\frac{1}{2}\int^b_a\rho^2\dot\phi\md t
+  \end{gather*}
+\end{Bem}
+\begin{Bsp}
+  \begin{align*}
+    y:[0;2\pi]&\mapsto\mb{R}^2\\
+    \phi&\mapsto a\cos(3\phi)e^{i\phi}\\
+  \end{align*}
+  \begin{align*}
+    \rho(\phi)=a\cos(3\phi)
+  \end{align*}
+  $\rho$ kann auch negativ sein
+  \begin{gather*}
+    F(\gamma)=\frac{3}{2}\int_0^{\frac{\pi}{3}}a^2\cos^2(3\phi)\md\phi =\\
+    =\frac{\not 3}{2}\int^{2\pi}a^2\cos^2(\phi)\frac{\md \phi}{\not 3}=\\
+    \frac{a^2}{2}\int^{2\pi}_0\frac{(\cos^2\phi+\sin^2\phi)}{2}\md \phi=\frac{a^2}{4}2\pi=\frac{a^2\pi}{2}\\
+    \int^{2\pi}_0\cos^2=\int_0^{2\pi}\sin^2
+  \end{gather*}
+\end{Bsp}
+\section{Taylor [Kap 14]}
+Wir wollen eine Funktion durch Polynom approximieren.
+\begin{Def}
+  Sei $f:I\to\mb{C}$ $n$-mal differenzierbar. Das $n$-te Taylorpolynom von $f$ im Punkt $a\in I$ ist das Polynom $T(x)$ des Grades $\leq n$ mit
+  \begin{gather*}
+    T(a)=f(a)\\
+    T'(a)=f'(a)\\
+    T''(a)=f''(a)\\
+    \cdots
+    T^{(n)}(a)=f^{(n)}(a)
+  \end{gather*}
+\end{Def}
+\begin{Not}
+  $I_n f(x;a)$
+\end{Not}
+\begin{Bsp}{$n=1$}
+  \[T_1 f(x;a)=f(a)+f'(a)(x-a)\]
+\end{Bsp}
+\begin{Bem}
+  Sei $I_n f(x;a)$ das $n$-te Taylorpolynom von $f$
+  \[T(x)=I_n f(x;a)=\sum^n_{k=0}a_k(x-a)^k\]
+  \begin{gather*}
+    f(a)T'(x)=\sum^n_{k=1} k a_k(x-a)^{k-1}\\
+    f(a)T''(x)=\sum^n_{k=2} k(k-1) a_k(x-a)^{k-2}\\
+    f(a)T'''(x)=\sum^n_{k=3} k(k-1)(k-2) a_k(x-a)^{k-3}\\
+    \cdots\\
+    T(a)=a_0\\
+    T'(a)=a_1\\
+    T''(a)=2a_2\\
+    T'''(a)=3\cdot 2a_3
+  \end{gather*}
+  Übung $l\leq n$ (Induktion)
+  \[T^{(l)}_{(x)}=\sum^n_{k=l}k(k-1)(k-2)\cdots(k-l+1)a_k(x-a)^{k-l}\]
+  \[T^{(l)}(a)=l!a_l=f^{(l)}(a)\]
+  \[a_l=\frac{f^{(l)}(a)}{l!}\]
+\end{Bem}
+\begin{Eig}
+  \[T_nf(x;a)=\sum^n_{k=0}\frac{f^{(k)}(a)}{k!}(x-a)^k\]
+\end{Eig}
+\begin{Def}{Fehler}
+  \[R_{n+1}(x;a):=f(x)-T_nf(x;a)\]  
+\end{Def}
+\begin{Lem}
+  \[\Limo{x}\frac{R_{n+1}(x;a)}{(x-a)^n}=0\]
+  \begin{gather*}
+    R_2=f(x)-T_1 f(x,a)\\
+    T_1f(x;a)=f(a)+f'(a)(x-a)\\
+    R_2= \frac{f(x)-f(a)-f'(a)(x-a)}{x-a}\xrightarrow{f\text{differenzierbar}} 0
+  \end{gather*}
+\end{Lem}
+\begin{Bew}
+  $T=T_nf$
+  \begin{align*}
+    &\lim_{x\to a}\frac{f(x)-T(x)}{(x-a)^n}=\\
+    (L'Hopital)& = \lim_{x\to a}\frac{f'(x)-T'(x)}{n(x-a)^{n-1}}=\\
+    (L'Hopital)& = \lim_{x\to a}\frac{f''(x)-T''(x)}{n(n-1)(x-a)^{n-2}}=\cdots\\
+    \cdots&=\lim_{x\to a}\frac{f^{(n)}(x)-T^{(n)}(x)}{n!}=0
+  \end{align*}
+  denn $f^{(n)}(a)=T^{(n)}(a)$
+\end{Bew}
+\begin{Kor}{Qualitative Taylorformel}
+  Sei $f:I\to\mb{C}$ stetig und $n$-mal differenzierbar. Dann
+  \[\exists r;I\to\mb{C}\]
+  stetig mit
+  \[r(a)=0\]
+  s.d.
+  \[f(x)=I_nf(x;a)+(x-a)^nr(x)\]
+\end{Kor}
+\begin{Bew}
+  \begin{gather*}
+    r(x):=\frac{f(x)-I_nf(x;a)}{(x-a)^n}
+  \end{gather*}
+  $x\neq a$ stetig auf $I\setminus \left\{ a \right\}$
+  \[\lim_{x\to a}r(x)\]
+  Wir erweiter $r$ auf $I$ mit $r(a)=0$
+\end{Bew}
+\begin{Not}{Landan-Symbol}
+  Seien $f$ und $g$ komplexe Funktionen in einer punktierten Umgebung von $a$. Man schreibt
+  \[f=\circ(g),x\to a\]
+  falls
+  \[\lim_{x\to a}\frac{f(a)}{f(x)}=0\]
+  Gilt zusätzlich
+  \[\lim_{x\to a}g(x) =0\]
+  so sagt man: $f$ geht für $x\to a$ schneller gegen 0 als $g$.\\
+  $f:I\to\mb{C}$, $a\in I$ $n$-mal differenzierbar:
+  \[f(x)=T_nf(x;a)+\circ\left( (x-a)^n \right),x\to a\]
+\end{Not}
+\begin{Bsp}
+  $T_4(x;0)$
+  \begin{align*}
+    f(x)=\sin x& 0\\
+    f'(x)=\cos x& 1\\
+    f(x)=-\sin x& 0\\
+    f'(x)=-\cos x& -1\\
+    f(x)=\sin x& 0
+  \end{align*}
+  \[T_4f(x;0)=x-\frac{1}{3!}x^3\]
+  \[\sin x=x-\frac{x^3}{6}+\circ(x^4)\]
+\end{Bsp}
+\begin{Bsp}
+  \begin{gather*}
+    \Limo{x}\frac{\sin x-x}{x^3}=\Limo{x}\frac{\frac{-x^3}{6}+\circ(x^4)}{x^3}=\\
+    =-\frac{1}{6}\Limo{x}\frac{x^3}{x^3}+\Limo{x}\frac{x\circ(x^4)}{x^4}=\\
+    =-\frac{1}{6}+0\cdot 0=-\frac{1}{6}
+  \end{gather*}
+\end{Bsp}
+\begin{Sat}{Integralform von $R_{n+1}$}
+  Sei $f\in \Phi^{n+1}(I,\mb{C})$ ($\Phi$ differnzierbare Funktion). Dann
+  \[R_{n+1}(x)=\frac{1}{n!}\int_a^x(x-t)^nf^{(n+1)}(t)\md t\]
+\end{Sat}
+\begin{Bew}
+  Durch Induktion
+  \subparagraph{$n=0$}
+  \begin{gather*}
+    R_1(x)=f(x)-T_0f(x;a)\\
+    T_0f(x;a)=f(a)\\
+    R_1(x)=f(x)-f(a)\\
+    \frac{1}{1!}\int^x_af'(t)\md t=f(x)-f(a)
+  \end{gather*}
+  \subparagraph{$n+1$}
+  \begin{gather*}
+    f-T_{n-1} f=R_n=\frac{1}{(n-1)!}\int^x_a(x-t)^{n-1}f^{(n)}(t)\md t\\
+    =\frac{1}{(n-1)!}\int\Diff{}{t}\frac{(x-t)^n}{-n}f^{(n)}(t)\md t\\
+    =-\frac{1}{n!}\left[ (x-1)^nf^{(n)}(t) \right]\Big|^x_a+\frac{1}{n!}\int(x-t)^nf^{(n+1)}(t)\md t\\
+    =\frac{1}{n!}(x-a)^nf^{(n)}(a)+\frac{1}{n!}\int^x_a(x-t)^nf^{(n+1)}(t)\md t\\
+    \implies f-T_nf=\frac{1}{n!}\int^x_a(x-t)^nf^{(n+1)}(t)\md t
+  \end{gather*}
+\end{Bew}
+\begin{Kor}{Lagrange-Form für $R_{n+1}$}
+  Sei $f\in\Phi^{n+1}(I;\mb{R})$ $a\in I$.
+  \[\forall x\in I\ \exists \xi\in I: R_{n+1}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}\]
+\end{Kor}
