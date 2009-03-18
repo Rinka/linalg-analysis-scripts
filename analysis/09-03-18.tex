@@ -1,0 +1,234 @@
+\begin{Bsp}
+  \begin{gather*}
+    f=\sin x\\
+    T_n f(x;0)=x-\frac{x^3}{6}\\
+    f^{(5)}(x)=\cos x\\
+    \exists \xi: \sin x=x-\frac{x^3}{6}+\frac{1}{5!}\cos\xi x^5
+  \end{gather*}
+\end{Bsp}
+\begin{Bew}
+  $f\in \mathcal{R}^{n+1}(I:\mb{C})$
+  \begin{gather*}
+    R_{n+1}=\frac{1}{n!}\int^x_a (x-t)^nf^{(n+1)}(t)\md t = \sigma\int^x_ap(t)f^{(n+1)}(t)\md t = \cdots\\
+    (t):=\frac{\Abs{x-t}^n}{n!}\geq 0\\
+    \sigma =\begin{cases}
+      1&a<x\\
+      (-1)^n&a>x
+    \end{cases}\\
+    \cdots \stackrel{MWS}{=} \sigma f^{(n+1)}(\xi)\int^x_ap(t)\md t\\
+    \int^x_ap(t)\md t=\sigma\frac{1}{n!}\int^x_a(x-t)^n\md t=\sigma\frac{1}{(n+1)!}(x-t)|^x_a=\sigma\frac{(x-a)^{n-1}}{(n+1)!}\\
+    R_{n+1}\underbrace{\sigma^2}_{=1}f^{(n+1)}(\xi)\frac{(x-a)^{n+1}}{(n+1)!}
+  \end{gather*}
+\end{Bew}
+\subsection{Lokale Extrema}
+\begin{Sat}
+  Sei $f\in\mathcal R^{n+1}(I,\mb{R})$. Sei $a\in I$ und es gelte
+  \[f'(a)=f''(a)=\cdots=f^{(n)}(a)=0\]
+  \[f^{(n+1)}(a)\neq 0\]
+  Dann
+  \begin{enumerate}
+    \item $n$ gerade $\implies$ $f$ hat in $a$ kein Extrema
+    \item $n$ ungerade, $f^{(n+1)}(a)>0$ $\implies$ $f$ hat in $a$ ein strenges lokale Minimumm
+    \item $n$ ungerade, $f^{(n+1)}(a)<0$ $\implies$ $f$ hat in $a$ ein strenges lokale Maximum
+  \end{enumerate}
+  Hint: Beweis anschauen $>$ auswendig lernen
+\end{Sat}
+\begin{Bew}
+  $T_nf(x;a)=f(a)$
+  \begin{gather*}
+    f(x)=T_nf(x;a)+R_{n+1}(x)\\
+    =f(a)+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}\\
+  \end{gather*}
+  \begin{align*}
+    f^{(n+1)} \text{stetig}& \implies & \exists \text{Umgebung von }a f^{(n+1)} \neq 0\\
+    f^{(n+1)}(a)\neq 0
+  \end{align*}
+  Man ersetze $\neq$ durch $<$ und $>$.\\
+  $n$ gerade $\implies$ $(n+1)$ ungerade. Das Vorzeichen $(x-a)^{n+1}$ verändert ishc \\
+  $n$ ungerade $\implies$ $(n+1)$ gerade $(x-a)^{n+1}$ positiv
+\end{Bew}
+\subsection{Taylorreihen}
+\begin{Def}{Taylorreihe}
+  Sei $f\in \mathcal{R}^\infty(I,\mb{C})$. Man definiert
+  \[Tf(x;a):=\sum^\infty_{k=0}\frac{f^{(k)}(a)}{k!}(x-a)^k\]
+  Taylorreihe von $f$ im Punkt $a$
+\end{Def}
+\begin{Bem}
+  \begin{enumerate}
+    \item Es kann passieren, dass die Reihe nicht konvergiert
+    \item Es kann auch passieren, dass die Reihe in einer Umgebung von $a$ konvegiert, aber nicht gegen $f$!
+  \end{enumerate}
+\end{Bem}
+\begin{Bsp}
+  \[f(x)=\begin{cases}
+    0&x\leq 0\\
+    e^{-\frac{1}{x}}&x>0
+  \end{cases}\]
+  \begin{gather*}
+    f^{(k)}(0)=0 \ \forall k\\
+    \implies Tf(x;0)=0\neq f(x)
+  \end{gather*}
+\end{Bsp}
+\begin{Def}
+  Konvergiert $Tf$ gegen $f$ in einer Umgebung $U$ von $a$, so sagt man: 
+  \[\text{\underline{$f$ besitzt in $U$ eine Taylorentwicklung mit $a$ als Entwicklungspunkt.}}\]
+  oder
+  \[\text{\underline{$f$ ist reell analytisch in $U$}}\]
+\end{Def}
+\begin{Bew}
+  Ist $f=\sum^\infty_{k=0}a_l(x-a)^k$ mit $\Abs{x-a}<R$ (Konvergenzradius)
+  \begin{gather*}
+    \Diff{}{x}\sum=\sum\Diff{}{x}\\
+    f^{(k)}(a)=k!a_k\\
+    \implies Tf=\sum a_k(x-a)^k
+  \end{gather*}
+\end{Bew}
+\begin{Def}
+  Sei $f:\overbrace{U}^{\in \mb{C}}\to\mb{C}$ Sei $a\in U$. Man sagt, $f$ ist analytisch in $a\in U$ wenn $\exists r>0$ mit $K_r(a)\subset U$ und $\exists$ Potenzreihe $\sum a_kz^k$ mit Konvergenradius $>r$ s.d.
+  \[f(z)=\sum a_k(z-a)^k\ \forall z\in K_r(a)\]
+\end{Def}
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{c|c|c}
+    Struktur&Definitionsbereich&Zielmenge\\
+    \hline
+    stetige Funktionen & $U\subset \mb{R},\mb{C}$&$\mb{R},\mb{C}$\\
+    differenzierbare Funktionen & $I\in \mb{R}$&$\mb{R},\mb{C}$\\
+    itengierbare Funktionen & $I\in \mb{R}$&$\mb{R},\mb{C}$\\
+    Kurven & $I\in \mb{R}$&$\mb{R}^n$\\
+    \hline
+    stetige Abbildungen & $U\in \mb{R}^m, \mb{C}^m$ & $\mb{R}^n, \mb{C}^n$\\
+    & & Grenzwerte in $\mb{R}^m$\\
+    differenzierbare Funktionen & $U\in\mb{R}^n$ & $\mb{R},\mb{C}$\\
+    & & partielle Ableitung\\
+    differenzierbare Abbildungen & $U\in\mb{R}^n$ & $\mb{R}^n,\mb{C}^n$\\
+    \hline
+    integrierbare Abbildungen & $U\in\mb{R}^n$ & $\mb{R}^n,\mb{C}^n$
+  \end{tabular}
+  \caption{Übersicht über Funktionen / Abbildungen}
+\end{table}
+\section{Elemente der Topologie [Band 2, Kap 1]}
+Konvergenz, Abgeschlossenheit, Stetigkeit, Häufungspunkte
+\begin{Def}{euklidische Norm}
+  Die euklidische Norm auf $\mb{R}^n$ ist 
+  \[\Norm{x}:=\sqrt{x_1^2+x_2^2+\cdots+x^2_n}\]
+\end{Def}
+\begin{Eig}
+  \begin{gather}
+    \Norm{x}>0\ \forall x\neq 0,\ \Norm{0}=0\\
+    \Norm{\lambda x}=\Abs{\lambda}\Norm{x}\ \forall x\in\mb{R}^n,\ \lambda\in\mb{R}\\
+    \Norm{x+y}\leq \Norm{x}+\Norm{y}\ \forall x,y\in\mb{R}^n
+  \end{gather}
+\end{Eig}
+\begin{Def}{euklidischer Abstand}
+  Der euklidische Abstand zweier Punkte $a,b\in\mb{R}^n$ ist
+  \[d(a,b)=\Norm{b-a}\]
+\end{Def}
+\begin{Def}{offene Kugel}
+  Die offene Kugel in $\mb{R}^n$ mit Mittelpunkt $a$ und Radius $r>0$ ist die Menge
+  \[K_r(a):=\left\{ x\in\mb{R}:d(x,a)\le r \right\}\]
+\end{Def}
+\begin{Def}{Konvergenz}
+  Eine Folge $(x_k)$ in $\mb{R}^n$ heisst konvergent, wenn $\exists a\in\mb{R}^n$
+  \begin{gather*}
+    \Limi{k} d(x_k,a)=0\\
+    x_k\in\mb{R}^n\ \forall k\\
+    x_k=(x_{k1},x_{k2},\cdots,x_{kn})\\
+    x_{ki}\in\mb{R}
+  \end{gather*}
+  Ist das der Fall, so schreibt man
+  \[\Limi{k}x_k=a\]
+\end{Def}
+\begin{Bem}
+  (geometrisch)
+  \begin{gather*}
+    x_k\to a\ \Lra\ \forall\varepsilon>0
+  \end{gather*}
+  $k_\varepsilon(a)$ fast alle Folgenglieder enthält
+\end{Bem}
+\begin{Lem}
+  \begin{align*}
+    x_k\to a\in \mb{R}^n\ \Lra&\ \ x_{ki}\to a_i\ \forall i
+    =(a_1,\cdots,a_n) & \\
+    \text{Konvergenz}& \ \ \ \text{komponentenweise Konvergenz}
+  \end{align*}
+\end{Lem}
+\begin{Bew}
+  $\Ra$
+  \begin{gather*}
+    \forall i\ \Abs{x_{ki}-a_i}\leq \Norm{x_k-a}\to 0\\
+    \implies x_{ki}\to a_i\ \forall i
+  \end{gather*}
+  $\La$
+  \begin{gather*}
+    \Norm{x_k-a}\leq \sum^n_{i=1}\Abs{x_{ki}-a_i}\to 0\\
+    \implies \Norm{x_k-a}\to 0
+  \end{gather*}
+\end{Bew}
+\begin{Def}
+  Eine Folge $(x_k)\in\mb{R}^n$ heisst:
+  \begin{description}
+    \item[beschränkt] wenn $\exists r>0$ mit $x_k\in K_r(0)$ $\forall k$
+    \item[Cauchyfolge] wenn $\forall \varepsilon>0$ $\exists N$
+      \[\Norm{x_k-x_l}<\varepsilon\ \forall k,l>N\]
+  \end{description}
+\end{Def}
+\begin{Sat}{Bolzano-Weierstrass}
+  \begin{enumerate}
+    \item Jede beschränkte Folge besitz eine konvergente Teilfolge
+    \item Jede Cauchyfolge konvergiert
+  \end{enumerate}
+\end{Sat}
+\begin{Bew}
+  \begin{enumerate}
+    \item durch Indunktion nach $n$\\
+      $n=1$ Beweis in $\mb{R}$\\
+      Annahme: Beweis gilt in $\mb{R}^n$ $(x_k)$ beschränkt in $\mb{R}^{n+1}$
+      \begin{gather*}
+        \implies (x_{k1},\cdots,x_{kn}) \text{ beschränkt in }\mb{R}\\
+        \implies \exists l_k:(x_{k_l1},\cdots,x_{k_ln}) \text{ konvergiert}\\
+        x_{k_ln+1} \text{ beschränkt in } \mb{R}\\
+        \implies \exists l_m:x_{k_{l_m}n+1} \text{ konvergiert}\\
+        \implies (x_{k_{l_m}}) \text{ konvergiert}
+      \end{gather*}
+    \item
+      \begin{gather*}
+        \Abs{x_{ki}-x_{li}}\leq \Norm{x_k-x_l}\ \forall i
+      \end{gather*}
+      $(x_k)$ Cauchy $\implies$ $x_{ki}$ Cauchy $\forall i$ $\implies$ $x_{ki}$ konvergiert $\implies$ $x_k$ konvergiert
+  \end{enumerate}
+\end{Bew}
+\begin{Def}{Umgebungen}
+  \begin{itemize}
+    \item Die offene Kugel $K_\varepsilon(a), \varepsilon>0$ heisst $\varepsilon$-Umgebung von $a\in\mb{R}^n$
+    \item Eine Menge $U\subset\mb{R}$ heisst Umgebung von $a\in\mb{R}^n$, wenn sie eine $\varepsilon$-Umgebung enthält.
+  \end{itemize}
+\end{Def}
+\begin{Eig}{Umgebungen}
+  \begin{enumerate}
+    \item Seien $U,V$ Umgebungen von $a$ $\implies$ $U\cap V$ und $U\cup V$ sind Umgebungen von $a$
+    \item $U$ Umgebung von $a$; $V \subset U$ $\implies$ $V$ Umgebung von $a$
+    \item Hausdorffsche Trennungseigenschaft: $\forall a\neq b$ $\exists U$ von $a$ und $\exists V$ von $b$ mit $U\cap V=\varnothing$
+  \end{enumerate}
+\end{Eig}
+\begin{Bsp}
+  $U=K_\varepsilon(a)$, $V=K_\varepsilon(b)$ $\varepsilon=\frac{1}{3}\Norm{b-a}$\\
+  Zu beweisen mit der Dreiecksungleichung
+\end{Bsp}
+\begin{Def}{offene Menge}
+  Eine Menge $U\subset \mb{R}^n$ heisst hoffen, wenn sie eine Umgebung von $\forall x\in U$ ist. D.h.
+  \[\forall x<in U\ \exists\varepsilon>0:\ K_\varepsilon(x) \subset U\]
+\end{Def}
+\begin{Bsp}
+  \begin{enumerate}
+    \item $\mb{R}^n$ ist offen
+    \item $\varnothing\in\mb{R}^n$ ist offen
+    \item $K_r(a)$ ($r>0$, $a\in \mb{R}^n$) ist offen
+  \end{enumerate}
+\end{Bsp}
+\begin{Bem}{Rechenregeln}
+  \begin{enumerate}
+    \item Der Durchschnitt endlich vieler offener Menge ist offen.
+    \item Die Vereinigung beliebig vieler offener Menge ist offen.
+  \end{enumerate}
+\end{Bem}
