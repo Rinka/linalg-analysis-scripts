@@ -8,7 +8,7 @@
       \item Monotonie: $f\leq g$ $\implies$ $\int^b_af\cdot \md x\leq \int^b_ag\cdot \md x$
       \item Beschränktheit: $\Abs{\int^b_af\cdot \md x}\leq \int^a_b\Abs{f(x)}\md x\leq (b-a)\Norm{f} = \sup_{x\in[a;b]}f$
     \end{itemize}
-  \item Regelfunktionen: $R\left( [a,b] \right)$ = Vektor nach der Regel $f\supset\tau\left( [a;b] \right)$
+  \item Regelfunktionen: $\mathcal{R}\left( [a,b] \right)$ = Vektor nach der Regel $f\supset\tau\left( [a;b] \right)$
   \item gleichmässige Konvergenz $f_n\to f\xLeftrightarrow{\text{def}}\Norm{f_n-f}\to 0$
 \end{itemize}
 \subsubsection{Vorgehen}
@@ -19,7 +19,7 @@
     \item Riemannsche Summen
 \end{enumerate}
 \begin{Sat}{Approximationssatz}
-  \[f\in R{a;b}\Lra \exists \text{Folge} \phi_n\in \tau[a;b]:\phi_n\to f\text{gleichmässig}\]  
+  \[f\in \mathcal{R}{a;b}\Lra \exists \text{Folge} \phi_n\in \tau[a;b]:\phi_n\to f\text{gleichmässig}\]  
   ist per Definition äquivalent mit
   \[\exists \text{Folge}\phi_n\in \tau[a;b]: \Norm{\phi_n-f}\to 0\]
   wobei
@@ -29,9 +29,9 @@
   (eine $\varepsilon$-approximierende Treppenfunktion)
 \end{Sat}
 \begin{Bew}{$\Ra$}
-  d.h. $f\in R\implies \exists \varepsilon$-approx. Treppen. Widerspruchsbeweis:
+  d.h. $f\in \mathcal{R}\implies \exists \varepsilon$-approx. Treppen. Widerspruchsbeweis:
   \begin{align*}
-    f\in R[a;b]\\
+    f\in \mathcal{R}[a;b]\\
     \exists \varepsilon >0: f \text{besitzt keine} \varepsilon \text{-approx. Treppenfunktion}
   \end{align*}
   Wir konstruieren eine Intervallschachtelung $I_n=[a_n;b_n]$ s.d. $\forall_n f|_{I_n}$ besitzt keine $\varepsilon$-approx.Treppenfunktion
@@ -74,10 +74,10 @@
     \Abs{f(x)-f(x')}&\leq& \Abs{f(x)-\phi(x)}+\Abs{\phi(x)^{(=\phi(x')}-f(x')}\\
     &\leq&\Norm{f-\phi}+\Norm{\phi-f}<\varepsilon
   \end{align*}
-  $\forall \varepsilon>0$ $\exists\beta:$ Cauchyeigenschaft gilt auf $(x_0;R)$ $\implies$ $\exists \lim_{x\uparrow x_0}f(x)$. Ähnlich: $\exists\lim_{x\uparrow x_0}f(x)$ $\forall x_0\in\left(a;b\right]$.
+  $\forall \varepsilon>0$ $\exists\beta:$ Cauchyeigenschaft gilt auf $(x_0;\mathcal{R})$ $\implies$ $\exists \lim_{x\uparrow x_0}f(x)$. Ähnlich: $\exists\lim_{x\uparrow x_0}f(x)$ $\forall x_0\in\left(a;b\right]$.
 \end{Bew}
 \begin{Kor}
-  \[f\in R[a;b]\ \Lra\ \exists \text{Folge}\Psi_b\in\tau[a;b]:\sum^\infty_{k=1}\phi_k=f\]
+  \[f\in \mathcal{R}[a;b]\ \Lra\ \exists \text{Folge}\Psi_b\in\tau[a;b]:\sum^\infty_{k=1}\phi_k=f\]
   konvergiert konstant
 \end{Kor}
 \begin{Kor}
@@ -103,7 +103,7 @@
   \[I=\overbrace{U_\alpha}^{\text{höchstens abzählbar}}\overbrace{I_\alpha}^{\text{kompakt}}\]
 \end{Bew}
 \begin{Sat}
-  \[f\in R\left( [a:b] \right)\implies f \text{beschränkt auf} [a;b]\]
+  \[f\in \mathcal{R}\left( [a:b] \right)\implies f \text{beschränkt auf} [a;b]\]
 \end{Sat}
 \begin{Bew}
   \begin{align*}
@@ -114,7 +114,7 @@
 \end{Bew}
 \begin{Def}{Integration von Regelfunktionen}
   \ldots auch bekannt als ``Regelintegral''\\
-  Sei $f\in R[a;b]$
+  Sei $f\in \mathcal{R}[a;b]$
   \[\int_a^bf(x)fx:\Limi{n}\int^b_a\phi_n(x)\md x\]
   wobei $\phi_n$ eine approximierene Folge von Treppenfunktionen ist (d.h. $\Norm{\phi_n-f}\to 0$)
 \end{Def}
@@ -171,11 +171,11 @@
       0 & x\in \mb{R}\setminus \mb{Q}
     \end{cases}
   \end{align*}
-  $g\in R[0;1]$ und $int^b_ag(x)\md x=0$
+  $g\in \mathcal{R}[0;1]$ und $int^b_ag(x)\md x=0$
 \end{Bsp}
 \subsubsection{Eigenschaften}
 \begin{Sat}
-  \[\forall f, g\in R [a;b] \forall \alpha,\beta\in \mb{C} \text{gelten}\]
+  \[\forall f, g\in \mathcal{R} [a;b] \forall \alpha,\beta\in \mb{C} \text{gelten}\]
   \begin{description}
     \item[Linearität] \[\int^b_a(\alpha f+ \beta g)\md x = \alpha \int^b_af\cdot \md x+\beta\int^b_a g\cdot \md x\]
     \item[Beschränktheit] \[\Abs{\int^b_a f(x)\cdot \md x}\leq \int^b_a\Abs{f(x)}\md x\leq (b-a)\Norm{f}\]
@@ -184,6 +184,6 @@
   ($f,g$ reellwertig $f(x)\leq g(x)\forall x$)
 \end{Sat}
 \begin{Sat}{Additivität}
-  Sei $f\in R[a;b]$ und sei $c\in (a;b)$
+  Sei $f\in \mathcal{R}[a;b]$ und sei $c\in (a;b)$
   \[\int^b_af(x)\md x=\int^c_a f(x)\md x+\int^b_cf(x)\md x\]
 \end{Sat}

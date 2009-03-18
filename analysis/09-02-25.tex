@@ -22,12 +22,12 @@
   \end{align*}
 \end{Bew}
 \begin{Def}
-  $f\in R[a;b]$, $b>a$
+  $f\in \mathcal{R}[a;b]$, $b>a$
   \[\int^a_bf(x)\md x := \int^b_af(x)\md x\]
   \[\int^a_af(x)\md x := 0 \]
 \end{Def}
 \begin{Sat}
-  $f\in RI(): \forall a,b,c \in I$
+  $f\in \mathcal{R}I(): \forall a,b,c \in I$
   \[\int^c_af(x)\md x = \int^b_af(x)\md x + \int^c_bf(x)\md x\]
 \end{Sat}
 \begin{Bem}
@@ -50,7 +50,7 @@
   \end{align*}
 \end{Bem}
 \begin{Sat}{Mittelwertsatz}
-  Sei $f:[a;b]\to \underline{\mb{R}}$ \underline{stetig}. Sei $p:[a;b]\to\mb{R}$ Regelfunktion mit $p\geq 0$. Dann $\exists \xi\in [a;b]$ s.d.
+  Sei $f:[a;b]\to \underline{\mb{R}}$ \underline{stetig}. Sei $p:[a;b]\to\mb{R}\in\mathcal{R}$ mit $p\geq 0$. Dann $\exists \xi\in [a;b]$ s.d.
   \[\int^b_a f(x)p(x)\md x=f(\xi)\int^b_a p(x)\md x\]
   Falls $\int p \neq 0$
   \begin{align*}
@@ -78,7 +78,7 @@
   \[\mu=f(\xi)\]
 \end{Bew}
 \begin{Sat}
-  Sei $f:[a;b]\to \mb{R}$ Regelfunktion mit $f\geq 0$ und $\int^b_af(x)\md x=0$. Dann ist $f(x_0)=0$ an jeder Stetigkeitsstelle $x_0$. Ferner gilt: $f=0$ fast überall.
+  Sei $f:[a;b]\to \mb{R}\in\mathcal{R}$ mit $f\geq 0$ und $\int^b_af(x)\md x=0$. Dann ist $f(x_0)=0$ an jeder Stetigkeitsstelle $x_0$. Ferner gilt: $f=0$ fast überall.
 \end{Sat}
 \begin{Bew}{(Widerspruchsbeweis)}
   Sei $x_0$ eine Stetigkeitsstelle mit $f(x_0)>0$. $f$ stetig in $x_0$ $\implies$ $\exists x_0 \in [a:b]\subset[a:b]$ s.d.
@@ -93,7 +93,7 @@
   $\blitza$
 \end{Bew}
 \begin{Sat}
-  $f$ Regelfunktion $\implies$ $f$ besitzt höchstens abzählbar viele Unstetigkeitsstellen $\implies$ $f=0$ fast überall
+  $f\in\mathcal{R}$ $\implies$ $f$ besitzt höchstens abzählbar viele Unstetigkeitsstellen $\implies$ $f=0$ fast überall
 \end{Sat}
 \begin{Kor}
   $f:[a;b]\to\mb{R}$ stetig, $f\geq 0$, $\int_a^bf(x)\md x=0$ $\implies$
@@ -103,7 +103,7 @@
 \end{Kor}
 \subsection{Fundamentalsatz der Analysis}
 \begin{Sat}
-  Sei $f:I\to\mb{C}$ Regelfunktion und sei $a\in I$. Für jedes $x\in I$ definiert man
+  Sei $f:I\to\mb{C}\in\mathcal{R}$ und sei $a\in I$. Für jedes $x\in I$ definiert man
   \[F(x):=\int_a^x f(t)\md t\ F:I\to\mb{C}\]
   Dann ist $F$ eine Stammfunktion zu $f$ (d.h. $F$ ist stetig und fast überall differenzierbar (und $F'=f$ fast überall)) mit
   \begin{align*}
@@ -123,7 +123,7 @@
     \Abs{f(x_2)-F(x_1)}=\Abs{\int^{x_2}_{x_1}f(t)\md t}\leq^{\text{Bijektivität}} \Abs{x_2-x_1}\Norm{f}_\tau
   \end{align*}
   $\implies$ $F|_\tau$ Lipschitz-stetig $\implies$ $F|_\tau$ stetig $\forall \tau \implies$ \underline{$F$ stetig auf $I$}.\\
-  Wir berechnen $F_+'(x_0)$. $f$ Regelfunktion $\implies \exists f_+(x_0)$. $\forall \varepsilon>0 \exists \delta >0$
+  Wir berechnen $F_+'(x_0)$. $f\in\mathcal{R}$ $\implies \exists f_+(x_0)$. $\forall \varepsilon>0 \exists \delta >0$
   \begin{align*}
     \Abs{f(x)-f_+(x_0)}<\varepsilon\ \forall x\in(x_0, x_0+\delta)\\
   \end{align*}
@@ -135,7 +135,7 @@
   \end{align*}
 \end{Bew}
 \begin{Kor}
-  Sei $f:I\to\mb{C}$ Regelfunktion und sei $\Phi$ eine Stammfunktion zu $f$. Dann $\forall a,b\in I$
+  Sei $f:I\to\mb{C}\mathcal{R}$ und sei $\Phi$ eine Stammfunktion zu $f$. Dann $\forall a,b\in I$
   \begin{align*}
     \int^b_af(x)\md x&=&\Phi(b)-\Phi(a)\\
     &=:&\Phi|^b_a

@@ -33,7 +33,7 @@
   \end{align*}
 \end{Sat}
 \begin{Bew}
-  $u,v$ stetig und $u,v$ Regelfunktionen $\implies$ $u'v+uv'$ Regelfunktion. Fast überall: $u'v+uv'=(uv)'$ Kettenregel.
+  $u,v$ stetig und $u,v\in\mathcal{R}$ $\implies$ $u'v+uv'\in\mathcal{R}$. Fast überall: $u'v+uv'=(uv)'$ Kettenregel.
   \begin{align*}
     \int(u'v+uv')\md x=\int(uv)'\md x=uv
   \end{align*}
@@ -63,7 +63,7 @@
 \end{Bsp}
 \subsubsection{Substitutionsregel}
 \begin{Sat}{Substitutionsregel}
-  Sei $f$ Regelfunktion auf $I$, $F$ eine Stammfunktion zu $f$, $t:[a;b]\to I$ stetig differenzierbar und streng monoton. Dann ist $F\circ t$ eine Stammfunktion zu
+  Sei $f\in\mathcal{R}$ auf $I$, $F$ eine Stammfunktion zu $f$, $t:[a;b]\to I$ stetig differenzierbar und streng monoton. Dann ist $F\circ t$ eine Stammfunktion zu
   \[(f\circ t)t'\ \text{auf}\ [a;b]\]
   und
   \[\int^b_af(t(x))t'(x)\md x=\int^{t(b)}_{t(a)}f(t)\md t\]
@@ -138,7 +138,7 @@ Wobei $x^2+2bx+c$ keine reelen Lösungen ergeben darf.
   \begin{align*}
     \Norm{f-\sum^p_{n=1}f_n}<\frac{\varepsilon}{2}
   \end{align*}
-  $f_n$ Regelfunktion $\implies$ $\sum^p_{n=1}f_n$ Regelfunktion $\implies$ $\exists$ Treppenfunktion $\phi$ mit
+  $f_n\in\mathcal{R}$ $\implies$ $\sum^p_{n=1}f_n\in\mathcal{R}$ $\implies$ $\exists$ Treppenfunktion $\phi$ mit
  \begin{align*}
    \Norm{\sum^p_{n=1}f_n-\phi}<\frac{\varepsilon}{2}
  \end{align*}
@@ -146,7 +146,7 @@ Wobei $x^2+2bx+c$ keine reelen Lösungen ergeben darf.
  \begin{align*}
    \Norm{f-\phi}\leq \Norm{f-\sum^p_{n=1}f_n}+\Norm{\sum^p_{n=1}f_n-\phi}<\varepsilon
  \end{align*}
- $\implies$ $f$ Regelfunktion
+ $\implies$ $f\in \mathcal{R}$
  \begin{align*}
    \Abs{\int_a^bf(x)\md x-\sum^p_{n=1}\int^b_af_n(x)\md x}\leq\\
    \leq \int^b_a\Abs{f(x)-\sum^p_{n=1}f_n(x)}\md x\leq \\
