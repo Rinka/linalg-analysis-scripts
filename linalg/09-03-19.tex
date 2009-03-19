@@ -1,0 +1,119 @@
+\begin{Bem}
+  $F$ selbstadjugiert, $\dim V <\infty$ $\implies$ $\exists$ orthonromale Basis von Eigenvektoren $\implies$
+  \[V=\bigoplus_\lambda \eig(F;\lambda)\]
+  orthogonale direkte Summe $\rsa$ orthogonalte Projektion \[P_\lambda V\to \eig (F,\lambda)\] Dann können wir schreiben
+  \[F=\sum_{\text{Eigenwerte} \lambda} \lambda P_\lambda\]
+  \[=\left\{ \text{Eigenwerte von } F \right\}=\text{''Spektrum''}\]
+  Geschrieben mit Matrizen:
+  \[A\in \Mat{R} \text{ symmetrisch} \implies \exists S\in O(n)\]
+  so dass $S^{-1}AS$ eine Diagonalmatrix ist.\\
+  Interpretation: der zu $A$ assoziierte Endomorphismus ist Diagonalisierbar.\\
+  $S^tAS$ ist eine Diagonalmatrix\\
+  Interpretation: $A\ \lra\ s:\mb{R}^n\times\mb{R}^n\to\mb{R}$ Bilinearform. 
+  \begin{align*}
+    \diag(\lambda_1,\cdots,\lambda_n)\ \lra\ (x,y)\mapsto& x^t\diag(\lambda_1,\cdots,\lambda_n)y\\
+    \Mx{x_1\\\vdots\\x_n}\Mx{y_1\\\vdots\\y_n}\mapsto&\sum_{i=1}^n\lambda_ix_iy_i
+  \end{align*}
+  \paragraph{Fragen}
+  \begin{itemize}
+    \item Zu einer symmetrischen Bilinearform gibt es eine bestimmte Normalform?
+    \item Wie kann man das praktisch berechnen?
+  \end{itemize}
+\end{Bem}
+\begin{Prop}{Hauptachsentransofrmation symmetrischer Matrizen}
+  Sei $A\in M(n\times n,\mb{R})$ symmetrisch und $s:\mb{R}^n\times\mb{R}^n\to\mb{R}$ die entsprechende symmetrische Bilinearform. Dann:
+  \begin{enumerate}
+    \item Ist $B=(w_1,\cdots,w_n)$ eine orthonormale Basis von Eigenvektoren von $A$, so ist $M_B(s)=\diag(\lambda_1,\cdots,\lambda)$ wobei $\lambda_1,\cdots,\lambda_n)$ die Eigenwerte von $A$ sind.
+    \item Es gibt eine Basis $B'$ mit
+      \[M_{B'}(s)=\Mx{E_k & &\\ & -E_l&\\& & 0}\]
+      Blockdiagonalmatrix, wobei
+      \begin{align*}
+        k=\#\left\{ i|\lambda_i>0 \right\}&&\\
+        l=\#\left\{ i|\lambda_i<0 \right\}&&
+      \end{align*}
+  \end{enumerate}
+\end{Prop}
+\begin{Bew}
+  \begin{enumerate}
+    \item $\Lra$ $\exists S\in O(n)$ mit $S^tAS=\diag(\lambda_1,\cdots,\lambda_n)$
+    \item $\Lra$ $\exists T\in GL_n(\mb{R})$ mit $T^tAT=\Mx{E_k & &\\ & -E_l&\\& & 0}$
+  \end{enumerate}
+  oBdA habe wir 
+  \begin{align*}
+    \lambda_1,\cdots,\lambda_k > 0&&\\
+    \lambda_{k+1},\cdots,\lambda_{k+l}<0&&\\
+    \lambda_{k+l+1}=\cdots=\lambda_n=0&&    
+  \end{align*}
+  Wir nehmen $B'=\left( w_1',\cdots,w_n' \right)$ mit
+  \[w_i'=\begin{cases}
+    \frac{w_i}{\sqrt{\Abs{\lambda_i}}}&i\leq k+l\\
+    w_i, i>l+l
+  \end{cases}\]
+  \begin{gather*}
+    (w_i')^tAw_i'=\frac{1}{\Abs{\lambda_i}}w_i^tAw_i=\frac{1}{\Abs{\lambda_i}}\lambda_i\ \text{für } i\leq k+l
+  \end{gather*}
+\end{Bew}
+\begin{Bem}
+  \begin{gather*}
+    T^tAT=\underbrace{\Mx{E_k&&\\&-E_n&\\&&0}}_{\text{Sylvester-Form}}
+  \end{gather*}
+  \ldots Erklärung zum Namen ``Hauptachsentransformation''\ldots
+\end{Bem}
+\begin{Kor}
+  Sei $s:\mb{R}^n\times\mb{R}^n\to\mb{R}$ eine symmetrische Bilinearform mit entsprechender Matrix $A$. Die folgenden Aussagen sind äquivalent:
+  \begin{enumerate}
+    \item $s$ ist positiv definit
+    \item Alle Eigenwerte von $A$ sind positiv
+    \item Die Koeffizienten des charakteristischen Polynoms haben alternierende Vorzeichen
+  \end{enumerate}
+  Vorzeichenregel von Descartes
+\end{Kor}
+\begin{Bsp}
+  \[A=\Mx{3&1&2\\1&3&-1\\2&-1&2}\]
+  \[P_A(t)=\det(tE_3-A)=t^3-ut^2+15t\underbrace{+}3\]
+  \[P_A(-1)=-21\ P_a(0)=3 \implies \exists \lambda: -1<\lambda<0\]
+\end{Bsp}
+\begin{Bew}
+  $s$ ist äquivalent zu 
+  \[(x,y)\mapsto\sum^n_{i=1}\lambda x_iy_i\]
+  $\implies$ $s$ positiv definit $\Lra$ $\lambda_i >0$ $\forall i$
+\end{Bew}
+\begin{Bem}{Weitere Begriffe}
+  $s:V\times V\to\mb{R}$ symmetrische Bilinearform
+ \begin{table}[htb]
+   \centering
+   \begin{tabular}{cc}
+     positiv definit & positiv semidefinit \\
+     negativ definit & negativ semidefinit \\
+     indefinit: & $\exists x\in V: s(x,x)> 0$ und $y\in V: s(y,y)<0$
+   \end{tabular}
+   \caption{Weitere Begriffe}
+ \end{table}
+\end{Bem}
+\begin{Bem}{Ausartungsraum}
+  Ausartungsraum von einer Bilinearform $s:V\times V\to K$ auf einem Vektorraum über einem beliebigen Körper $K$ ist:  
+  \[U:=\left\{ v\in V|s(v,w)=0\ \forall w\in V \right\}\]
+  und ist ein Untervektorraum. Falls $s$ symmetrisch oder schiefsymmetrisch ist, bekommen wir eine induzierte Bilinearform $\bar s:V/U\times V/U\to K$, gegeben durch
+  \[v+U,w+U)\mapsto s(v,w)\]
+  und $\bar s$ ist nicht ausgeartet.
+  \begin{align*}
+    v'=v+u, &\ u\in U\\
+    w'=w+\tilde u, &\ \tilde u \in U\\
+  \end{align*}
+  \begin{gather*}
+    s(v',v')=s(v,w)+s(u,w)+s(v,\tilde u)+s(u, \tilde u)=\\
+    =s(v,w)+s\underbrace{(u,w)}_{=0} \pm \underbrace{s(\tilde u,v)}_{=0}+s\underbrace{(u,\tilde u)}_{=0}
+  \end{gather*}
+  \\
+  \begin{gather*}
+    s(v,v)=0 \implies v\in U \implies v+U
+  \end{gather*}
+  ist Nullvektor von $V/U$
+\end{Bem}
+\begin{Kor}
+  Sei $n\in\mb{N}_{>0}$ und $s:\mb{R}^n\times\mb{R}^n\to\mb{R}$ eine symmetrische Bilinearform. dann gibt es eine orthogonale Zerlegung
+  \[\mb{R}^n=W_+\oplus W_i\oplus W_0\]
+  mit
+  \[s|_{W_+}>0,\ s|_{W_-}<0\]
+  und $W_0=$ Ausartungsraum von $s$
+\end{Kor}
