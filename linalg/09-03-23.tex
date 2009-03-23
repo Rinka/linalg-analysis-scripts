@@ -1,0 +1,121 @@
+\begin{Prop}{Trägheitsgesetz/Signatur von Sylvester}
+  Sei $V$ ein endlichdimensionaler reeller Vektorraum und $s:V\times V\to\mb{R}$ eine symmetrische Bilinearform. Sei
+  \[V=V_+\oplus V_-\oplus V_0\]
+  eine Zerlegung als orthogonale direkte Summe, mit $s|_{V_+}>0$, $s|_{V_-}<0$ und $V_0$=Ausartungsraum von $s$. Dann sind
+  \[r_+:=\dim(V_+),\ r_-=\dim(V_-)\ und\ r_0:=\dim(V_0)\]
+  Invarianten von $s$, charakterisiert durch
+  \[r_+=\max\left\{ \dim W| W\subset V\ \text{Untervektorraum},\ s|_W>0 \right\}\]
+  \[r_-=\max\left\{ \dim W| W\subset V\ \text{Untervektorraum},\ s|_W<0 \right\}\]
+  Die Invarianten $(r_+,r_-,r_0)$ heisst Trägheitsindex oder Signatur von $s$
+\end{Prop}
+\begin{Bem}
+  Ist $A$ eine $n\times n$ symmetrische reelle Matrix, heisst Signatur die Signatur von der zu $A$ entsprechender Biliniearform.
+\end{Bem}
+\begin{Bem}
+  Auch $r_+-r_-$ heisst Signatur.
+  \begin{table*}[htb]
+    \centering
+    \begin{tabular}{ccc}
+      Dimension & $\dim V=r_++r_-+r_0$\\
+      Rang & $r_++r_-$ & $\lra$ $(r_+,r_-,r_0)$\\
+      Signatur in diesen Sinn & $r_+-r_-$
+    \end{tabular}
+  \end{table*}
+\end{Bem}
+\begin{Bew}
+  Reduktionsschritt: Es genüngt, das Resultat zu beweisen, im Fall dass $s$ nicht ausgeartete ist.
+  \[V\to\bar V=V/V_0\]
+  \[V=V_+\oplus V_- \oplus V_0\]
+  \[\bar V=\bar V_+\oplus \bar V_-\]
+  wobei $\bar V_\pm$ = Bild von $V_\pm$. Bew. $\bar V=\bar V_++\bar V_-$ direkte Summe 
+  \[\Lra\ \bar V_+\cap \bar V_-=0\]
+  \[\bar v\ \lra\ v\in V_+\oplus V_0\]
+  und
+  \[v\in V_-\oplus V_0\]
+  $\Lra v\in V_0$
+  Behauptung:
+  $\bar s$ induzierte Bilinearform auf $\bar V$
+  \[\max \left\{ \dim W| s|_W>0 \right\} = \max \left\{ \dim U | U\subset \bar V, \bar s|_U>0 \right\}\]
+  und
+  \[\max \left\{ \dim W| s|_W<0 \right\} = \max \left\{ \dim U | U\subset \bar V, \bar s|_U<0 \right\}\]
+  Ist $W\subset V, s|_W>0$, und $\bar W:=$ Bild von $W$, so haben wir
+  \[\dim\bar W=\dim W\]
+  und
+  \[\bar s|\bar W>0\]
+  Dimensionsformel: 
+  \[\dim \bar W=\dim W-\dim(\underbrace{W\cap V_0}_{=0})=\dim W\]
+  und
+  \[\bar s(\bar v,\bar v)=s(v,v)\]
+  wobei $v\in W \mapsto v\in \bar W$
+  Umgekehrt ist
+  \[U\subset\bar V,\ \bar s|_U>0,\ \dim U=d\]
+  wählen Basis $(\bar v_1,\dots,\bar v_d)$ von $\bar U$, mit $v_i\mapsto\bar v_i$ $\forall i$ dann haben wir $W:=\Span(v_1,\dots,v_d)$ hat die Eigenschaft
+  \[\dim W=d\ s|_W>0,\ \Im(W)=U\]
+
+  Beweis im Fall $s$ nicht ausgeartet:\\
+  Behauptung: Ist
+  \[W_+\subset V,s|_{W_+}>0,\ W_-\subset V,s|_{W_-}<0\]
+  so haben wir
+  \[W_+\cap W_-=0\]
+  Es folgt:
+  \[\dim W_- + \dim W_+ \leq \dim V\]
+  mit Gleicheit $\Lra$ $V=W_+\oplus W_-$\\
+  Deshalb
+  \[r_++r_- \leq \dim V\]
+  Und wir haben $=$ aus dem Korollar\\
+  (alternativer Beweis ohne Quotientenvektorräume sehe Buch)\\
+\end{Bew}
+\begin{Bem}
+  Praktische Fragen:
+  \begin{itemize}
+    \item Wie berechnet man die Signatur einer symmetrischen Bilinearform?
+    \item Wie findet man eine Basis, so dass die darstellden Matrix in Sylversterform ist?
+  \end{itemize}
+  In Matrixen: $A\in\Mat{R}$ symm.
+  \begin{itemize}
+    \item Signatur?
+    \item Finden $T\in GL_n(\mb{R})$ mit $T^tAT$ in Sylvesterform
+  \end{itemize}
+  Antwort:\\
+  Aus der Hauptachsentrasformation:
+  \[\exists\ S\in O(n),\ S^tAS=S^{-1}AS=\diag(\lambda,\dots,\lambda_n)\]
+  $\implies$ Signatur
+  \[r_+=\#\left\{ i|\lambda_i>0 \right\}\]
+  \[r_-=\#\left\{ i|\lambda_i<0 \right\}\]
+  \[r_0=\dim\Ker(A)\]
+  \[S\stackrel{\text{Normieren der Spaltenvektoren}}{\rsa}S'\]
+  mit $S'^tAS$ in Sylvesterform.\\
+  Alternatives, oft leicheres Verfahren:
+  \begin{itemize}
+    \item $\Ker(A)$ = Ausartungsraum berechnen
+    \item Vektoren Wählen, wobei $q(v)=s(v,v)$ verschieden von Null ist. $\rsa q(v)\in\left\{ \pm 1 \right\}$ $\rsa v^\perp$
+  \end{itemize}
+\end{Bem}
+\begin{Bsp}
+  \begin{gather*}
+    A=\Mx{5&2&3\\ 2&1&1\\ 3&1&2}\\
+    P_A(t)=t^3-8t^2+3t=t\left(t-(4+\sqrt{13})\right)\left( t-(4-\sqrt{13} \right)\\
+  \end{gather*}
+  Signaturen $(2,0,1)$
+  Mit Halbachsentransformation\\
+  \begin{tabular}{ccc}
+    Eigenwert 0&$\rsa$&Eigenvektor $(1,-1,1)$\\
+    Eigenwert $4+\sqrt{13}$ & $\rsa$ & Eigenvektor $(1,4-\sqrt{13},-3+\sqrt{13})$\\
+    Eigenwert $4-\sqrt{13}$ & $\rsa$ & Eigenvektor $(1,4+\sqrt{13},-3-\sqrt{13})$
+  \end{tabular}\\
+  Normieren\dots\\
+  $S'$ ausrechnen\dots (ne danke)\\
+  haben wir 
+  \[S'^t=\Mx{1&&\\&1&\\&&0}\]
+\end{Bsp}
+\begin{Bsp}{Alternativ}
+  \begin{gather*}
+    e_2:\ q(e_2)=e^t_2Ae_2=1\\
+    e_2^\perp = \left\{ (x,y,z)|2x+y+z=0 \right\}\\
+    (-1,2,0)A\Mx{-1\\2\\0}=1\\
+    \Ker(A)=\Span\Mx{1&-1&-1}\\
+    T:=\Mx{0&-1&1\\1&2&-1\\0&0&-1}
+  \end{gather*}
+  mit $T$ haben wir $T^tAT=\Mx{1&&\\&1&\\&&0}$
+\end{Bsp}
+\section{Klassifikation von Bilinearformen auf $\mb{R}^n$ $\lra$ Signatur}
