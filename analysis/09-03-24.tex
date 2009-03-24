@@ -1,0 +1,205 @@
+\begin{Def}{abgeschlossene Menge}
+  Eine Menge $A\subset \mb{R}^n$ heisst abgeschlossen, wenn ihr Komplement offen ist.
+\end{Def}
+\begin{Bsp}
+  \begin{itemize}
+    \item $\varnothing$
+    \item $\mb{R}^n$
+    \item \[\overline{K_r(a)}:=\left\{ x\in\mb{R}^n:\Norm{x-a}\leq r \right\}\]
+      \[K_r(a):=\left\{ \Norm{x-a}>r \right\}\ \text{offen}\]
+  \end{itemize}
+\end{Bsp}
+\begin{Eig}
+  \begin{itemize}
+    \item Die Vereinigung endlich vieler abgeschlossener Mengen ist abgeschlossen.
+    \item Der Durchschnitt beliebig vieler abgeschlossener Mengen ist abgeschlossen.
+  \end{itemize}
+\end{Eig}
+\begin{Bsp}{Gegenbeispiel (wichtig!)}
+  in $\mb{R}$ $\left( -\frac{1}{n},\frac{1}{n} \right)$ offen
+  \[\cap_n\left( -\frac{1}{n},\frac{1}{n} \right)=\{0\}\ \text{abgeschlossen}\]
+  Dabei erinnert man sich: $\cap$ endlich offen = offen
+\end{Bsp}
+\begin{Sat}
+  $A\subset\mb{R}^n$\\
+  $A$ abgeschlossen $\Lra$ $\forall$ konvergente Folge $(a_k)$ mit $a_k\in A$ $\forall k$ konvergiert gegen $a\in A$
+\end{Sat}
+\begin{Bew}
+  $\Ra$ Widerspruchsbeweis\\
+  Annahme: $A$ abgeschlossen, $(a_k)$, $a_k\subset A$ $\forall k$, $a_k\to a$, $a\not\in A$\\
+  $A$ abgeschlossen $\implies$ $A^C=\mb{R}^b\setminus A$ offen\\
+  $a\not\in A$ $\implies$ $a\in A^C$\\
+  $\implies$ $A^C$ ist eine Umgebung von $a$ $\implies$ $X^C$ enthält unendlich viele $a_k$ Widerspruch, denn $a_k\not\in A^C$ $\forall k$\\
+  $\La$ Kontrapositionsbeweis\\
+  Sei $A$ nicht abgeschlossen, dann ist $A^C$ nicht offen.
+  \[\implies a\in A^C:\ \forall \varepsilon >0\]
+  \[K_\varepsilon(a)\not\subset A^C\]
+  insbesondere $\varepsilon=\frac{1}{k}$ $k\in \mb{N}$\\
+  Sei
+  \[a_k\in K_\frac{1}{k}(a),\ a_k\not\in A^C\]
+  \begin{enumerate}
+    \item $a_k\in A$ $\forall k$
+    \item $a_k\to a$ (da $\Norm{a_k a}<\frac{1}{k}$)
+    \item $a\not\in A$
+  \end{enumerate}
+\end{Bew}
+\begin{Def}{Randpunkt von $M$}
+  Sei $M\subset\mb{R}^n$, $x\in\mb{R}^n$ $x$ heisst Randpunkt von $M$, wenn jede Umgebung von $x$ Punkte aus $M$ \underline{und} aus $M^C$ enthält.
+\end{Def}
+\begin{Not}{Randpunkte von $M$}
+  \[\partial M:\left\{ \text{Randpunkte von } M \right\}\]
+\end{Not}
+\begin{Bem}
+  \[\partial(M^C)=\partial M\]
+\end{Bem}
+\begin{Bsp}
+  \[\partial K_r(a)=S_r(a):=\left\{ x\in\mb{R}^n:\Norm{x-a}=r \right\}=\partial\overline{K_r(a)}\]
+  Übung: zeigen Sie das. Tipp: $x\in S_r(a)$ $K_\varepsilon(x), \varepsilon<r$
+\end{Bsp}
+\begin{Bsp}
+  $\mb{Q}\subset\mb{R}$
+  \[\partial\mb{Q}=\mb{R}\]
+\end{Bsp}
+\begin{Sat}
+  Sei $M\in\mb{R}^n$
+  \begin{enumerate}
+    \item \begin{enumerate}
+        \item $U\subset M$, $U$ offen $\implies$ $U\subset M\setminus \partial M$
+        \item $M\setminus\partial M$ ist offen
+      \end{enumerate}
+    \item\begin{enumerate}
+        \item $A\supset M$, $A$ angeschlossen $\implies A\supset M \cup \partial M$
+        \item $M\cup \partial M$ abgeschlossen
+      \end{enumerate}
+    \item\begin{enumerate}
+        \item $\partial M$ abgeschlossen
+      \end{enumerate}
+  \end{enumerate}
+\end{Sat}
+\begin{Bew}
+  \begin{enumerate}
+    \item \begin{enumerate}
+        \item zu zeigen: $\partial M\cap U=\varnothing$. Widerspruchsbeweis: Sei $\partial M\cap U\neq \varnothing$ Sei $x\in \partial M\cap U$ $\implies$ $U$ Umgebung von $x$ und $x\in\partial M$ $\implies$ $U$ enthält aus $M^C$ Widerspruch, denn $U\subset M$
+        \item Sei $a\in M\setminus \partial M$. Dann gibt es eine Umgebung $U$ von $a$ mit $U\subset M$ sonst wäre $a\in \partial M$ 1a $\implies$ $U\subset M\setminus \partial M$
+      \end{enumerate}
+    \item\begin{enumerate}
+        \item Komplement
+        \item Komplement
+      \end{enumerate}
+    \item\begin{enumerate}
+        \item Durchschnitt zweier abgeschlossener Mengen
+          \[\partial M=(M\cup\partial M)\cap(M^C\cup \partial M^C)\]
+      \end{enumerate}
+  \end{enumerate}
+\end{Bew}
+\begin{Kor}
+  \[U\ \text{abgeschlossen}\ \Lra\ U\ \text{alle ihre Randpunkte enthält}\]
+\end{Kor}
+\begin{Not}{offener Kern/Innere, abgeschlossene Hülle}
+  $M^0:=M\setminus\partial M$ der offene Kern von $M$ oder das $Innere$ von $M$. Die grösste offene Menge, die in $M$ liegt.\\
+  $\overline{M}:=M\cup\partial M$ die abgeschlossene Hülle von $M$. Die kleinste abgeschlossene Menge, die $M$ umfasst.
+\end{Not}
+\begin{Def}{Häufungspunkt}
+  Sei $M\subset \mb{R}^n$, $x\in\mb{R}^n$ $x$ heisst Häufungspunkt von $M$ wenn jede Umgebung von $x$ ein $y\in M$ enthält mit $y\neq x$.\\
+  äquivalent: Jede punktierte Umgebung von $x$ enthält Punkte aus $M$
+  \[\mathcal{H}(M):=\left\{ \text{Häufungspunkte} \right\}\]
+  \[\mathcal{H}(Kr(a))=\mathcal{H}(\overline{Kr(a)})=S_r(a)=\partial K_r(a)\]
+  im Allgemeinen: $\partial M\neq \mathcal{H}(M)$
+\end{Def}
+\begin{Bsp}
+  $M=\mb{R}\in\mb{R}$
+  \begin{align*}
+    \mathcal{H}(\mb{R})=\mb{R} && \partial\mb{R}=\varnothing
+  \end{align*}
+\end{Bsp}
+\begin{Bsp}
+  $M=\{a\}\subset\mb{R}$
+  \begin{align*}
+    \mathcal{H}(\{a\})=\varnothing && \partial\{a\}=a
+  \end{align*}
+\end{Bsp}
+\begin{Lem}
+  Sei $M\subset\mb{R}^n$
+  \[M\cup\mathcal{H}(M)=M\cup\partial M=\overline{M}\]
+\end{Lem}
+\begin{Bew}
+  zu zeigen: 
+  \begin{enumerate}
+    \item $\mathcal{H}\setminus M\subset\partial M$
+    \item $\partial M\setminus M\subset\mathcal{H}(M)$
+  \end{enumerate}
+  \begin{enumerate}
+    \item Sei $x\in\mathcal{H}\setminus M$ $\implies$ Jede Umgebung von $x$ enthält ein $y$ mit $y\in M$, $x\neq y$
+      \[U\ni x\in M^C\] %1. \in umkehren!
+      $\implies$ Jede Umgebung von $x$ enthält Punkte in $M$ und aus $M^C$ $\implies$ $x\in \partial M$
+    \item $x\in \partial M\setminus M$. Jede Umgebung von $x$ enthält ein $y\in M$
+      \[x\in M^C\implies y\neq x\implies x\in\mathcal{H}(M)\]
+  \end{enumerate}
+\end{Bew}
+\begin{Kor}
+  $A$ abgeschlossen $\Lra$ $A$ enthält alle ihre Häufungspunkte.
+\end{Kor}
+\subsection{Verallgemeinerung: Normierte Räume}
+\begin{Def}{Norm}
+  Sei $\mb{K}=\mb{R}$ oder $\mb{C}$ als Körper.\\
+  Sei $V$ ein Vektorraum über $\mb{K}$ Eine Norm auf $V$ ist eine Abbildung
+  \[\Norm{\ }:V\to\mb{R}\]
+  s.d.
+  \begin{enumerate}
+    \item \[\Norm{0}=0,\ \Norm{x}>0, \forall x\in V\setminus\{0\}\]
+    \item \[\Norm{\lambda x}=\Abs{\lambda}\Norm{x}\ \forall \lambda\in\mb{K}\ \forall x\in V\]
+    \item \[\Norm{x+y}\leq \Norm{x}+\Norm{y}\ \forall x,y\in V\]
+  \end{enumerate}
+\end{Def}
+\begin{Def}{normierter Raum}
+  Das Paar $(V,\Norm{\ })$ heisst normierter Raum.
+\end{Def}
+\begin{Bsp}
+  $\mb{R}^n$ mit der euklidischen Norm
+\end{Bsp}
+\begin{Bsp}{$p$-Norm}
+  $\mb{K}^n$ mit der $p$-Norm $p\geq 1$
+  \[\Norm{x}_p:=\sqrt[p]{\sum^n_{i=1}\Abs{x_i}^p}\]
+  ($p=2$ euklidisch)
+\end{Bsp}
+\begin{Bsp}{Maximumsnorm}
+    $\mb{K}^n$ mit der Maximumnorm
+    \[\Norm{x}_\infty:=\max\left\{ \Abs{x_1},\abs{x_2},\dots,\Abs{x_n} \right\}\]
+    Lemma: \[\Norm{x}_\infty=\Limi{p}\Norm{x}_p\]
+\end{Bsp}
+\begin{Bsp}{$L^p$-Norm}
+  $\mathcal{C}^0([a;b],\mb{K})$ mit der $L^p-Norm$, $p\geq 1$
+  \[\Norm{f}_p=\sqrt[p]{\int_a^b\Abs{f(x)}^p\md x}\]
+  $p=2$ ist für die Quantenmechanik interessant
+\end{Bsp}
+\begin{Bsp}{Supremumsnorm}
+  $\mathcal{C}([a;b],\mb{K})$ mit der Supremumsnorm
+  \[\Norm{f}_\infty:=\sup\left\{ \Abs{f(x)},x\in [a;b] \right\}\]
+\end{Bsp}
+\begin{Bsp}
+  Sei $\left\langle , \right\rangle$ ein Skalarprodukt auf $V$. Dann ist
+  \[\Norm{x}=\sqrt{\left\langle x,x \right\rangle }\]
+  eine Norm.
+\end{Bsp}
+\begin{Bem}
+  Alles was wir bisher bewiesen haben, gilt auf beliebigen normierte Räumen.
+\end{Bem}
+\subsection{Verallgemeinerung: Metrische Räume}
+\begin{Def}{Abstand, metrischer Raum}
+  Sei $X$ eine Menge. Eine Metrik auf $X$ ist eine Abbildung
+  \[d:X\times X\to\mb{R}\]
+  s.d.
+  \begin{enumerate}
+    \item $d(x,x)=0$, $d(x,y)>0$ $\forall x,y\in x$ mit $x\neq y$
+    \item $d(x,y)=d(y,x)$
+    \item $d(x,y)\leq d(x,z)+d(z,y)$ $\forall x,y,z\in x$
+  \end{enumerate}
+  \begin{itemize}
+    \item Die Zahl $d(x,y)$ heisst Abstand der Punkte $x$ und $y$.
+    \item Das Paar $(X,d)$ heisst metrischer Raum.
+  \end{itemize}
+\end{Def}
+\begin{Bsp}
+  $(V,\Norm{\ })$ normierter Raum
+  \[d(x,y):=\Norm{x-y}\]
+\end{Bsp}
