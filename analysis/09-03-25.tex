@@ -1,0 +1,197 @@
+\begin{Bsp}
+  $M$ nicht leere Menge
+  \[d(x,y):=\begin{cases}
+    0&x=y\\1&x\neq y
+  \end{cases}\]
+\end{Bsp}
+\begin{Bsp}
+  Sei $\gamma:I\to\mb{R}^n$ fast überall differenzierbar und regulär
+  \[M=I,\ d(x,y):=\Abs{\int^y_x\Norm{\dot\gamma(t)}\md t}\]
+  Länge zwischen $\gamma(x)$ und $\gamma(y)$.
+\end{Bsp}
+\begin{Def}
+  \[K_r(a):=\left\{ x\in M:d(x,a)<r \right\}\]
+  offene Kugel
+  \begin{itemize}
+    \item $K_\varepsilon(a)$ $\varepsilon$-Umgebungen von $a$
+    \item Umgebungen
+    \item \ldots
+  \end{itemize}
+\end{Def}
+\begin{Bem}
+  Es gelten die gleichen Rechenregeln für offene Mengen
+\end{Bem}
+\begin{Def}{Durch $d$ erzeugte Topologie}
+  $U\subset X$ heisst offen, wenn $U$ eine Umgebung von jedem $x\in U$ ist.
+  \[\mathcal{O}(d):=\left\{ \text{offene Mengen von $X$ bez. $d$} \right\}\subset P(x)\]
+  die durch $d$ erzeugte Topologie.
+\end{Def}
+\begin{Def}
+  $A$ ist abgeschlossen, wenn $A^C$ offen ist.
+\end{Def}
+\begin{Def}
+  Eine Folge $(x_k)$ in $(X,d)$ heisst konvergent, wenn $\exists x\in X$ mit
+  \[\Limi{k}d(x_k,x)=0\]
+\end{Def}
+\begin{Lem}
+  Eine Folge besitzt höchstens einen Grenzwert.
+\end{Lem}
+\begin{Bew}
+  Seien $x,x'\in X$
+  \begin{gather*}
+    \lim d(x,x_k)=0\\
+    \lim d(x',x_k)=0\\
+    0\leq d(x,x')\leq d(x,x_k)+d(x_k,x')\\
+    \implies x=x'
+  \end{gather*}
+\end{Bew}
+\begin{Sat}
+  $A\subset X,d$\\
+  $A$ abgeschlossen $\Lra$ $\forall$ konvergente Folge $(x_k)$ mit $x_k\in A\forall k$ gegen ein Element von $A$ konvergiert
+\end{Sat}
+\subsection{Teilraumtopologie}
+\begin{Def}{induzierte Metrix / Spurmetrik}
+  Sei $(X,d)$ metrischer Raum. Sei $X_0\subset X$. Man definiert
+  \[d_0:=X_0\times X_0\to\mb{R}\]
+  \[d_0:=d|_{X_0\times X_0}\]
+  $\forall x,y\in X_0$
+  \[d_0(x,y)=d(x,y)\]
+\end{Def}
+\begin{Lem}
+  $d_0$ ist eine Metrik.
+\end{Lem}
+\begin{Def}{Spurtopologie}
+  $a\in X_0$
+  \[K_r^{d_0}(a):=\left\{ x\in X_0:d_0(x,a)<r \right\}\]
+  \[K_r^{d_0}(a):=K_r(a)\cap X_0\]
+  $\implies$
+  \[\mathcal{O}d_0=\left\{ U\cap X_0,U\in \mathcal{O}(d) \right\}\]
+\end{Def}
+\begin{Not}
+  $X_0$-offen bedeutet $X_0$ bezüglich der Spurtopologie
+\end{Not}
+\begin{Bem}
+  $X_0$-offen $\not\implies$ offen in $X$
+\end{Bem}
+\begin{Bsp}
+  $X=\mb{R}$ (euklidisch) ,$X_0=\mb{Q}$. $\mb{Q}\subset X_0$ ist $X_0$-offen. $\mb{Q}$ ist $\mb{Q}$-offen, aber nicht offen in $\mb{R}$.
+\end{Bsp}
+\begin{Lem}
+  $U\subset X_0$ Ist $X_0$ offen in $X$, dann $U$ ist $X_0$-offen $\Lra$ $U$ offen in $X$
+\end{Lem}
+\begin{Bew}
+  $U$ $X_0$ offen $\implies \exists V\subset X$, offen s.d. $U=V\cap X_0$ $\implies$ $U$ offen
+\end{Bew}
+\subsection{Produkttopologie}
+\begin{Def}{Produkttopologie}
+  $(X,d_x)$, $(Y,d_y)$ metrische Räume. Man definiert $d$ auf $X\times Y$
+  \[d:(X\times Y)\times(X\times Y)\]
+  \[d\left( (x_1,y_1),(x_2,y_2) \right):=\max\left\{ d_x(x_1,x_2),d_y(y_1,y_2) \right\}\]
+  $x_1,x_2\in X$ $y_1,y_2\in Y$
+\end{Def}
+\begin{Lem}
+  $d$ ist eine Metrik auf $X\times Y$
+\end{Lem}
+\begin{Bem}{offene Kugeln}
+  \[K_r^d\left( (x,y) \right):=\left\{ (\tilde x,\tilde y)\in X\times Y:\max\left\{ d_x(\tilde x,x),d_y(\tilde y,y) \right\} \right\}<r\]
+  \[=\left\{ (\tilde x,\tilde y)\in X\times Y: \stackrel{d_x(\tilde x,x)<r}{d_y(\tilde y,y)<r} \right\}\]
+  \[K_r^d\left( (x,y) \right)=K_r^{d_x}(x)\times K_r^{d_y}\]
+  $\implies$
+  \[W\subset X\times Y\ \text{offen}\ \Lra\ \forall (x,y)\in W\ \exists\]
+  Umgebung $U$ von $x$ in $X$ und Umgebung $V$ von $y$ in $Y$ s.d
+  \[W\subset U\times V\]
+\end{Bem}
+\begin{Bsp}
+  Sind $U\subset X$ und $V\subset Y$ offen, dann ist $U\times V$ offen in $X\times Y$
+\end{Bsp}
+\subsection{Äquivalenz Metriken und Normen}
+\begin{Def}{äquivalente Metriken}
+  Seien $d$ und $d^*$ Metriken auf $X$. Sie heissen äquivalent, wenn
+  \[\mathcal{O}(d)=\mathcal{O}(d^*)\]
+\end{Def}
+\begin{Lem}
+  Zwei Metriken $d$ und $d^*$ sind genau dann äquivalent, wenn jede $d$-Kugel eine $d^*$-Kugel enthält mit demselben Mittelpunkt und umgekehrt.
+  \label{top:equi}
+\end{Lem}
+\begin{Bew}
+  $\Ra$ trivial\\
+  $\La$ Eine $d$-Umgebung $U$ enthält eine $d$-Kugel, deshalb enthält sie eine $d^*$-Kugel, deshalb ist sie eine $d^*$-Umgebung
+\end{Bew}
+\begin{Def}{äquivalente Normen}
+  Zwei Normen $\Norm{\ }$ und $\Norm{\ }^*$ auf $V$ heissen äquivalent, wenn sie äquivalente Metriken erzeugen.
+\end{Def}
+\begin{Lem}
+  $\Norm{\ }$ und $\Norm{\ }^*$ sind genau dann äquivalent, wenn
+  \[\exists c>0 \text{ und } C>0 \text{ s.d. }\ \forall x\in V\]
+  \[c\Norm{x}\leq \Norm{x}^*\leq C\Norm{x}\]
+\end{Lem}
+\begin{Not}
+  $K$ offene Kugel bezüglich $\Norm{\ }$ 
+  $K^*$ offene Kugel bezüglich $\Norm{\ }^*$ 
+\end{Not}
+\begin{Bew}
+  $\Ra$ $\Norm{\ }$ und $\Norm{\ }^*$ äquivalent. Lemma \ref{top:equi} $\implies$ $K_1(0)$ enthält eine Kugel $K_r^*(0), r>0$
+  \begin{gather*}
+    x=0\\
+    x\neq 0, y:=\frac{rx}{2\Norm{x}^*}\\
+    \Norm{y}^*=\frac{r}{2}<r\\
+    \implies y\in K_r^*(0)\implies y\in K_1(0)\implies \Norm{y}<1\\
+    \Norm{y}=\frac{r}{2}\frac{\Norm{x}}{\Norm{x}^*}\\
+    \Norm{x}^*>\frac{r}{2}\Norm{x}\\
+    c:=\frac{r}{2}
+  \end{gather*}
+  $\La$ \[K^*_{cr}(a)\subset K_r(a)\subset K_{Cr}^*(a)\]
+  $\implies$ Metriken sind äquivalent.
+\end{Bew}
+\begin{Sat}
+  Je zwei Normen auf einem endlichdimensionalen $\mb{K}$-Vektorraum sind äquivalent.
+\end{Sat}
+\begin{Bew}
+   Sei $V=\mb{R}^n$ mit Norm $\Norm{\ }$. wir zeigen, $\Norm{\ }$ äquivalent zu $\Norm{\ }_2$ euklidisch.
+  \begin{enumerate}
+    \item 
+      \[\exists C>0:\Norm{x}\leq C\Norm{x}_2\]
+      Sei $\left\{ e_y \right\}_{\nu=1,\cdots,n}$ Standardbasis von $\mb{R}^n$
+      \[x\in V:x=\sum^n_{\nu=1}x_\nu e_\nu,\ x_\nu\in \mb{R}\]
+      \[\Norm{x}\leq \sum^n_{\nu=1}\Abs{x_\nu}\Norm{e_\nu}\]
+      \[\Abs{x_\nu}\leq \Norm{x}_2\]
+      $\implies$
+      \[\Norm{x}\leq\Norm{x_2}\underbrace{\sum^n_{\nu=1}\Norm{e_\nu}}_{=:C}\]
+    \item
+      \[\exists c>0:-c\Norm{x}_2\leq \Norm{x}\]
+      Sei $S:=\left\{ x\in\mb{R}^n:\Norm{x}_2=1 \right\}$ (euklidische Einheitssphäre)
+      \[c:=\inf\left\{ \Norm{x}:x\in S \right\}\]
+      $x\neq 0$, $y:=\frac{x}{\Norm{x}_2}$ $\implies y\in S$
+      \[\implies c\leq \Norm{y}=\frac{\Norm{x}}{\Norm{x}_2}\]
+      \[\implies c\Norm{x}_2\leq\Norm{x}\]
+      zu zeigen: $c>0$
+  \end{enumerate}
+\end{Bew}
+\begin{Lem}
+  $c>0$
+\end{Lem}
+\begin{Bew}{Widerspruchsbeweis}
+  Annahme $c=0$
+  \[\implies \exists (x_k),\ x_k\in S< \Norm{x_k}\xrightarrow{k\to\infty}0\]
+  $(x_k)$ beschränkt bezüglich $\Norm{\ }_2$ BW $\implies$ $\exists$ bez. $\Norm{\ }_2$ konvergente Teilfolge $x_{k_l}$ d.h. $\exists a\in \mb{R}^n$
+  \[\Limi{l}\Norm{x_{k_l}-a}_2=0\]
+  \[\implies a_\nu=\Limi{l}x_{k_l,\nu}\]
+  Konvergenz bez. $\Norm{\ }_2$ $\Lra$ komponentenweise Konvergenz
+  \[\Norm{a}_2^2\sum_{\nu}a_\nu^2=\Limi{l}\sum_\nu\left( x_{k_l,\nu} \right)^2=1\]
+  $\implies a\in S$
+  \[\Norm{a}\leq \Norm{a-x_{k_l}}+\Norm{x_{k_l}}\]
+  \[\stackrel{a}{\leq}\underbrace{C\Norm{a-x_{k_l}}_2}_{\to 0}+\underbrace{\Norm{x_{k_l}}}_{\to 0}\]
+  \[\implies \Norm{a}=0\implies a=0\]
+  Widerspruch, denn $0\not\in S$
+\end{Bew}
+\begin{Bew}
+  Sei $(V,\Norm{\ })$ normierter endlichdimensionaler Vektorraum $\dim V=n$
+  \[\exists\phi:\mb{R}^n\to V\ \text{Isomorpisnus}\]
+  \[\Norm{x}_\phi:=\Norm{\phi(x)}\]
+  $\Norm{\ }^*$ eine zweite Norm auf $V$
+  \[\Norm{x}^*_\phi:=\Norm{\phi(x)}^*\]
+\end{Bew}
+\begin{Kor}
+  Für jede $\Norm{\ }$ auf $\mb{R}^n$
+  \[\Norm{x_k-a}\to 0\ \Lra\ x_{k,\nu}\to a_\nu \forall \nu\]
+\end{Kor}
