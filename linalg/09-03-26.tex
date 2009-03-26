@@ -1,0 +1,107 @@
+Seien euklidische $(V,\left\langle , \right\rangle )$ und symmetrische Bilinearform $s:V\times V\to\mb{R}$, so können wir die Bilinearform durch die Hauptachsentransormation verstehen.
+Seien ein endlichdimensionaler $\mb{R}$-Vektorraum $V$ und die symmetrische Bilinearform $s:V\times V\to\mb{R}$, dann ist $s$ durch die Signatur $(r_+,r_-,r_0)$ klassifiziert.
+\begin{Eig}
+  $\dim V=2$
+  \begin{tabular}[htbp]{rcc}
+    Signatur & $(2,0,0)$ & $q(v):=s(v,v)$ Quadratische Schale (positiv)\\
+    & $(0,2,0)$ & Quadratische Schale (negativ)\\
+    & $(1,1,0)$ & Sattelpunkt\\
+    & $(0,2,0)$ & Quadratisches halbes Rohr (positiv)\\
+    & $(1,0,1)$ & Quadratisches halbes Rohr (negativ)
+  \end{tabular}
+\end{Eig}
+\begin{Eig}
+  $\dim V=3$ $\left\{ q(v)=1 \right\}$
+  \begin{tabular}[htbp]{cc}
+    (3,0,0) & Sphäre \\
+    (2,1,0) & einschaliges Hyperboloid \\
+    (1,2,0) & zweischaliges Hyperboloid \\
+    (0,3,0) & $\varnothing$
+  \end{tabular}
+  + Fälle $s$ entartet
+\end{Eig}
+Der Fall von Bilinearformen über Vektorräumen über $\mb{K}$, $\mb{K}$ beliebiger Körper.
+\begin{Prop}{Orthogonalisierungssatz}
+  Sei $V$ ein endlichdimensionaler Vektorraum über einem Körper mit $\text{char} (K)\neq 2$. Sei $s$ eine symmetrische Bilinearform über $V$. Dann gibt es eine Basis $B$ von $V$, so dass die $M_B(s)$ eine Diagonalmatrix ist.
+\end{Prop}
+\begin{Bew}
+  Reduktionsschritt zum Fall $s$ nicht ausgeartet. Sei $U=$ Ausartungsraum. $\bar V:=V/U$ und $\bar s:=$ induzierte Bilinearform. Wählen wir ein Komplement $W\subset V$ zu $U$, so haben wir
+  \[V=U\oplus W\]
+  \[W\xrightarrow{\text{Isomorphismus}}\bar V\]
+  \[s|_W \ \text{nicht ausgeartet}\]
+  Wir können deshalb behaupten, dass $s$ nicht ausgeartet ist. Dann beweisen wir dies Aussage durch Induktion nach $\dim V$. $\dim V\leq 1$ trivial. Induktionsschritt:
+  \[s\ \text{nicht ausgeartet} \xRightarrow{\dim (\mb{K})\neq 2}\ \exists v\in V: s(v,v)\neq 0\]
+  Sei $V':=V^\perp$ Wir haben $\dim V'=\dim V-1$, weil $s$ nicht ausgeartet ist.\\
+  IA $\rsa$ Basis $B'$ von $V'$ mit $\underbrace{M_B(s|_{V'})}_{\text{auch nicht ausgeartet}}$ diagonal.
+  Dann:
+  \[B\& v \rsa B \text{ mit } M_B(s) \text{ eine Diagonalmatrix}\]
+\end{Bew}
+\begin{Kor}
+  Ist $\text{char } K\neq 2$, so gibt es zu einer symmetrischen Matrix $A\in\Mat{K}$ ein $S\in GL_n(\mb{K})$ so dass $S^tAS$ eine Diagonalmatrix ist.
+\end{Kor}
+\begin{Bsp}
+  $\mb{K}$ beliebig, $\text{chat}\ (K)\neq 2$ $V=K^2$
+  \begin{gather*}
+    s(x,y)=x_1y_2+x_2y_1\\
+    v_1=\Mx{1\\1} \\ s(v_1,v_1)=2\\
+    v_1^\perp = \Span\Mx{1\\-1}\\ v_2=\Mx{1\\-1}\\
+    s(v_2,v_2)=-2\\
+    B:=(v_1,v_2)\\ M_B(s)=\Mx{2&0\\0&-2}
+  \end{gather*}
+  $S\ \lra\ \Mx{0&1\\1&0}$ Standardbasis. Mit $S:=\Mx{1&1\\1&-1}$ haben wir
+  \[S^tAS=\Mx{1&1\\1&-1}\Mx{0&1\\1&0}\Mx{1&1\\1&-1}=\Mx{2&0\\0&-2}\]
+\end{Bsp}
+\begin{Bem}
+  offen bleibt die Frage: Sind symmetrische Bilinearformen $s$ und $s'$ auf $V$ gegeben $(\dim_\mb{K}<\infty)$, können wir entscheiden ob $s$ und $s'$ äquivalent sind?\\
+  Oder, in Matrizen: Sind symmetrische $A,A'\in \Mat{K}$ gegeben, können wir entscheiden, obes ein $S\in GL_N(\mb{K})$ gibt, so dass $S^tAS=A'$?\\
+  Die Antwort hängt von $\mb{K}$ ab.
+  \begin{itemize}
+    \item $\mb{K}=\mb{R}$ durch die Signatur
+    \item $\mb{K}=\mb{C}$ durch die Rang
+    \item andere $\mb{K}$?
+  \end{itemize}
+  Im Allgemeinen:
+  \begin{itemize}
+    \item Rang
+    \item Reduktion zum Fall einer nichtausgearteten Form
+  \end{itemize}
+  Wir behaupten: $s$ ist nicht ausgeartet $\Lra$ eine darstellende Matrix $A$ ist invertierbar.
+  \[\det(A)\in \mb{K}^*/( \mb{K}^*)^2\]
+  ist eine Invariante von $s$, wegen der Transformationsform.
+  \[T\in GL_n(\mb{K})\ \rsa\ T^tAT\]
+  ist eine andere darstellende Matrix. Und
+  \[\det(T^tAT)=\det(T^t)\det(A)\det(T)=(\det T)^2\det(A)\]
+\end{Bem}
+\begin{Def}{Diskriminante}
+  Sei $s:V\times V\to\mb{K}$ eine symmetrische Bilinearform (mit $\dim_\mb{K}V<\infty$). Die Diskiminante von $s$ ist 0 falls $s$ ausgeartet ist, sonst ist die Klasse ovn $\det(A)$ in $\mb{K}^*/( \mb{K}^*)^2$, wobei $A$ eine darstellende Matrix von $s$ ist. Die Diskriminante ist eine Invariante von $s$
+  \begin{itemize}
+    \item Rang
+    \item Diskriminante
+  \end{itemize}
+\end{Def}
+\begin{Bem}
+  Noch offen: sind $s$,$s'$ nicht ausgeartet, mit derselben Diskriminante, zu entscheiden, ob $s$ und $s'$ äquivalent sind.
+\end{Bem}
+\begin{Bsp}
+  $\mb{K}=\mb{Q}$, z.B. $V=\mb{Q}^2$, $s$ Standardskalarprodukt $s(x,y)=x_1,x_1+x_2y_2$ und $s'$ symmetrische Bilinearform mit $\disc(s)=-1$
+  \[\Mx{a&0\\0&a'}\stackrel{\text{Basiswechsel}}{\rsa}\Mx{a&0\\0&a}\]
+  mit $aa'=b^2, b\in \mb{Q}$
+  \[\implies a=\frac{b^2}{a'}=a'\left( \frac{b}{a'} \right)^2\]
+  $a=2$
+  \[\Mx{\frac{1}{2}&\frac{1}{2}\\\frac{1}{2}&-\frac{1}{2}}\Mx{2&0\\0&2}\Mx{\frac{1}{2}&\frac{1}{2}\\\frac{1}{2}&-\frac{1}{2}}=\Mx{1&0\\0&1}\]
+  $a=3$
+  \[s'\ \lra\ q'(x)=3x^2_1+3x^2_2\]
+  Beh: \[q'(x)\neq 1\ \forall x\in \mb{Q}^2\]
+  Konsequenz: $s'$ ist nicht äquivalent zu $s$. Ist $3x^2_1+3x^2_2=1$ so schreiben wir $x_1=\frac{r_1}{s_1},x_2?\frac{r_2}{s_2}$, $r_1,r_2,s_1,s_2\in\mb{Q}$, $s_1,s_2\neq 0$
+  \begin{gather*}
+    3r_1^2s_2^2+3r_2^2s_1^2=s^2_1s^2_2
+  \end{gather*}
+  \begin{equation}
+    \text{oder }3r^2+3s^2=t^2\ \text{wobei}\ r=r_1s_2,\ s=r_2s_1,\ \overbrace{t}^{\neq 0}=s_1s_2
+    \label{bil:1}
+  \end{equation}
+    \begin{gather*}
+    3^\text{ungerade}(3k_1+1)+3^\text{ungerade}(3k_2+1)\\
+    \implies \text{Widerspruch zu } (\ref{bil:1})
+  \end{gather*}
+\end{Bsp}
