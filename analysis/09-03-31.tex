@@ -1,0 +1,196 @@
+\section{Stetigkeit}
+\begin{Def}{setig}
+  Seien $(X,\md_x)$ und $(Y,\md_y)$ metrische Räume. Eine Abbildung $f:X\to Y$ heisst stetig im Punkt $a\in X$, wenn
+  \[\forall \varepsilon>0\exists\delta>0:\md_y(f(x),f(a))<\varepsilon\ \forall x\in X\ \text{mit}\ \md_x(x,a)<\delta\]
+\end{Def}
+\begin{Not}
+  Sind $X\subset\mb{R}$ und $Y\subset\mb{R}$ dann sind die durch irgend eine Norm erzeugten Symmetriken zu nehmen.
+\end{Not}
+\begin{Def}{Lipschitz-Stetigkeit} $f:X\to Y$ heisst Lipschitz-stetig, wenn
+  \[\exists L\geq 0:\forall x,x'\in X:\md_y(f(x),f(x))\leq L\md_x(x,x')\]
+\end{Def}
+\begin{Lem}
+  Lipschitz-stetig $\implies$ stetig.
+\end{Lem}
+\begin{Bsp}
+  Folgende Abbildungen sind Lipschitz-stetig und deshalb stetig.
+  \begin{enumerate}
+    \item $f:V\to W$ $V,W$ normierte Vektorräume, $f$ linear und $V$ endlich dimensional
+    \item $\Norm{\ }:V\to\mb{R}$
+    \item Abstandfunktion: Sei $(x,d)$ metrischer Raum $\varnothing\neq A\subset A$, $x\in X$ Abstand zwischen $x$ und $A$:
+      \[d_A(x):=\inf\left\{ d(x,a):a\in A \right\}\]
+      $d_A:x\to\mb{R}$ ist Lipschitz-stetig.
+  \end{enumerate}
+  \begin{enumerate}
+    \item Sei $\left\{ e_1,\cdots,e_n \right\}$ eine Basis von $V$, seien $x,y\in V$
+      \[x=\sum^n_{i=0}x_ie_i,\ y=\sum^n_{i=0}y_ie_i,\]
+      \begin{gather*}
+        f(x)-f(y)\stackrel{\text{linear}}{=} f(x-y)= \sum^n_{i=1} (x_i-y_i) f(e_i) \\
+        \Norm{f(x)-f(y)}_W\leq\sum^n_{i=0}\Abs{x_i-y_i}\Norm{f(e_i)}_W\\
+        M:=\max\left\{ \Norm{f(e_i)}_W,\cdots,\Norm{f(e_n)} \right\}\\
+        \Norm{f(x)-f(y)}_W\leq M\sum^n_{i=1}\Abs{x_i-y_i}\\
+        \Norm{y}^*_V:=\sum^n_{i=1}\Abs{y_i}\ \text{eine Norm auf $V$}\\
+        \Norm{f(x)-f(y)}_W\leq M\Norm{x-y}^*_V
+      \end{gather*}
+      Je zwei Normen auf einem endlich dimensionalen Vektorraum sind äquivalent.
+      \begin{gather*}
+        \implies \exists C>0: \Norm{y}_v^*\leq C\Norm{y}_V\\
+        \implies \Norm{f(x)-f(y)}_W\leq L\Norm{x-y}_V\\
+        L=MC
+      \end{gather*}
+      $\qed$
+  \end{enumerate}
+\end{Bsp}
+\begin{Def}{Folgenstetigkeit}
+  $f:X\to Y$ metrischer Räume heisst folgenstetig in $x\in X$, wenn
+  \[x_k\to x\implies f(x_k)\to f(x)\]
+\end{Def}
+\begin{Lem}
+  $f$ stetig $\Lra$ $f$ folgenstetig.
+\end{Lem}
+\begin{Bsp}{Gegenbeispiel}
+  Sei $V=\mathcal{C}^1([a;b],\mb{R})$, $W=\mb{R}$, $a<0<b$
+  \begin{align*}
+    D:&V\to W\\
+    &f\mapsto f'(0)
+  \end{align*}
+  $D$ ist linear, aber nicht stetig. eigentlich $D$ nicht folgenstetig. Sei
+  \begin{gather*}
+    f_n=\frac{1}{n}\sin(nx)\in V\ \forall n\\
+    \Norm{f_n}=\sup\Abs{f_n}\leq \frac{1}{n}\to 0\\
+    \implies f_n\to 0\\
+    D f_n=\cos(nx)|_{x=0}=1\\
+    D f_n\not\to D 0=0
+  \end{gather*}
+\end{Bsp}
+\begin{Sat}{(Königsberger, 1.3.V)}
+  Seien $V,W$ normierte Vektorräume, $f:V\to W$ linear
+  \[f\ \text{stetig}\ \Lra\ \exists C:\Norm{f(x)}_W\leq C\Norm{x}_V\ \forall x\in V\]
+  $f$ heisst beschränkt.
+\end{Sat}
+\begin{Bem}
+  Ist $V$ endlichdimensional, dann ist $f$ automatisch beschränkt.
+  \[\Norm{f(x)}_W=\Norm{f\left(\sum x_i e_i\right)}\leq \sum \Abs{x_i}\Norm{f(e_i)}_W\leq M\sum\Abs{x_i}=M\Norm{x_i}^*_V\leq MC\Norm{x}_V\]
+\end{Bem}
+\begin{Bew}
+  $\Ra$ $f$ stetig $\implies$ $f$ stetig in 0
+  \begin{gather*}
+    \forall \varepsilon>0\exists \delta>0:\Norm{f(\xi)-f(0)}\leq \varepsilon\\
+    \Norm{\xi -0}_W<1
+  \end{gather*}
+  insbesondere
+  \begin{gather*}
+    \varepsilon=1\ \exists\delta:\Norm{f(\xi)}_W<1\ \forall \xi \Norm{\xi}\leq \delta
+  \end{gather*}
+  Sei $x\in V\setminus \left\{ 0 \right\}$, $y:=\delta\frac{x}{\Norm{x}_V}$
+  \begin{gather*}
+    \Norm{y}_V=\delta\implies \Norm{f(y)}_W\leq 1\\
+    \Norm{f(y)}_W=\Norm{\frac{\delta}{x}f(x)}_W=\frac{\delta}{\Norm{x}_V}\Norm{f(x)}_W\\
+    \implies \Norm{f(x)}_W\leq \frac{1}{\delta}\Norm{x}_V,\ C=\frac{1}{\delta}
+  \end{gather*}
+  $\La$
+  \[\Norm{f(x)-f(y)}_W=\Norm{f(x-y)}_W\leq C\Norm{x-y}_V\implies f\ \text{Lipschitzstetig} \implies f \ \text{stetig}\]
+\end{Bew}
+\begin{Bem}{Rechenregel I}
+  Seien $f_1,f_2:a\in X\to W$ $X$ metrischer Raum und $W$ normierter Vektorraum. Sind $f_1$ und $f_2$ stetig in $a$, so ist $f_1+f_2$ stetig in $a$.
+  \begin{enumerate}
+    \item Ist zusätzlich $W=\mb{R}$, $f_1,f_2$ stetig in $a$ $\implies$ $f_1\cdot f_2$ stetig in $a$.
+    \item Ist zusätzlich $f_2(a)\neq 0$, dann $\frac{f_1}{f_2}$ stetig in $a$
+  \end{enumerate}
+\end{Bem}
+\begin{Def}{Polynomfunktion}
+  Eine Funktion $f:\mb{R}^n\to\mb{R}$ heisst Polynomfunktion, wenn sie durch endliche Addition und Multiplikation der Koordinaten erzeugt wird. Eine Polynomfunktion ist immer stetig.
+\end{Def}
+\begin{Def}{rationale Funktion}
+  $f:\mb{K}_{\subset\mb{R}^n}\to\mb{R}$ heisst rational, wenn sie als Quotient von Polynomfunktionen geschrieben werden kann.
+\end{Def}
+\begin{Kor}
+  Jede rationale Funktion ist ihrem Definitionsbereich stetig.
+\end{Kor}
+\begin{Bem}{Rechenregel II}
+  Seien $f:X\to Y$ und $g:Y\to Z$ Sei $f$ stetig in $a\in X$ und $g$ stetig in $f(a)\in Y$, dann ist $g\circ f$ stetig in $a$  
+\end{Bem}
+\begin{Bem}{Rechenregel III}
+  Seien $f_1:X\to Y_1$ und $f_2:X\to Y_2$ und $X,Y_1,Y_2$ metrische Räume. Man definiert
+  \begin{align*}
+    f:=f_1\times f_2:&X\to Y_1\times Y_2\\
+    &x\mapsto (f_1(x),f_2(x))
+  \end{align*}
+  \[f\ \text{stetig in}\ a\in X\ \Lra\ f_1\ \text{und}\ f_2\ \text{stetig in}\ a\in X\]
+\end{Bem}
+\begin{Kor}
+  $f:X\to\mb{R}^n$ stetig in $a$ $\Lra$ Alle Komponentenfunktionen $f_1,\cdots,f_n$ stetig in $a$
+\end{Kor}
+\begin{Bsp}
+  Kurven $I\to\mb{R}^n$  
+\end{Bsp}
+\begin{Bem}{(wichtig!)}
+  Sei $f:\mb{R}^n\to\mb{R}^n$ Die Stetigkeit aller Einschränkung von $f$ auf den Koordinatenachsen impliziert die Stetigkeit von $f$ \underline{nicht}
+\end{Bem}
+\begin{Bsp}
+  $f:\mb{R}^2\to\mb{R}$
+  \[f(x,y)=\begin{cases}
+    \frac{2xy}{x^2+y^2}&(x,y)\neq(0,0)\\ 0&(x,y)=0
+  \end{cases}\]
+  $f$ ist nicht stetig in $0$
+  \[f(t,t)=\frac{2t^2}{t^2+t^2}=1\]
+  $t\neq 0$, $x=y=t$
+  \[\Norm{f(t,t)-f(0,0)}=1\ \forall t\neq 0\]
+  Sei \[\left( \frac{1}{k},\frac{1}{k} \right)\to 0\ \neq\ f\left(\frac{1}{k},\frac{1}{k}\right)\to 1\] $\implies$ $f$ nicht stetig.\\
+  $f(x,0)=0 \forall x$, $f(y,0)=0 \forall y$ sind stetig\\
+  $c\in \mb{R}$
+  \begin{gather*}
+    f_c(x):=f(x,c)\\
+    \tilde f_c(y):=f(c,y)
+  \end{gather*}
+  $\forall c$ $f_c,\tilde f_c:\mb{R}\to\mb{R}$ stetig $\forall c$
+\end{Bsp}
+\begin{Bsp}
+  \begin{gather*}
+    x=r\cos\phi,\ y=r\sin\phi\\
+    f(x,y)=\frac{2r^2\sin\phi\cos\phi}{r^2}\\
+    f(x,y)=\sin2\phi,\ (x,y)\neq 0
+  \end{gather*}
+  In jeder Umgebung von 0 nimmt die Funktion all seine Werte an.
+\end{Bsp}
+\begin{Sat}
+  Seien $X,Y$ metriche Räume $f:X\to Y$, $f$ stetig in $a$ $\Lra$ $\forall$ Umgebung $V$ von $f(a)$ $\exists$ Umgebung $U$ von $a$ mit $f(U)\subset V$
+\end{Sat}
+\begin{Kor}
+  $f:X\to Y$ metrische Räume. Dann sind folgende Aussagen äquivalent:
+  \begin{enumerate}
+    \item $f$ ist stetig auf $X$
+    \item das Urbild jeder offenen Menge aus $Y$ ist offen in $X$
+    \item das Urbild jeder abgeschlossenen Menge aus $Y$ ist abgeschlossen in $X$
+  \end{enumerate}
+\end{Kor}
+\begin{Kor}
+  $f:x\to\mb{R}$ stetig, sei $c\in\mb{R}$
+  \[U:=\left\{ x\in y: f(x)<c \right\}\ \text{ist offen}\]
+  \[A:=\left\{ x\in y: f(x)\leq c \right\}\ \text{ist abgeschlossen}\]
+\end{Kor}
+\begin{Bem}
+  Das \underline{Bild} einer offenen Menge kann nicht offen sein.
+\end{Bem}
+\begin{Bsp}
+  $\sin(0;2\pi)\to\mb{R}$ $\sin(0;2\pi)=[-1;1]$
+\end{Bsp}
+\begin{Bem}
+  Die Umkehrung einer stetigen Funktion ist im Allgemeinen nicht stetig.
+\end{Bem}
+\begin{Bsp}
+  \begin{align*}
+    f:&[0;2\pi)\to S^1\\
+    x\mapsto e^{ix}
+  \end{align*}
+  bijektiv und stetig.
+  \[g:S^1\to[0;2\pi)\]
+  ist nicht stetig.
+  \[g(e^{ix})=x\ e^{ix}\neq 1\ g(1)=0\]
+  \begin{gather*}
+    x_k=e^{\left( 2\pi-\frac{1}{k} \right)i}\\
+    x_k\to 1\in S^1\\
+    g(x_k)=2\pi-\frac{1}{k}\\
+    g(x_k)\not\to 0=g(1)
+  \end{gather*}
+\end{Bsp}
