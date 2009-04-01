@@ -1,0 +1,199 @@
+\begin{Def}{Homöomorphismus}
+  $f:X\to Y$ heisst
+  \begin{enumerate}
+    \item $f$ stetig
+    \item $f$ ist umkehrbar
+    \item $f^{-1}Y\to X$stetig
+  \end{enumerate}
+\end{Def}
+\begin{Eig}{Homöomorphismus}
+  In diesem Falle sind auch die Bilder offener Mengen offen.  
+\end{Eig}
+\begin{Bsp}
+  $V,W$ endlich dimensionale Vektorräume, $f:V\to W$ linear umkehrbar $\implies$ $f$ Homöomorphismus
+\end{Bsp}
+\begin{Def}{homöomorphe Räume}
+  Zwei metrische Räume $X,Y$ heissen homöomorph, wenn es einen Homöomorphismus $X\to Y$ gibt.
+\end{Def}
+\begin{Bem}
+  $\phi:X\to Y$ und $\psi:Y\to Z$ Homöomorphismus $\psi\circ\phi$ Homöomorphismus.
+\end{Bem}
+\begin{Bsp}
+  Zwei endlich dimensionale Vektorräume der \underline{gleichen} Dimension sind homöomorph.
+\end{Bsp}
+\begin{Bem}
+  Man kann zeigen: Zwei endlich dimensionale Vektorräume sind genau dann homöomorph, wenn sie die gleiche Dimension haben. Im Allgemeinen $\not\exists$ Homöomorphismus $\mb{R}^m\to\mb{R}^n$ $m\neq n$
+\end{Bem}
+\begin{Bsp}
+  $K_1(0)\in\mb{R}^n$ sind Homöomorph.
+  \begin{align*}
+    f:&K_1(0)\to\mb{R}^n\\
+    &x\mapsto \frac{x}{1-\Norm{x}}\\
+    g:&\mb{R}^n\to K_1(0)\\
+    &y\mapsto \frac{y}{1+\Norm{y}}
+  \end{align*}
+\end{Bsp}
+\begin{Bem}
+  Polarkoordinaten
+  \begin{gather*}
+    \mb{R}^2\to\mb{R}^2\\
+    (r,\phi)\mapsto \left( r\cos \phi, r\sin \phi \right)
+  \end{gather*}
+  stetig, nicht bijektiv\\
+  $r>0$, $\phi\in\left( -\pi, \pi \right)$, Bild: $\mb{R}^2\setminus S$, $S=\left\{ (x,0)\in\mb{R}^2, x\leq 0 \right\}$
+  \begin{align*}
+    P_2:&\mb{R}^+_*\times (-\pi,\pi)\to\mb{R}^2\setminus S\\
+    &(r,\phi)\mapsto\left( r\cos \phi, r\sin \phi \right)
+  \end{align*}
+  Homöomorphismus\\
+  Umkehrabbildung: $r=\sqrt{x^2+y^2}$, $\phi \sign(y)\arccos\frac{x}{\sqrt{x^2+y^2}}$
+\end{Bem}
+\begin{Bem}
+  3d
+  \begin{align*}
+    \begin{cases}
+      x_1=r\cos \phi_1\cos\phi_2\\
+      x_2=r\sin\phi_1\cos\phi_2\\
+      x_3=r\sin\phi_2
+    \end{cases}\\
+    r>0\\
+    \phi_1\in\left( -\pi,\pi \right)\\
+    \phi_2\in\left( -\frac{\pi}{2},\frac{\pi}{2} \right)
+  \end{align*}
+  Bild $\mb{R}^3\setminus(S\times \mb{R})$
+  \[\Mx{x_1\\x_2}=\Mx{r\cos\phi_1\\r\sin\phi_1}\cos\phi_2=P_2(r,\phi_1)\cos\phi_2\]
+  Im allgemeinen definiert man Polarkoordinaten rekursiv
+  \begin{gather*}
+    P_n:\mb{R}^+_*\times\prod_{n-1}\to\mb{R}^n\setminus(S\times \mb{R}^{n-2})\\
+    \prod_{n-1}=(-\pi,\pi)\times\left( -\frac{\pi}{2},\frac{\pi}{2} \right)^{n-2}\\
+  \end{gather*}
+  \begin{gather*}
+    P_n(r,\phi_1,\phi_2,\cdots,\phi_{n-1})=\Mx{P_{n-1}(r,\phi_1,\cdots,\phi_{n-2})\cos\phi_{n-1}\\ r\sin\phi_{n-1}}
+  \end{gather*}
+\end{Bem}
+\begin{Def}{stetige Erweiterung/Grenzwert}
+  Seien $X,Y$ metrische Räume, $D\in X$, $f:D\to Y$, $a\in X$ Häufungspunkt $D$, $b\in Y$. Man definiert
+  \begin{gather*}
+    F:D\cup \left\{ a \right\}\to Y\\
+    F(x):=\begin{cases}
+      f(x)&x\in D\setminus \left\{ a \right\}\\
+      b&x=a
+    \end{cases}
+  \end{gather*}
+  \begin{itemize}
+    \item $F$ heisst die stetige Erweiterung von $f$ in Punkt $a$ wenn $F$ stetig in $a$ ist.
+    \item In diesem Falle heisst $b$ die Grenzwert von $f$ in Punkt $a$
+  \end{itemize}
+\end{Def}
+\begin{Not}
+  \[b=\lim_{x\to a}f(x)\]
+\end{Not}
+\begin{Bem}
+  \begin{itemize}
+    \item Die stetige Erweiterung ist eindeutig bestimmt, wenn sie exisitiert.
+    \item Der Grenzwert ist eindeutig bestimmt, wenn er existiert.
+  \end{itemize}
+\end{Bem}
+\begin{Lem}
+  \[\lim_{x\to a}f(x)=b\ \Lra\ \forall \varepsilon>0\ \exists \delta>0:d_y(f(x),b)<\varepsilon\ \forall x\in D\setminus \left\{ a \right\}, d_x(x,a)<\delta\]
+\end{Lem}
+\begin{Def}
+  Sei $x$ ein metrischer Raum, $(x_k)$ Folge in $x$. $(x_k)$ heisst Cauchyfolge wenn
+  \[\forall \varepsilon>0\ \exists N:d_x(x_k,x_l)<\varepsilon\ \forall x,l\geq N\]
+\end{Def}
+\begin{Def}{vollständiger Raum}
+  Ein metrischer Raum $X$ heisst vollständig, wenn jede Cauchyfolge in $X$ konvergiert.
+\end{Def}
+\begin{Bsp}
+  $\mb{R}^n$ mit einer Norm vollständig
+\end{Bsp}
+\begin{Bem}
+  \begin{itemize}
+    \item Wir haben die Aussage für die euklidische Norm bewiesen
+    \item Aber je zwei Normen auf $\mb{R}^n$ sind äquivalent
+  \end{itemize}
+\end{Bem}
+\begin{Bsp}
+  Jeder endlich dimensionaler, normierter Raum ist vollständig.
+\end{Bsp}
+\begin{Lem}
+  Sei $(X,d)$ vollständig, $M\subset X$
+  \[M\ \text{vollständig}\ \Lra\ M\ \text{abgeschlossen}\]
+  (bezüglich der Spurmetrik)
+\end{Lem}
+\begin{Bsp}
+  $[a;b]\subset\mb{R}$ ist vollständig
+\end{Bsp}
+\begin{Bew}
+  $\Ra$ Sei $M$ vollständig. Sei $(x_k)$ konvergente Folge in $X$ mit $x_k\in M\forall k$. $(a_k)$ konvergiert $\implies$ $(x_k)$ Cauchy $\xRightarrow{M\ \text{vollständig}}$ $x_k\to x\in M$ $\implies$ $M$ abgeschlossen.\\
+  $\La$ Sei $M$ abgeschlossen. Sei $(x_k)$ eine Cauchyfolge in $M$ $\implies$ $(x_k)$ eine Cauchyfolge in $X$ $\xRightarrow{X\ \text{vollständig}}$ $x_k\to x\in X$. $x_k\in M,(x_n)$ konvergiert $\implies$ $x\in M$ $\implies$ $M$ vollständig.
+\end{Bew}
+\begin{Kor}
+  Jede abgeschlossene Teilmenge von $\mb{R}^b$ ist vollständig.
+\end{Kor}
+\begin{Bem}{Vereinbarung}
+  $\mb{R}^n$ ist für nur innen als normierter Raum betrachtet.
+\end{Bem}
+\begin{Def}{Barnachraum}
+  Ein normierter $\mb{K}$-Vektorraum heisst Barnachraum, wenn er vollständig ist.
+\end{Def}
+\begin{Bsp}
+  Jeder endlich dimensionaler Vektorraum ist ein Barnachraum.
+\end{Bsp}
+\begin{Bem}
+  Nicht jeder unendlich dimensionaler Vektorraum ist ein Barnachraum.
+\end{Bem}
+\begin{Bsp}
+  Sei $V=\mathcal{C}^0\left( [a;b],\mb{R} \right)$ mit $L^1$-Norm: $\Norm{f}=\int^b_a\Abs{f}\md x$ $V$ ist nicht vollständig.
+\end{Bsp}
+\begin{Bsp}
+  $a=0$, $b=2$
+  \[f_n(x):=\begin{cases}
+    x^n&0\leq x<1\\
+    1&1\leq x \leq 2
+  \end{cases}\]
+  $f_n$ stetig $\forall n$, $(f_n)$ Folge in $V$, $(f_n)$ Cauchy $n>m$
+  \[\Norm{f_m-f_n}=\int^1_0(x^m-x^n)\md x=\frac{1}{n+1}-\frac{1}{n+1}<\frac{1}{m+1}\]
+  $f_n$ konvergiert in $V$ nicht
+  \[f_n(x)\to f(x) =\begin{cases}
+    0&0\leq x<1\\
+    1&1\leq x\leq 2
+  \end{cases}\]
+  $f\not\in V$
+\end{Bsp}
+\begin{Bsp}
+  $\mathcal{C}^0\left( [a;b];\mb{R} \right)$ mit Supremum-Norm ist vollständig.
+\end{Bsp}
+\subsection{Vervollständigung}
+\begin{Sat}
+  Jeder normierte Vektorraum $(V,\Norm{\ }_V)$ kann vervollstänigt werden. D.h.
+  \begin{gather*}
+    \exists \text{Barnachraum}(W,\Norm{\ }_W)\\
+    i:V\hookrightarrow W\ \text{lineare Inklusion}\\
+    \Norm{i(v)}_W=\Norm{v}_V\ \forall v\in V\ \text{s.d.}\ \overline{i(V)}=W
+  \end{gather*}
+\end{Sat}
+\begin{Bew}
+  (Konstruktion)
+  \begin{gather*}
+    W:=\left\{ \text{Cauchyfolgen in $V$} \right\}\setminus\left\{ \text{Nullfolgen in $V$} \right\}\\
+    \Norm{\left[ (x_k) \right]}_W:=\Limi{k}\Norm{x_k}_V\\
+  \end{gather*}
+  \begin{align*}
+    i:&V\hookrightarrow W\\
+    &v\mapsto\left[ \text{konstante Folge}\ x_k=v\ \forall k \right]
+  \end{align*}
+\end{Bew}
+\begin{Def}{Hilbertraum}
+  Ein Vektorraum mit einem Skalarprodukt der bezüglich der induzierten Norm vollständig ist, heisst Hilbertraum.
+\end{Def}
+\begin{Bsp}
+  \[l^2:=\left\{ (x_k)\ \text{in}\ \mb{C}:\sum\Abs{x_k}^2<\infty \right\}\]
+  \[(x,y):=\sum \overline{x_k}y_k\]
+\end{Bsp}
+\begin{Bsp}
+  \[\mathcal{C}^0\left( [a;b],\mb{C} \right), L^2\ \text{Norm}\]
+  \[\left\langle f,g \right\rangle =\int^b_a\bar f(x)g(x)\md x\]
+  nicht vollständig\\
+  Vervollständigung: $L^2\left( [a;b] \right)$ für die Quantenmechanik
+\end{Bsp}
