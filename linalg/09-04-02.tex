@@ -1,0 +1,71 @@
+\section{Multilineare Algebra}
+\begin{Def}{Dualvektorraum / Linearformen}
+  Sei $\mb{K}$ ein Körper und $V$ ein $\mb{K}$-Vektorraum. Der Dualvektorraum ist $V^*:=\Hom(V,\mb{K})$. Elemente vo $V^*$ heissen Linearformen. $V^*$ ist ein $\mb{K}$-Vektorraum, mit Addition von Abbildungen und Multiplikation durch Skalare.
+\end{Def}
+\begin{Eig}
+  Sei $B=(v_i)_{i\in I}$ eine Basis von $V$.
+  \begin{itemize}
+    \item Koeffizient von $v_i$
+      \[v_i^*:v=\sum_{j\in I}a_jv_j\mapsto a_j\]
+    \item Summe von Koeffizienten
+      \[\sum v_i^*:v=\sum_{j\in I}a_jv_j\mapsto \sum a_j\]
+      wohldefiniert, weil nur endlich viele $a_j$ sind $\neq 0$
+    \item Operationen auf Funktionsräumen, z.B. $\left\{ f:\mb{R}\to \mb{R}\ \text{stetig} \right\}$
+    \item Standardkoordinaten: $n\in\mb{N}_{>0}$, $V=\mb{K}^n$, Standardbasis $e_1,\cdots,e_n$
+      \[e_i^*:(x_1,\cdots,x_n)\mapsto x_i\]
+  \end{itemize}
+\end{Eig}
+\begin{Bem}
+  Ist $B=(v_1,\cdots,v_n)$ eine Basis von $V$, so ist $B^*=(v_1^*,\cdots,v_n^*)$ eine Basis von $V^*$. Denn zu $f:V\to \mb{K}$ haben wir $c_i:=f(v_i)$, dann \[f\ \text{linear} \implies f(\sum_{i=1}^na_iv_i)=\sum^n_{i=1}c_ia_i\]
+  Das zeigt, dass $V^*$ ist von $v_1^*,\cdots,v_n^*$ aufgespannt. Lineare Unabhängigkeit von $v_1^*,\cdots,v_n^*$ ist klar. Deshalb haben wir einen Isomorphismus $V\to V^*$, gegeben durch $v_i\mapsto v_i^*\ \forall i$. Falls $\dim V=\infty$ mit Basis $(v_i)_{i\in I}$, dann ist $V^*$ nicht von den $v_i^*, i\in I$ aufgespannt, z.B.
+  \[\sum_{i\in I}\not\in\Span(v_i^*)_{i\in I}\]
+  $\phi:V\to\mb{K}$ mit $\phi(v_i)\neq 0$ nur für endlich viele $i\in I$
+\end{Bem}
+\begin{Bsp}
+  $V=\mb{K}$ mit Standardbasis $(e_1,\cdots,e_n)$. Dann hat $V^*$ die Standardbasis $(e_1^*,\cdots,e_n^*)$ und wir haben den Isomorphismus
+  \begin{align*}
+    &\mb{K}^n\to(\mb{K})^*\\
+    &e_i\mapsto e^*_i\ \forall i
+  \end{align*}
+\end{Bsp}
+\begin{Bem}
+  Es ist nicht überraschend, dass der Isomorphismus $V\to V^*$ assoziert zu einer Basis $B=(v_1,\cdots,v_n)$ abhängig von der Basis ist.
+\end{Bem}
+\begin{Bem}
+  Sei $V\subset\mb{K}^n$ ein Untervektorraum. $V$ kann durch eine Basis gegeben werden, oder durch Gleichungen.
+  \[V=\Span\left( \Mx{1\\1\\0},\Mx{0\\1\\1} \right)=\left\{ \Mx{x\\y\\z}\Big| x-y+z=0 \right\}\]
+  ist eine Linearform auf $\mb{K}^n$
+\end{Bem}
+\begin{Def}{orthogonaler Raum}
+  Sei $W$ ein $\mb{K}$-Vektorraum und $V\subset W$ ein Untervektorraum. Der Untervektorraum
+  \[V^0=\left\{ \phi\in W^*:\phi(v)=0\ \forall v\in V \right\}\subset W^*\]
+  heisst der zu $V$ orthogonale Raum. Falls $\dim V<\infty$, dann haben wir $\dim V^0=\dim W - \dim V$. Basis von \[W^* =\overbrace{\underbrace{W_1,\cdots,W_d}_{\text{von }V},\cdots,W_n}^{W}\]
+  Dann:
+  \[V^0=\Span\left( w_{d+1}^*,\cdots,w_n^* \right)\]
+\end{Def}
+\begin{Def}{duale Abbildung}
+  Sei $V\to W$ eine lineare Abbildung von $\mb{K}$-Vektorräumen. Dann gibt es eine lineare Abbildung $F^*:W^*\to V^*$, die duale Abbildung, gegeben durch Komposition mit $F$
+  \[\psi:V\to K\mapsto F^*(\psi):=\psi \circ F\]
+  Dann
+  \[V^0=\ker\left( W^*\to V^* \right)\]
+  Aus der Dimensionsformel bekommt man nochmals
+  \[\dim V^0=\dim W^*-\dim V^*\]
+\end{Def}
+\begin{Eig}{duale Abbildung}
+  \begin{itemize}
+    \item falls $W=V$, gilt $\left( id_V \right)^*=\id_{V^*}$
+    \item Ist auch $G:U\to V$ gegeben, so haben wir \[G^*F^*\psi=\left( F\circ G \right)^*\psi\]
+  \end{itemize}
+  Das nennt man Funktorialität.
+\end{Eig}
+\begin{Bem}
+  Man kann zeigen, dass zu $U\subset V$ bekommt man eine surjektive duale Abbildung $V^*\to U^*$ \[\left( \psi:V\to \mb{K} \right)\mapsto \psi|_U\]
+\end{Bem}
+\begin{Prop}
+  Seien $V$ und $W$ endlich dimensionale $\mb{K}$-Vektorräume mit Basen $A=(v_1,\cdots,v_n)$ und $B=(w_1,\cdots,w_m)$. Sei $F:V\to W$ eine lineare Abbildung mit darstellender Matrix $M$. Dann ist $F^*:W^*\to V^*$ bezüglich der dualen Basen $A^*=(v_1^*,\cdots,v_n^*), B^*=(w^*_1,\cdots,w_m^*)$ durch die Matrix $M^t$ dargestellt. Wir schreiben $M=(a_{ij})$. Das bedeutet:
+  \[F(v_j)=\sum_{i=1}^ma_{ij}w_i\]
+  Es folgt 
+  \[F^*(w_i^*)(v_j)=\ \text{$i$-te Komonent von } F(v_j)=a_{ij}\]
+  Das ist zu sagen, die darstellende Matrix von $F^*$ ist die Matrix $(a_{ji})$
+  \[F^*(w_i^*)=\sum^m_{j=1}a_{ij}v^*_j\]
+\end{Prop}
