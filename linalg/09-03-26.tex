@@ -6,7 +6,7 @@ Seien ein endlichdimensionaler $\mb{R}$-Vektorraum $V$ und die symmetrische Bili
     Signatur & $(2,0,0)$ & $q(v):=s(v,v)$ Quadratische Schale (positiv)\\
     & $(0,2,0)$ & Quadratische Schale (negativ)\\
     & $(1,1,0)$ & Sattelpunkt\\
-    & $(0,2,0)$ & Quadratisches halbes Rohr (positiv)\\
+    & $(0,1,1)$ & Quadratisches halbes Rohr (positiv)\\
     & $(1,0,1)$ & Quadratisches halbes Rohr (negativ)
   \end{tabular}
 \end{Eig}
@@ -73,7 +73,7 @@ Der Fall von Bilinearformen über Vektorräumen über $\mb{K}$, $\mb{K}$ beliebi
   \[\det(T^tAT)=\det(T^t)\det(A)\det(T)=(\det T)^2\det(A)\]
 \end{Bem}
 \begin{Def}{Diskriminante}
-  Sei $s:V\times V\to\mb{K}$ eine symmetrische Bilinearform (mit $\dim_\mb{K}V<\infty$). Die Diskiminante von $s$ ist 0 falls $s$ ausgeartet ist, sonst ist die Klasse ovn $\det(A)$ in $\mb{K}^*/( \mb{K}^*)^2$, wobei $A$ eine darstellende Matrix von $s$ ist. Die Diskriminante ist eine Invariante von $s$
+  Sei $s:V\times V\to\mb{K}$ eine symmetrische Bilinearform (mit $\dim_\mb{K}V<\infty$). Die Diskiminante von $s$ ist 0 falls $s$ ausgeartet ist, sonst ist die Klasse von $\det(A)$ in $\mb{K}^*/( \mb{K}^*)^2$, wobei $A$ eine darstellende Matrix von $s$ ist. Die Diskriminante ist eine Invariante von $s$
   \begin{itemize}
     \item Rang
     \item Diskriminante
@@ -83,7 +83,7 @@ Der Fall von Bilinearformen über Vektorräumen über $\mb{K}$, $\mb{K}$ beliebi
   Noch offen: sind $s$,$s'$ nicht ausgeartet, mit derselben Diskriminante, zu entscheiden, ob $s$ und $s'$ äquivalent sind.
 \end{Bem}
 \begin{Bsp}
-  $\mb{K}=\mb{Q}$, z.B. $V=\mb{Q}^2$, $s$ Standardskalarprodukt $s(x,y)=x_1,x_1+x_2y_2$ und $s'$ symmetrische Bilinearform mit $\disc(s)=-1$
+  $\mb{K}=\mb{Q}$, z.B. $V=\mb{Q}^2$, $s$ Standardskalarprodukt $s(x,y)=x_1y_1+x_2y_2$ und $s'$ symmetrische Bilinearform mit $\disc(s)=+1$
   \[\Mx{a&0\\0&a'}\stackrel{\text{Basiswechsel}}{\rsa}\Mx{a&0\\0&a}\]
   mit $aa'=b^2, b\in \mb{Q}$
   \[\implies a=\frac{b^2}{a'}=a'\left( \frac{b}{a'} \right)^2\]

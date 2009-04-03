@@ -19,7 +19,7 @@
 \end{Bem}
 \begin{Sat}
   $s$ nicht ausgeartete symmetrische Bilinearform auf $\mb{Q}^2$ $\disc(s)=1$ $\implies$ $\exists B$ Basis mit
-  \[M_B(s)=\Mx{a&0\\a&0},\ a\in\mb{Z},a\neq 0\]
+  \[M_B(s)=\Mx{a&0\\0&a},\ a\in\mb{Z},a\neq 0\]
   Dann: $s$ ist äquivalent zum Standardskalarprodukt $\Lra$
   \[\exists v\in V,\ s(v,v)=1\text{ d.h. }\exists x,y\in\mb{Q}:\ ax^2+ay^2=1\]
   $\Lra$
@@ -31,7 +31,7 @@
   $\Lra$ $a>0$ und jede Primzahl $p=4k+3$ $(k\in\mb{N})$ kommt mit gerader Vielfachheit in der Primzahlzerlegun von $a$ vorkommen. Der Beweis nutzt
   \[(x_1x_1'-x_2x_2')^2+(x_1x_2'+x_2x_1')^2=(x_1^2+x_2^2)(x_1'^2+x_2'^2)\]
   Satz von Fermat: $p$ Primzahl 
-  \[\exists x,y\in\mb{Z},x^2+y^2=p\ \Lra\ p=2\wedge 4|(p-1)\]
+  \[\exists x,y\in\mb{Z},x^2+y^2=p\ \Lra\ p=2\vee 4|(p-1)\]
   Argument vom letzten Mal (auszuschliessen $a=3$)
 \end{Bem}
 \begin{Faz}
@@ -47,7 +47,7 @@
   \[s>0\ \Lra\ \text{Signatur } (n,0,0)\ \Lra\ \lambda_i>0\forall i\ \Lra\ \text{Koeff. }P_A(t)\ \text{hat alternierende Vorzeichen }\]
 \end{Faz}
 \begin{Def}{Hauptminor}
-  Sei $A=(a_{ij})\in\Mat{K}$. Wir schreiben $A_k$ für die Teilmatrix $(A_{ij})_{1\leq i,j\leq k}$, für $1\leq k\leq n$. Der $k$-te Hauptminor von $A$ ist $\det A(A_k)$
+  Sei $A=(a_{ij})\in\Mat{K}$. Wir schreiben $A_k$ für die Teilmatrix $(A_{ij})_{1\leq i,j\leq k}$, für $1\leq k\leq n$. Der $k$-te Hauptminor von $A$ ist $\det (A_k)$
 \end{Def}
 \begin{Bem}
   $\dim_\mb{R}<\infty$, $s:V\times V\to\mb{R}$ symmetrische Bilinearform. Wann ist $s$ positiv? Es ist notwendig, aber nicht hinreichend, dass $\det(A)>0$ für eine darstellende Matrix $A$.
