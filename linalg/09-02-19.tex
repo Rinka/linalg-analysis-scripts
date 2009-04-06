@@ -1,13 +1,13 @@
 \begin{Faz}
   \begin{align*}
-    <.,.>& \mb{R}^n\times\mb{R}^n\to\mb{R}^n&\text{bilinear form}\\
+    \Seq{.,.}& \mb{R}^n\times\mb{R}^n\to\mb{R}^n&\text{bilinear form}\\
     \Norm{.}& \mb{R}^n\to \mb{R}_{\geq 0}& \text{Norm}\\
     d(.,.)&\mb{R}^n\times\mb{R}^n\to\mb{R}_{>0}&\text{Metrik}
   \end{align*}
   \begin{align*}
-    \Norm{x}&=\sqrt{<x,x>}\\
+    \Norm{x}&=\sqrt{\Seq{x,x}}\\
     d(x,y)&=\Norm{y-x}\\
-    <x,y>&=\frac{\Norm{x}^2+\Norm{y}^2-\Norm{y-x}^2}{2}
+    \Seq{x,y}&=\frac{\Norm{x}^2+\Norm{y}^2-\Norm{y-x}^2}{2}
   \end{align*}
 \end{Faz}
 \subsection{Vektorprodukt in $\mb{R}^3$}
@@ -20,13 +20,13 @@
   oder:
   \[x\times y=\det\Mx{e_1&e_2&e_3\\x_1&x_2&x_3\\y_1&y_2&y_3}\]
   wobei $(e_1,e_2,e_3)$ die Standardbasis ist. Es ist deshalb klar, dass
-  \[0=\det\Mx{x_1&x_2&x_3\\x_1&x_2&x_3\\y_1&y_2&y_3}=<x,x\times y>\]
-  \[0=\det\Mx{y_1&y_2&y_3\\x_1&x_2&x_3\\y_1&y_2&y_3}=<y,x\times y>\]
+  \[0=\det\Mx{x_1&x_2&x_3\\x_1&x_2&x_3\\y_1&y_2&y_3}=\Seq{x,x\times y}\]
+  \[0=\det\Mx{y_1&y_2&y_3\\x_1&x_2&x_3\\y_1&y_2&y_3}=\Seq{y,x\times y}\]
   $x\times y$ liegt auf der Gerade von Vektoren senkrecht zu $x$ und $y$.
   weiter:
-  \[\det\Mx{w_1&w_2&w_3\\x_1&x_2&x_3\\y_1&y_2&y_3}=<x\times y,x\times y>\]
+  \[\det\Mx{w_1&w_2&w_3\\x_1&x_2&x_3\\y_1&y_2&y_3}=\Seq{x\times y,x\times y}\]
   \[=\Norm{x\times y}^2=(x_2y_3-x_3y_2)^2+(x_3y_1-x_1y_3)^2+(x_1y_2-x_2y_1)^2\]
-  \[=\Norm{x}^2\Norm{y}^2-<x,y>^2=\Norm{x}^2\Norm{y}^2\left( 1-\frac{<x,y>^2}{\Norm{x}^2\Norm{y}^2} \right)\]
+  \[=\Norm{x}^2\Norm{y}^2-\Seq{x,y}^2=\Norm{x}^2\Norm{y}^2\left( 1-\frac{\Seq{x,y}^2}{\Norm{x}^2\Norm{y}^2} \right)\]
   \[=\Norm{x}^2\Norm{y}^2(1-\cos^2\angle (x,y) = \Norm{x}^2\Norm{y}^2\sin^2\angle (x,y)\]
 \begin{Faz}
   Wenn das Ergebnis $=0$, folgt daraus, dass $x$ und $y$ linear abhängig sind. Falls $x$ und $y$ linear unabhängig sind, dann folgt dass $(x\times y,x,y)$ zu derselben Orientierungsklasse gehört wie $(e_1,e_2,e_3)$. Insgesamt bedeutet dies, dass $x\times y$ folgende Eigenschaften hat:
@@ -42,62 +42,62 @@ Sei $z=(z_1,\cdots,z_n)$ und $w=(w_1,\cdots,w_n)\in\mb{C}^n$
 \begin{Bem}
   Der Ausdruck macht Sinn.
   \begin{align*}
-    <z,w>&:=z_1w_1+\cdots+z_nw_n\\
-    <z,z>&:=z_1^2+\cdots+z_n^2\\
+    \Seq{z,w}&:=z_1w_1+\cdots+z_nw_n\\
+    \Seq{z,z}&:=z_1^2+\cdots+z_n^2\\
   \end{align*}
-  Dann kann die Länge nicht mehr interpretiert werden, z.B. für $z=(1,i,0,\cdots,0)$ haben wir $<z,z>=1^2+i^2=0$. Isotropische Untervektorräume von $\mb{C}^n$ werden nicht in in diesem Kurs behandelt. ($V\subset\mb{C}^n$ s.d. $<v,w>=0 \ \forall v,w\in V$). Für die Physik, die Geometrie usw. ist eine Interpretation in Zusammenhang mit Länge wichtig, deshalb brauchen wir eine neue Definition.
+  Dann kann die Länge nicht mehr interpretiert werden, z.B. für $z=(1,i,0,\cdots,0)$ haben wir $\Seq{z,z}=1^2+i^2=0$. Isotropische Untervektorräume von $\mb{C}^n$ werden nicht in in diesem Kurs behandelt. ($V\subset\mb{C}^n$ s.d. $\Seq{v,w}=0 \ \forall v,w\in V$). Für die Physik, die Geometrie usw. ist eine Interpretation in Zusammenhang mit Länge wichtig, deshalb brauchen wir eine neue Definition.
 \end{Bem}
 \begin{Def}[Das kanonische Skalarprodukt]
   von $\mb{C}^n$ ist gegeben durch
   \begin{align*}
-    <.,.>_c&:\mb{C}^n\mb{C}^n&\to&\mb{C}\\
-    & (z,w)&\mapsto&z_1\bar{w_1}+\cdots+z_n\bar{w_n}
+    \Seq{.,.}_c:&\ \mb{C}^n\mb{C}^n\to\mb{C}\\
+    &\ (z,w)\mapsto z_1\bar{w_1}+\cdots+z_n\bar{w_n}
   \end{align*}
 \end{Def}
-\begin{Eig}[von $<.,>_c$]
+\begin{Eig}[von $\Seq{.,}_c$]
   \begin{align*}
-    <z+z',w>&=& <z,w>_c+<z',w>_c\\
-    <\lambda z,w>_c&=& \lambda<z,w>_c\\
-    <z,w+w'>_c&=& <z,w>_c+<z,w'>_c\\
-    <z,\lambda w>_c&=& \bar{\lambda}<z,w>_c
+    \Seq{z+z',w}&= \Seq{z,w}_c+\Seq{z',w}_c\\
+    \Seq{\lambda z,w}_c&= \lambda\Seq{z,w}_c\\
+    \Seq{z,w+w'}_c&= \Seq{z,w}_c+\Seq{z,w'}_c\\
+    \Seq{z,\lambda w}_c&= \bar{\lambda}\Seq{z,w}_c
   \end{align*}
   für $z,z',w,w'\in\mb{C}^n$, $\lambda\in\mb{C}$\\
-  $<.,.>_c$ ist sesquilinear
+  $\Seq{.,.}_c$ ist sesquilinear
   \begin{align*}
-    <w,z>_c&=& \overline{<z,w>_c}& \text{hermitisch}\\
-    <z,z>_c&\in&\mb{R}_{\geq 0}& \text{positiv definit}\\
-    <z,z>=0 &\Lra& z=0
+    \Seq{w,z}_c&= \overline{\Seq{z,w}_c}& \text{hermitisch}\\
+    \Seq{z,z}_c&\in\mb{R}_{\geq 0}& \text{positiv definit}\\
+    \Seq{z,z}=0 &\Lra z=0
   \end{align*}
 \end{Eig}
 \begin{Faz}
-  $<.,.>_c$ ist sesquilinear, hermitisch und positiv definit.
+  $\Seq{.,.}_c$ ist sesquilinear, hermitisch und positiv definit.
 \end{Faz}
-\begin{proof}
+\begin{Bew}
   Bei Bedarf sonstwo nachschauen (Zu viele Zeichen und zu wenig Sinn). Es läuft auf eine Sammlung von Quadraten heraus.
-\end{proof}
+\end{Bew}
 \begin{Def}[Norm von $\mb{C}^n$]
-  \[\Norm{z}=\sqrt{<z,z>_c}\]
+  \[\Norm{z}=\sqrt{\Seq{z,z}_c}\]
 \end{Def}
 \begin{Bem}
   Sei $w=(x_1'+xy_1',\cdots,x_n'+iy_n')$. Dann:
   \begin{align*}
-    <z,w>_c=(x_1+iy_1)(x_1'-iy_1')+\cdots+(x_n+iy_n)(x_n'-iy_n')\\
+    \Seq{z,w}_c=(x_1+iy_1)(x_1'-iy_1')+\cdots+(x_n+iy_n)(x_n'-iy_n')\\
     =(x_1x_1'+y_1y_1'+\cdots+x_nx_n'+y_ny_n')+i(x_1'y_1-x_1y_1'+\cdots+x_n'x_y-x_ny_n')
   \end{align*}
-  Auf diese Weise ist $<.,.>_c$ eine Erweiterung von reellen Skalarprodukt.
+  Auf diese Weise ist $\Seq{.,.}_c$ eine Erweiterung von reellen Skalarprodukt.
   \begin{align*}
-    \mb{R}^{2n}&\xrightarrow{~}&\mb{C}^n&\mb{R}\text{-linear}\\
-    e_1&\mapsto&(1,0,\cdots,0)\\
-    e_2&\mapsto&(i,0,\cdots,0\\
+    \mb{R}^{2n}&\xrightarrow{~}\mb{C}^n&\mb{R}\text{-linear}\\
+    e_1\mapsto&(1,0,\cdots,0)\\
+    e_2\mapsto&(i,0,\cdots,0\\
     \cdots\\
-    e_{2n}&\mapsto&(0,\cdots,0,i)
+    e_{2n}&\mapsto(0,\cdots,0,i)
   \end{align*}
-  \[<.,.>_c=\left( <.,.> \text{von} \mb{R}^{2n} \right) + i(\text{neues})\]
-  $\Re<.,.>_c=<.,.>$ von $\mb{R}^{2n}$ unter diesem Isomorpismus.\\
-  Sei $\omega:=\Im<.,.>$:
+  \[\Seq{.,.}_c=\left( \Seq{.,.} \text{von}\ \mb{R}^{2n} \right) + i(\text{neues})\]
+  $\Re\Seq{.,.}_c=\Seq{.,.}$ von $\mb{R}^{2n}$ unter diesem Isomorpismus.\\
+  Sei $\omega:=\Im\Seq{.,.}$:
   \begin{align*}
-    \omega:&\mb{C}^n\times\mb{C}^n&\to&\mb{R}\\
-    \text{oder}\mb{R}^{2n}\times\mb{R}^{2n}&\to&\mb{R}
+    \omega:&\mb{C}^n\times \mb{C}^n\to\mb{R}\\
+    \text{oder}\ & \mb{R}^{2n}\times\mb{R}^{2n}\to\mb{R}
   \end{align*}
 \end{Bem}
 \begin{Eig}[von $\omega$ (Imaginärteil des kanonischen Skalarproduktes)]
@@ -114,19 +114,19 @@ Sei $K$ ein Körper und $V$ ein $K$-Vektorraum.
   \[s:V\times V\to K\]
   so dass:
   \begin{align*}
-    s(v+v',w)&=&s(v,w)+s(v',w)\\
-    s(\lambda v,w)&=&\lambda s(v,w)\\
-    s(v,w+w')&=&s(v,w)+s(v,w')\\
-    s(v,\lambda w)&=& \lambda s(v,w)
+    s(v+v',w)&=s(v,w)+s(v',w)\\
+    s(\lambda v,w)&=\lambda s(v,w)\\
+    s(v,w+w')&=s(v,w)+s(v,w')\\
+    s(v,\lambda w)&= \lambda s(v,w)
   \end{align*}
   $\forall v,v',w,w'\in V, \lambda \in K$\\
   Und: $s$ heisst \underline{symmetrisch}, falls $s(w,v)=s(v,w)$ und \underline{schiefsymmetrisch}, falls $s(w,v)=-s(v,w)$.
 \end{Def}
 \begin{Bsp}
   \begin{itemize}
-    \item $<.,.>:=\mb{R}^n\times \mb{R}^n\to\mb{R}$ ist eine symmetrische bilineare Form
+    \item $\Seq{.,.}:=\mb{R}^n\times \mb{R}^n\to\mb{R}$ ist eine symmetrische bilineare Form
     \item $\omega$ ist eine schiefsymmetrisch bilineare Form
-    \item ($<.,.>_c$ nicht)
+    \item ($\Seq{.,.}_c$ nicht)
     \item $V=\{\text{stetige Abbildung} [0,1] \to\mb{R}\}$ über $\mb{R}$: $f,g\in V$
       \[s(f,g)=\int^1_0 f(x)g(x)dx\]
       ist eine symmetrisch bilineare Form auf $V$

@@ -1,22 +1,22 @@
 Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, mit $\dim_KV<\infty$, und $s:V\times V\to K$ eine bilineare Form.
-\begin{Def}
+\begin{Def}{darstellende Matrix}
   Ist $B=(v_i)_{1\leq i \leq n}$ eine Basis von $V$, so setzen wir 
   \[M_B(s):=\left( s(v_i,v_j) \right)_{1\leq i, j\leq n} \in M(n\times n,K)\]
-  die \underline{darstellende Matrix}
+  die darstellende Matrix
 \end{Def}
 \begin{Kor}
   für $x,y\in V$
   \begin{align*}
-    x&=& x_1v_1+\cdots+x_nv_n\\
-    y&=& y_1v_1,+\cdots+y_nv_n
+    x&= x_1v_1+\cdots+x_nv_n\\
+    y&= y_1v_1,+\cdots+y_nv_n
   \end{align*}
   und
   \[M_B(s)=(a_{ij})_{1\leq i, j\leq n}, \text{d.h.} a_{ij}=s(v_i,v_j)\]
   haben wir:
   \begin{align*}
-    s(x,y)&=& \sum^n_{i,j=1}x_iy_ja_{ij}\\
-    &=& (x_1\cdots x_n)\cdot\Mx{a_{11}&\cdots&a_{1n}\\ \vdots&&\vdots\\a_{n1}&\cdots&a_{nn}}\cdot \Mx{y_1\\ \vdots\\ y_n}\\
-    &=& x^tM_B(s)\cdot y
+    s(x,y)&= \sum^n_{i,j=1}x_iy_ja_{ij}\\
+    &= (x_1\cdots x_n)\cdot\Mx{a_{11}&\cdots&a_{1n}\\ \vdots&&\vdots\\a_{n1}&\cdots&a_{nn}}\cdot \Mx{y_1\\ \vdots\\ y_n}\\
+    &= x^tM_B(s)\cdot y
   \end{align*}
 \end{Kor}
 \begin{Prop}
@@ -40,16 +40,19 @@ Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, mit $\dim_KV<\infty$, und $s:V\time
   Dann:
   % use diagram package
   \begin{align*}
-    K^n\times K^n&\ara{\Phi_B\times\Phi_B}{}V\times V\ara{s}{}&K\\
-    \text{ist gegeben durch}\\
-    (x,y)&\mapsto&t_xA\cdot y
+    K^n\times K^n&\ara{\Phi_B\times\Phi_B}{}V\times V\ara{s}{}K\\
+    \text{ist gegeben durch}&\\
+    (x,y)&\xmapsto{\phantom{CCCCCCCCCCCCCCCCC}} t_xA\cdot y
   \end{align*}
   Sei $A=(u_i)_{1\leq i\leq n}$ eine andere Basis.  
-  \begin{align*}
-    K^n&\ara{\Phi_A}{}&V\\
-    \ara{T}{}=\Phi^{-1}_B\circ \Phi_A&\\
-    K^n&\ara{\Phi_B}{}&
-  \end{align*}
+  \[\begindc{\commdiag}[30]
+  \obj(0,2)[K1]{$K^n$}
+  \obj(0,0)[K2]{$K^n$}
+  \obj(2,1)[V]{$V$}
+  \mor{K1}{K2}{$T=\Phi_B^{-1}\circ\Phi_A$}[-1,0]
+  \mor{K1}{V}{$\Phi_A$}
+  \mor{K2}{V}{$\Phi_B$}
+  \enddc\]
 \end{Bem}
 \begin{Prop}{Transforationsformel}
   Mit dieser Notation haben wir:
@@ -57,18 +60,30 @@ Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, mit $\dim_KV<\infty$, und $s:V\time
 \end{Prop}
 \begin{Bew}
   \begin{align*}
-    K^n\times K^n &\ara{\Phi_B\times\Phi_B}{} V\times V\ara{s}{}&K\\
-    (x,y)&\mapsto&t_x\cdot M_B(s)\cdot y
+    K^n\times K^n &\ara{\Phi_B\times\Phi_B}{} V\times V\ara{s}{}K\\
+    (x,y)&\xmapsto{\phantom{CCCCCCCCCCCCCCCCC}} t_x\cdot M_B(s)\cdot y
   \end{align*}
-  Es folgt: (eine Bastelei\ldots)
-  \begin{align*}
-    K^n\times K^n&\ara{\Phi_A\times\Phi_A}{}&V\times V&\ara{s}{}&K\\
-    \ara{T\times T}{}&K^n\times K^n&\ara{\Phi_B\Phi_B}{}\uparrow&&
-  \end{align*}
-  \begin{align*}
-    K^n\times K^n (x,y)&\mapsto& K(x^tM_a(s)\cdot y)=t_x^tM_B(s)T_y = (T_x)^tM_B(s)(T_y)\\
-    \mapsto&K^n\times K^n(T_x,T_y)&\xmapsto{(T_x)^tM_B(s)(T_y)}\uparrow
-  \end{align*}
+  Es folgt:
+  \[\begindc{\commdiag}[4]
+  \obj(5,20)[xy]{$(x,y)$}
+  \obj(20,25)[KK1]{$K\times K$}
+  \obj(30,15)[KK2]{$K\times K$}
+  \obj(40,25)[V]{$V\times V$}
+  \obj(55,25)[K]{$K$}
+  \obj(30,7)[T]{$(T_x,T_y)$}
+  \obj(70,20)[x]{$x^tM_A(s)y=$}
+  \mor{KK1}{KK2}{$T\times T$}[-1,0]
+  \mor{KK1}{V}{$\Phi_A\times\Phi_A$}
+  \mor{KK2}{V}{$\Phi_B\times\Phi_B$}[-1,0]
+  \mor{V}{K}{$s$}
+  \mor{KK1}{xy}{$\in$}[1,2]
+  \mor{KK2}{T}{$\in$}[1,2]
+  \mor{K}{x}{$\in$}[1,2]
+  \cmor((5,22)(20,30)(55,30)(67,27)(70,22)) \pdown(40,33){$\mapsto$}
+  \mor{xy}{T}{}[1,6]
+  \mor{T}{x}{}[1,6]
+  \enddc\]
+  \[=x^tT^tM_B(s)Ty=(T_x)^tM_B(s)(T_y)\]
   Es folgt aus der oberen Proposition (Vor der Transf.):
   \[T^tM_B(s)T=M_a(s)\]
 \end{Bew}
@@ -77,13 +92,13 @@ Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, mit $\dim_KV<\infty$, und $s:V\time
   \[\Mx{1&&0\\&\ddots&\\0&&1}=M_{\text{Standardbasis}}(<.,.>)\]
   Sei
   \begin{align*}
-    A&=& (e_1,&e_2-e_1,&e_3-e_2,\cdots,&e_n-e_{n-1})\\
-    &=:& (u_1,&u_2,&\cdots,&u_n
+    A=& (e_1,e_2-e_1,e_3-e_2,\cdots,e_n-e_{n-1})\\
+    =:& (u_1,u_2,\cdots,u_n)
   \end{align*}
   Direkt aus der Definition:
   \[<u_i,u_j>=\begin{cases} 1& i=j=1 \\ 2&i=j>1\\ -1& \Abs{i-j}=1 \\ 0&\text{sonst}\end{cases} \]
   oder mit der Transformationsformel
-  \[T=\Mx{1&1&&0\\\cdots\\\cdots&&&1\\0&&&1} \text{und} T^tE_N T''\]
+  \[T=\Mx{1&1&&0\\\cdots\\\cdots&&&1\\0&&&1} \text{und}\ T^tE_N T''\]
 \end{Bsp}
 \begin{Bem}
   Ist $A$ die darstellende Matrix bezügloich einer Basis, so haben wir:
@@ -96,32 +111,32 @@ Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, mit $\dim_KV<\infty$, und $s:V\time
 \subsection{Bilineare und quadratische Formen}
 Eine quadratische Form $V\to K$ wird zu einer Bilinearform assoziert. Falls $\dim_KV<\infty$: ``quadratische Form'' bedeutet $q:V\to K$ bezüglich einem Koordinatensystem gegeben als homogenes quadratisches Polynom. Ist $s:V\times V\to K$ eine bilineare Form, dann heisst
 \begin{align*}
-  q:&V&\to&K\\
-  &v& \mapsto &q(v)=s(v,v)
+  q:&V\to K\\
+  &v \mapsto q(v)=s(v,v)
 \end{align*}
 die zu $s$ gehörige quadratische Form.
 \begin{Bsp}
   $<v,v>=v_1^2+\cdots+v_n^2$ für $v\in K^n$\\
   Für $A=(a_{ij})_{1\leq i, j\leq n}$ eine symmetrische Matrix mit $s:V\times V\to K$, $(x,y)\mapsto x^tAy$, haben wir
   \begin{align*}
-    s(x,x)&=& x^tAx\\
-    &=& \Mx{x_1&\cdots&x_n}\Mx{a_{11}&\cdots&a_{1n}\\ \vdots&&\vdots\\ a_{n1}&\cdots&a_{nn}}\Mx{x_1\\ \vdots \\ s_n}\\
-    &=& \sum^n_{i,j=1}a_{ij}x_ix_j\\
-    &=& \sum^n_{i=1}a_{ii}x_i^2+2\sum_{1\leq i<j\leq n}a_{ij}x_ix_j
+    s(x,x)&= x^tAx\\
+    &= \Mx{x_1&\cdots&x_n}\Mx{a_{11}&\cdots&a_{1n}\\ \vdots&&\vdots\\ a_{n1}&\cdots&a_{nn}}\Mx{x_1\\ \vdots \\ s_n}\\
+    &= \sum^n_{i,j=1}a_{ij}x_ix_j\\
+    &= \sum^n_{i=1}a_{ii}x_i^2+2\sum_{1\leq i<j\leq n}a_{ij}x_ix_j
   \end{align*}
 \end{Bsp}
 Ist $\text{char}(K)\neq 2$, so haben wir:
 \begin{align*}
-  \{\text{symm. bilineare Formen in $K^n$}\}&\lra&\{\text{quadr. Formen auf} K^n\}\\
-  s&\mapsto &q(v):=s(v,v)\\
-  &\mapsfrom (\text{Polarisierungsformel}) &
+  \{\text{symm. bilineare Formen in $K^n$}\}&\lra\{\text{quadr. Formen auf}\ K^n\}\\
+  s&\mapsto q(v):=s(v,v)\\
+  &\mapsfrom (\text{Polarisierungsformel}) 
 \end{align*}
 \subsubsection{Polarisierungsformel}
 Ist $s$ eine symmetrische Bilinearform und $q$ die zu $s$ gehörende quadratische Form über einem Vektorraum $V$ über $K$ mit $\text{char}(K)\neq 2$, dann gilt: 
 \begin{align*}
-  s(v,w)&=& \frac{1}{2}\left( q(v+w) - q(v) - q(w) \right)\\
-  &=& \frac{1}{2}\left( q(v)+q(w)-q(v+w) \right)\\
-  &=& \frac{1}{4}\left( q(v+w)-q(v-w) \right)
+  s(v,w)&= \frac{1}{2}\left( q(v+w) - q(v) - q(w) \right)\\
+  &= \frac{1}{2}\left( q(v)+q(w)-q(v+w) \right)\\
+  &= \frac{1}{4}\left( q(v+w)-q(v-w) \right)
 \end{align*}
 \subsection{Sesquilineare Form}
 \begin{Def}
@@ -129,17 +144,17 @@ Ist $s$ eine symmetrische Bilinearform und $q$ die zu $s$ gehörende quadratisch
   \[s:V\times V\to \mb{C}\]
   heisst sesquilinear falls:
   \begin{align*}
-    s(v+v',w)&=& s(v,w)+s(v',w)\\
-    s(\lambda v,w)&=& \lambda s(v,w)\\
-    s(v,w+w')&=& s(v,w)+s(v,w')\\
-    s(v,\lambda w)&=& \bar{\lambda} s(v,w)
+    s(v+v',w)&= s(v,w)+s(v',w)\\
+    s(\lambda v,w)&= \lambda s(v,w)\\
+    s(v,w+w')&= s(v,w)+s(v,w')\\
+    s(v,\lambda w)&= \bar{\lambda} s(v,w)
   \end{align*}
   für $v,v',w,w'\in V$, $\lambda\in\mb{C}$
 \end{Def}
 \begin{Bsp}
-  $<.,.>$ auf $\mb{C}^n$
+  $\Seq{.,.}$ auf $\mb{C}^n$
   \begin{align*}
-    s(f,g)&=& \int^1_0f(x)g(x)dx\\
-    \text{auf} V&:=& \{\text{stetige Abb.}\}[0,1]\to\mb{C}\}
+    s(f,g)&= \int^1_0f(x)g(x)dx\\
+    \text{auf}\ V&:= \{\text{stetige Abb.}[0,1]\to\mb{C}\}
   \end{align*}
 \end{Bsp}

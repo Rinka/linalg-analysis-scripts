@@ -1,40 +1,40 @@
 \section{Bilinearformen}
 Das kanonische Skalarprodukt (oder: Standardskalarprodukt) von $\mb{R}^n$ ist die Abbildung
-\begin{align*}<,>: & \mb{R}^nx\mb{R}^n & \to & \mb{R}\\
- & (x,y) & \mapsto & <x,y>\in\mb{R}
+\begin{align*}\Seq{,}: & \mb{R}^nx\mb{R}^n & \to & \mb{R}\\
+  & (x,y) & \mapsto & \Seq{x,y}\in\mb{R}
 \end{align*}
 gegeben durch
-\[<x,y>:=x_1y_1+\cdots+x_ny_n\]
+\[\Seq{x,y}:=x_1y_1+\cdots+x_ny_n\]
 falls $x=(x_1,\cdots,x_n)$ und $y=(y_1,\cdots,y_n)$ sind.
 \begin{Def}[Konvention]
 eine $1x1$ Matrix wird mit Eintrag indentifiziert
 \[(x)\in{}M(1\times 1,K) \lra x\in{}K\]
 Dann können wir schreiben:
-\[<x,y>=(x^t)(y)\]
+\[\Seq{x,y}=(x^t)(y)\]
 \[x=\Mx{x_1,\vdots,x_n}, y=\Mx{y_1,\vdots,}\]
-\[(x_1,\cdots,x_n)\Mx{y_1,\vdots,y_n}=x_1y_1+\cdots+x_ny_n)\]
+\[(x_1,\cdots,x_n)\Mx{y_1,\vdots,y_n}=(x_1y_1+\cdots+x_ny_n)\]
 \end{Def}
-\begin{Bem}[$<,>$ ist bilinear]
+\begin{Bem}[$\Seq{,}$ ist bilinear]
 \begin{align*}
-  <x+x',y>&=<x,y>+<x',y>\\
-  <\lambda{}x,y>&=\lambda<x,y>\\
-  <x,y+y'>&=<x,y>+<x,y'>\\
-  <x,\lambda{}y>&=\lambda<x,y>
+  \Seq{x+x',y}&=\Seq{x,y}+\Seq{x',y}\\
+  \Seq{\lambda{}x,y}&=\lambda\Seq{x,y}\\
+  \Seq{x,y+y'}&=\Seq{x,y}+\Seq{x,y'}\\
+  \Seq{x,\lambda{}y}&=\lambda\Seq{x,y}
 \end{align*}
 symmetrisch:
-\[<x,y>=<y,x>\]
+\[\Seq{x,y}=\Seq{y,x}\]
 positiv definit:
 \begin{align*}
-  <x,x> &\geq& 0 \\
-  <x,x> &=&= \Lra x=0\in\mb{R}^n
+  \Seq{x,x} &\geq 0 \\
+  \Seq{x,x} &= \Lra x=0\in\mb{R}^n
 \end{align*}
 \[\text{für} \forall x,y,x',y'\in\mb{R}^n, \lambda\in\mb{R}\]
 \end{Bem}
 \begin{Bem}[Hintergrund: euklidische Geometrie]
-\begin{align*}
-  \Norm{x}&=&=\sqrt{<x,x>}
-  &=&=\sqrt{x^2_1+\cdots+x_n^2}
-\end{align*}
+\begin{gather*}
+  \Norm{x}=\sqrt{\Seq{x,x}}
+  =\sqrt{x^2_1+\cdots+x_n^2}
+\end{gather*}
 \end{Bem}
 \begin{Bem}[Eigenschaften von $\Norm{.}$]
 \begin{align*}
@@ -54,29 +54,29 @@ Dann definieren wir den Abstand von $x,y\in\mb{R}^n$:
 \end{align*}
 \[\text{für} x,y,z\in\mb{R}^n\]
 \end{Bem}
-Wir sind motiviert, Struktiren zu definieren, basierend auf diesen Eigenschaften, so z.B.
+Wir sind motiviert, Strukturen zu definieren, basierend auf diesen Eigenschaften, so z.B.
 \begin{itemize}
   \item Bilineare Formen (symetrisch, positiv definit)
   \item Norme
   \item Metriken
 \end{itemize}
-\begin{proof} $\Norm{.}$ und $d$: die Dreiecksungleichung folgt aus der Cauchy-Schwarzschen Ungleichung
+\begin{Bew} $\Norm{.}$ und $d$: die Dreiecksungleichung folgt aus der Cauchy-Schwarzschen Ungleichung
 \begin{align*}
-  \Norm{x+y}^2&=&=<x+y,x+y>\\
-  &=&=\Norm{x}^2+\Norm{y}^2+2<x,y> \leq (?) \left(\Norm{x}+\Norm{y}\right)^2\\
-  &&\Lra <x,y> \leq \Norm{x}\Norm{y}
+  \Norm{x+y}^2&=\Seq{x+y,x+y}\\
+  &=\Norm{x}^2+\Norm{y}^2+2\Seq{x,y} \leq (?) \left(\Norm{x}+\Norm{y}\right)^2\\
+  &\Lra \Seq{x,y} \leq \Norm{x}\Norm{y}
 \end{align*}
 Cauchy-Schwarz'sche Ungleichung: für $x,y\in\mb{R}^n$
-\[<x,y>^2\leq<x,x><y,y>\]
+\[\Seq{x,y}^2\leq\Seq{x,x}\Seq{y,y}\]
 mit Gleichheit genau dann, wenn $x$ und $y$ linear abhängig sind.
 \[\Lra\]
 \[A=\Mx{---&x&---\\---&y&---}\in M(2\times n,\mb{R})\]
 $A$ hat Rang $\leq 1$
-\end{proof}
-\begin{proof}
+\end{Bew}
+\begin{Bew}
 \begin{align*}
-  A\cdot{}A^t&=&=\Mx{<x,x>&<x,y>\\<x,y>&<y,y>}\in M(2\times 2),\mb{R}\\
-  \det(A\cdot{}A^t)&=&=<x,x><y,y>-<x,y>^2
+  A\cdot{}A^t&=&=\Mx{\Seq{x,x}&\Seq{x,y}\\\Seq{x,y}&\Seq{y,y}}\in M(2\times 2),\mb{R}\\
+  \det(A\cdot{}A^t)&=&=\Seq{x,x}\Seq{y,y}-\Seq{x,y}^2
 \end{align*}
 Es gibt eine Gleichung von Determinanten:
 \begin{align*}
@@ -90,24 +90,24 @@ Es folgt:
   \det(A\cdot A^t)=\sum_{1\leq i < j \leq n} \det(A^{i,j})^2 \geq 0
 \end{align*}
 und ist $=0$ $\Lra$ alle $2\times 2$ Minoren von $A$ sind 0 $\Lra$ $rang(A)\leq 1$
-\end{proof}
+\end{Bew}
 \begin{Kor} Wir können definieren
-\begin{align*}
-  \angle(x,y):=\cos^{-1}\underbrace{\frac{<x,y}{\Norm{x}\Norm{y}}}_{\in [-1,1]\in\mb{R}} \in [0,\pi]\in\mb{R}\\
+\begin{gather*}
+  \angle(x,y):=\cos^{-1}\underbrace{\frac{\Seq{x,y}}{\Norm{x}\Norm{y}}}_{\in [-1,1]\in\mb{R}} \in [0,\pi]\in\mb{R}\\
   \text{für}\\
   0\neq x\in\mb{R}^n\\
   0\neq y\in\mb{R}^n
-\end{align*}
+\end{gather*}
 \end{Kor}
 \begin{Kor}
 $x,y$ Vektoren, $\theta$ Winkel zwischen den beiden
-\[<x,y>=\frac{1}{2}\left(\Norm{x}^2+\Norm{y}^2-\Norm{y-x}^2\right)\]
+\[\Seq{x,y}=\frac{1}{2}\left(\Norm{x}^2+\Norm{y}^2-\Norm{y-x}^2\right)\]
 und deshalb:
 \[\cos\theta=\frac{\Norm{x}^2+\Norm{y}^2-\Norm{y-x}^2}{2\Norm{x}\Norm{y}}\]
 $\implies$ Winkel eines Dreiecks ist nur von den Seitenlängen abhängig.
 \end{Kor}
 \begin{Bsp}
-\[\angle(x,y)=\frac{\pi}{2}\Lra <x,y>=0\]
-\[\underbrace{\{y|<x,y>=0\}={0}}_{\text{Untervektorraum}}\cup\{0\neq y\in\mb{R}^n|\angle(x,y)=\frac{\pi}{2}\}\]
-Man nennt $x$ und $y$ \underline{senkrecht} falls $<x,y>=0$
+\[\angle(x,y)=\frac{\pi}{2}\Lra \Seq{x,y}=0\]
+\[\underbrace{\{y|\Seq{x,y}=0\}={0}}_{\text{Untervektorraum}}\cup\{0\neq y\in\mb{R}^n|\angle(x,y)=\frac{\pi}{2}\}\]
+Man nennt $x$ und $y$ \underline{senkrecht} falls $\Seq{x,y}=0$
 \end{Bsp}
