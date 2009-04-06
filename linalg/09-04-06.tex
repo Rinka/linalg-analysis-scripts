@@ -1,0 +1,146 @@
+\begin{Eig}{$F:V\to W$}
+  \begin{itemize}
+    \item \[\underbrace{\left( \Im F \right)^0}_{\text{alle}\ W\xrightarrow{\phi}\mb{K}\ \text{mit}\ \phi|_{\Im F}=0}=\underbrace{\Ker F^*}_{\text{alle}\ W\xrightarrow{\phi}\mb{K}\ \text{mit}\ \phi\circ F=0}\]
+      Da \[\phi|_{\Im F}=0\ \Lra\ \phi \circ F = 0\]
+      haben wir die Gleichung.
+    \item \[\left( \Ker \right)^0 = \Im\left( F^* \right)\]
+      $\supset$ offensichtlich\\
+      $\subset$ folgt aus der Surjektivität von $W^*\to \left( \Im F \right)^*$
+  \end{itemize}
+  Wir betrachten $\phi:V\to \mb{K}$ mit $\phi|_{\Ker F}=0$
+  \[w\to W, w=F(v)\ \text{für ein}\ v\in V\]
+  \[w\rsa \bar\phi(w)=\phi(v)\]
+  Ist
+  \[w=F(v')\]
+  dann ist
+  \[v'-v\in\Ker F\]
+  und
+  \[\phi(v')-\phi(v)=\phi(v'-v)=0\]
+  \[\begindc{\commdiag}[50]
+  \obj(0,1){$V$}
+  \obj(2,1){$K$}
+  \obj(1,0)[F]{$\Im F$}
+  \mor{$V$}{$K$}{$\phi$}
+  \mor{$V$}{F}{}
+  \mor{F}{$K$}{$\bar\phi$}
+  \enddc\]
+  \[\exists \underbrace{\psi}_{\in W^*}\mapsto \underbrace{\bar\phi}_{\in (\Im F)^*}\]
+  d.h.
+  \[\psi:W\to \mb{K}\]
+  mit
+  \[\psi|_{\Im F}=\bar\phi\]
+  Das zeigt:
+  \[F^*(\psi)=\phi\]
+\end{Eig}
+\begin{Bem}
+  An dem Diagramm haben wir eine Bijektion zwischen $\phi\in V^*$ mit $\phi|_{\Ker F}=0$ und $\bar\phi\in \left(\Im F \right)^*$
+  \[\xRightarrow{\dim W<\infty}\ \dim(\Im F)= \dim (\Im F)^* = \dim (\Ker F)^0=\dim \Im (F^*)\]
+  \[\xRightarrow{\dim V,\dim W<\infty} \rang(F)=\rang(F^*)\]
+  Keine Überraschung! $\rang(A)=\rang(A^t)$
+\end{Bem}
+\begin{Bsp}
+  \[\mb{R}[x]^{\leq 2}\xrightarrow{(ev_{-1},ev_1)}\mb{R}\]
+  surjektiv 
+  \[\implies (\Im F)^0=0\]
+  Interpretation:
+  \[\alpha f(-1)+\beta f(1)=0\ \forall f\in \mb{R}[x]^{\leq 2}\ \Lra\ \alpha=\beta=0\]
+  \[\Ker\left( (\alpha, \beta) \mapsto \left( f\mapsto \alpha f(-1)+\beta f(1) \right) \right)\]
+  \begin{gather*}
+    \Ker (ev_{-1},ev_1)=\Span (x^2-1)\\
+    \implies \Ker(ev_{-1},ev_1)^0=\left\{ \mb{R}[x]^{\leq 2}\xrightarrow{\phi}\mb{R},\ \phi(x^2-1)=0 \right\}
+    =\Span \left( \frac{1}{2}ev''_0+ev_0,ev_0' \right)
+  \end{gather*}
+  und 
+  \[=\Im\left( ev_{-1},ev_1 \right)^*=\Span (ev_{-1},ev_1)\]
+  weil
+  \begin{gather*}
+    ev_{-1}=\frac{1}{2}ev_0'' -ev_0'+ev_0\\
+    ev_1=\frac{1}{2}ev_0'' + ev_0' + ev_0
+  \end{gather*}
+\end{Bsp}
+\subsection{Der Bidualraum $V\rsa V^*\rsa V^{**}$}
+\begin{Def}{kanonische lineare Abbildung}
+  $\dim V<\infty$ $\implies$ ein Isomorphismus $V\to V^*$ wird durch die Auswahl einer Basis bestimmt. Dagegen haben wir eine Abbildung $V\to V^{**}$ unabhängig von der Basis, so:
+  \[v\mapsto \Mx{V^*\xrightarrow{ev_v}\mb{K}\\ (\phi: V\to\mb{K})\mapsto \phi(v)}\]
+  Dies heisst kanonische lineare Abbildung und ist ein Isomorphismus falls $\dim V<\infty$
+\end{Def}
+\begin{Bem}
+  Im Allgemeinen ist die kanonische Abbildung $V\to V^{**}$ injektiv: 
+  \begin{align*}
+    \left[ \text{Sei}\ v\in V\ \text{mit}\ v\neq 0 \right] \stackrel{\Span(v)\subset V}{\rsa}&V^*\twoheadrightarrow \Span(V)^*\\
+    & \phi\mapsto \psi:v\mapsto 1\ (\text{d.h.}\ \phi(v)=1)\\
+    \implies ev_1(\phi)\neq 0
+  \end{align*}
+  \[\dim V <\infty\implies \dim V= \dim V^*=\dim V^{**}\]
+  Dann:
+  \[\implies V\to V^{**}\ \text{injektiv}\ \Lra \text{bijektiv}\]
+  Oft schreibt man $V=V^{**}$ für $V$ ein Vektorraum mit $\dim V<\infty$. Das bedeutet immer, dass $V$ und $V^{**}$ identifiziert wird, durch den kanonischen Isomorphismus.
+\end{Bem}
+\begin{Bsp}
+  $V=\mb{K}^n$ mit Standardbasis $e_1,\cdots,e_n$.\\
+  $V^*=(\mb{K}^n)^*$ hat die duale Basis $e_1^*,\cdots,e_n^*$\\
+  $V\to V^{**}$ mit einer Abbildung \[e_i\mapsto \Mx{\phi:(\mb{K}^n)^*\to\mb{K}\mapsto \phi(e_i)\\ e_j^* \mapsto \delta_{ij}}=e^{**}_i\]
+\end{Bsp}
+\begin{Bem}
+  Sei $F:V\to W$ eine lineare Abbildung von endlichdimensionalen Vektorräumen. Dann ist $F^**=F$, im folgenden Sinn:
+  \[\begindc{\commdiag}[40]
+  \obj(0,1){$V$}
+  \obj(0,0){$V^{**}$}
+  \obj(1,0){$W^{**}$}
+  \obj(1,1){$W$}
+  \obj(2,1){$W^*$}
+  \obj(3,1){$V^*$}
+  \mor{$V$}{$V^{**}$}{$\sim$}
+  \mor{$V$}{$W$}{$F$}
+  \mor{$V^{**}$}{$W^{**}$}{$F^{**}$}
+  \mor{$W$}{$W^{**}$}{$\sim$}
+  \mor{$W$}{$W^*$}{$ $}[1,\dasharrow]
+  \mor{$W^*$}{$W^{**}$}{$ $}[1,\dasharrow]
+  \mor{$W^*$}{$V^*$}{$F^*$}
+  \enddc\]
+  Wobei $\sim$ einen kanonischen Isomorphismus darstellt.\\
+  Daraus folgt, dass
+  \[V\xrightarrow{F} W\rsa W^*\xrightarrow{F^*}V^*\rsa V^{**}\xrightarrow{F^{**}}W^{**}\]
+  kommutativ ist.
+\end{Bem}
+\begin{Bem}
+  \[\begindc{\commdiag}[5]
+  \obj(00,05){$\phi$}
+  \obj(10,05)[phi]{$\phi(v)\in V^{**}$}
+  \obj(10,10)[V**]{$V^{**}$}
+  \obj(10,20)[V]{$V$}
+  \obj(00,20)[v]{$v\in V$}
+  \obj(20,20)[W]{$W$}
+  \obj(30,20)[F]{$F(v)\in V$}
+  \obj(20,10)[W**]{$W^{**}$}
+  \obj(30,10)[psi1]{$\psi$}
+  \obj(40,10)[psiF]{$\psi(F(v))$}
+  \obj(30,05)[psi2]{$\psi$}
+  \obj(40,05)[Fpsi]{$F^*(\psi)(v)$}
+  \cmor((0,22)(15,25)(30,22)) \pright(22,26){$\mapsto$}[0]
+  \mor{V}{W}{}
+  \mor{V}{V**}{}
+  \mor{V**}{W**}{}
+  \mor{W}{W**}{}
+  \cmor((10,3)(25,0)(40,03)) \pright(25,1){$\mapsto$}
+  \mor{$\phi$}{phi}{ }[1,\aplicationarrow]
+  \mor{psi1}{psiF}{ }[1,\aplicationarrow]
+  \mor{psi2}{Fpsi}{}[1,\aplicationarrow]
+  \mor{Fpsi}{psiF}{$=$}[1,\solidline]
+  \mor{F}{psi1}{}[1,\aplicationarrow]
+  \enddc\]
+  Falls $\dim W<\infty$ und $V\subset W$, dann haben wir $V^{00}=V$ im folgenden Sinn
+  \[\overbrace{V^0}^{\dim =\dim W-\dim V}\subset W^*\]
+  \[\overbrace{V^{00}}^{\dim = \dim W-(\dim W-\dim V)\dim V}\subset W^{**}\xleftarrow{\sim} W\supset V\]
+  Das Bild von $V$ unter dem kanonischen Isomorphismus ist $V^{00}$.\\
+  Sei $v\in V$ $ev_1\in V^{00}$
+  \[\phi \in W^*,\ \phi(v)0\ \forall \phi \in V\implies \phi(v)=0\]
+\end{Bem}
+\begin{Bsp}
+  \begin{gather*}
+    W=\mb{R}^3\\
+    V=\Span\left( \Mx{1\\0\\1},\Mx{0\\-1\\1} \right)\implies V^0=\Span(e_1^*-e_2^*-e_3^*)
+    =\Span (e_1+e_3,-e_2+e_3)\\
+    V^{00}=\Span(e^{**}_1+e^{**}_2,e_1^{**}+e_3^{**}
+  \end{gather*}
+\end{Bsp}
