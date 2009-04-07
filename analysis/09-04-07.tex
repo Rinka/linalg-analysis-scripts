@@ -1,0 +1,210 @@
+\begin{Def}{folgenkompakt}
+  Ein metrischer Raum $X$ heisst folgenkompakt, wenn jede Folge in $X$ eine konvergente Teilfolge besitzt. [Bolzano-Weierstrass-Eigenschaft]
+\end{Def}
+\begin{Def}
+  Eine Teilmenge eines metrischen Raumes heisst folgenkompakt, wenn sie bezüglich der Spurmetrik folgenkompakt ist.
+\end{Def}
+\begin{Bsp}
+    $\mb{R}$ ist nicht folgenkompakt (Folgen, die gegen $\infty$ konvergieren)
+\end{Bsp}
+\begin{Bsp}
+    $[a;b]$ ist folgenkompakt (Satz von Bolzano-Weierstrass)
+\end{Bsp}
+\subsection{Überdeckung}
+\begin{Def}{Überdeckung}
+  Sei $X$ ein Menge, sei $I$ eine Indexmenge und sei $\left\{ U_i \right\}_{i\in I}$ Familie von Teilmengen von $X$. $\left\{ U_i \right\}_{i\in I}$ heisst Überdeckung von $X$, wenn $X=\bigcup_{i\in I}U_i$ d.h.
+  \[\forall x\in X\ \exists i\in I:x\in U_i\]
+  Sei $X$ ein metrischer Raum. Dann heisst eine Überdeckung $\left\{ U_i \right\}_{i\in I}$ offen, wenn $U_i$ offen $\forall i$ ist.
+\end{Def}
+\begin{Bsp}
+  $x=[0;1]$
+  \[\left\{ \left[0;\frac{2}{3}\right),\left(\frac{1}{3};1\right] \right\}\ \text{Überdeckung}\]
+  offen bezüglich der Spurtopologie
+\end{Bsp}
+\begin{Bsp}
+  $x=(0;1)$
+  \[\left\{ \left( \frac{1}{n};1 \right) \right\}_{n\in\mb{N}_x}\ \text{offen Überdeckt}\]
+\end{Bsp}
+\begin{Bsp}
+  $x=[0;1]$
+  \begin{align*}
+    U_n:=\left( \frac{1}{n};1 \right]&& n>0\\
+    U_0:=\left[ 0;\frac{1}{2} \right]
+  \end{align*}
+  $\left\{ U_n \right\}_{n\geq 0}$ offene Überdeckung von $X$
+\end{Bsp}
+\begin{Def}{endliche Überdeckung}
+  eine Überdeckung $\left\{ U_i \right\}_{i\in I}$ heisst endlich, wenn $I$ eine endliche Menge ist.
+\end{Def}
+\begin{Def}{kompakter metrischer Raum}
+  Ein metrischer Raum $X$ heisst kompakt , wenn aus \underline{jeder} offenen Überdeckung von $X$ eine endliche Überdeckung ausgewählt werden kann. d.h.
+  \begin{align*}
+  \forall \left\{ U_i \right\}_{i\in I}\ x=\bigcup_{i\in I}U_i\ \text{offen}\\
+  \exists n\in \mb{N}\ \text{und}\ \exists i_1,i_2,\cdots,i_n\in I\\
+  \text{s.d.}\ X=U_{i_1}\cup U_{i_2}\cup\cdots\cup U_{i_n}=\cup_{j=1}U_{i_j}
+  \end{align*}
+\end{Def}
+\begin{Def}{kompakte Teilmenge}
+  Eine Teilmenge eines metrischen Raumes heisst kompakt, wenn sie bezüglich der Spurmetrik so ist.
+\end{Def}
+\begin{Sat}
+  \[X\ \text{kompakt}\ \Lra\ X\ \text{folgenkompakt}\]
+\end{Sat}
+\begin{Bew}
+  $\Ra$ Sei $(a_k)$ Folge in $X$. Zu zeigen: $(a_k)$ besitzt eine konvergente Teilfolge.
+  \[A:=\left\{ a_k,k\in\mb{N} \right\}\]
+  \subparagraph{Fall 1}$A$ ist endlich $\implies$ $(a_k)$ besitzt eine konstante Teilfolge.
+  \subparagraph{Fall 2}$A$ unendlich
+  \begin{Lem}
+    $A$ besitzt einen Häufungspunkt.\\
+    $A$ besitzt keinen Häufungspunkt.
+    \[\forall x\in X\ \exists U(x)\ \text{Umgebung von $x$}\]
+    s.d.
+    \[U(x)\cap A=\begin{cases}
+      \varnothing&x\not\in A\\
+      \left\{ x \right\}&x\in A
+    \end{cases}\]
+    Zudem:
+    \begin{gather*}
+    \forall x\in U(x)\ \bigcup_{x\in A}U(x)=X\\
+    \left\{ U(x) \right\}_{x\in X}\ \text{ist eine offene Überdeckung von $X$}\\
+    \xRightarrow{\text{$X$ kompakt}}\\
+    \exists n:\exists x_1,\cdots,x_n\in X\ \text{s.d.}\ X=U(x_1)\cup\cdots\cup U(x_n)\\
+    A=X\cap A=\left( U(x_1)\cup\cdots\cup U(x_n) \right)\cap A=\left\{ x_i:x_i\in A \right\}\subset \left\{ x_i \right\}\\
+    \implies A\ \text{endlich}\implies \text{Widerspruch!}
+    \end{gather*}
+  \end{Lem}
+  Sei $a$ Häufungspunkt von $A$ $\implies$
+  \begin{gather*}
+    \forall\mu\in \mb{N}:K_{\frac{1}{\mu}}(a)\ni a_{k_\mu}\in A\setminus\left\{ a \right\}\\
+    (a_{k_\mu})\ \text{Teilfolge}, (a_{k_\mu})\in K \implies \Limi{\mu}a_{k_\mu}=a
+  \end{gather*}
+\end{Bew}
+\begin{Def}{beschränkt}
+  Sei $X$ ein metrischer Raum, $\mb{K}\subset X$. $\mb{K}$ heisst beschränkt, wenn 
+  \[\exists x\in X\ \exists r>0:\mb{K}\subset K_r(x)\]
+\end{Def}
+\begin{Lem}
+  Sei $X$ ein metrischer Raum, $\mb{K}\subset X$
+  \[\mb{K}\ \text{folgenkompakt} \implies\text{$\mb{K}$ beschränkt und abgeschlossen}\]
+\end{Lem}
+\begin{Bew}
+  Sei $\mb{K}$ nicht beschränkt oder nicht abgeschlossen.
+  \subparagraph{Fall 1}$\mb{K}$ nicht beschränkt\\
+  Sei $x\in \mb{K}$. Da $\mb{K}$ nicht beschränkt
+  \[\forall k\exists x_k\in \mb{K}:d(x_k,x)>k\]
+  (sonst wäre $\mb{K}\subset K_k(x)$)
+  $(x_k)$ besitzt keine konvergente Teilfolge. Sonst:
+  \[x_{k_i}\xrightarrow{i\to\infty}x\implies d(x_k,x)\to 0\]
+  (was aber nicht möglich ist, da der Abstand immer grösser wird)
+  \subparagraph{Fall 2}$\mb{K}$ nicht abgeschlossen
+  \[\exists (x_k),x_k\in \mb{K}\forall k\ \text{und}\ x_k\in x\not\in X\]
+  $\implies$ jede Teilfolge von $(x_k)$ konvergiert gegen $x\in X$.
+\end{Bew}
+\begin{Bem}
+  $\mb{K}$ folgenkompakt $\implies$ $\mb{K}$ abgeschlossen und beschränkt.\\
+  Im allgemeinen $\not\La$
+\end{Bem}
+\begin{Bsp}
+  $X=\mathcal{C}\left( [0;\pi],\mb{C} \right)$ mit Supremumsnorm
+  \[\mb{K}=K_1(0)=\left\{ f\in X:\overbrace{\Norm{f}}^{\sup\Abs{f}}\leq 1 \right\}\]
+  $\mb{K}$ ist abgeschlossen
+  \[\overline{K_1(0)}\subset K_2(0)\]
+  \ldots und beschränkt.
+  \begin{align*}
+    e_k(x):=e^{ikx}&&\\
+    e_k\in \mb{K}\ \forall k&&\\
+    \Norm{e_k-e_l}=2\ \forall k,l
+  \end{align*}
+  \begin{Bew}
+    \begin{gather*}
+      \Abs{e_k(x)-e_l(x)}^2=\left( e^{-ikx}-e^{ilx} \right)\left( e^{ikx}-e^{ilx} \right)=\\
+      =1-e^{i(l-k)x}-e^{i(k-l)x}+1 = 2\left( 1-cos(k-l) \right)
+    \end{gather*}
+    Maximum 4 wenn $\cos = -1$, $\sup\Abs{e_k-e_l}=2$ $\implies$ jede Teilfolge $e_k$
+    \[\Norm{e_{ki}-e_{kj}}=2\ \forall i,j\]
+    keine Cauchyfolge. Keine Teilfolge ist Cauchy. $\implies$ keine Teilfolge konvergiert
+  \end{Bew}
+\end{Bsp}
+\begin{Sat}
+  Sei $V$ ein \underline{endlichdimensionaler} normierter Vektorraum, sei $\mb{K}\subset V$. Dann sind folgende Aussagen equivalent:
+  \begin{enumerate}
+    \item $\mb{K}$ ist beschränkt und abgeschlossen
+    \item $\mb{K}$ kompakt
+    \item $\mb{K}$ ist folgenkompakt
+  \end{enumerate}
+  zu zeigen: $1.\implies 2.$
+\end{Sat}
+\begin{Sat}
+  Sei $X$ kompakt und $A\subset X$ abgeschlossen. Dann ist $A$ kompakt.
+\end{Sat}
+\begin{Bew}
+  Sei $\left\{ U_i \right\}_{i\in I}$ offene Überdeckung von $A$.
+  \begin{gather*}
+    U_i\ \text{offen in}\ A\implies \exists V_i\subset X\ text{offen, mit}\ U_i=A\cap U_i\\
+    \bigcup_{i\in I}U_i=A \implies \bigcup_{i\in A}V_i\supset A\\
+    X=X\setminus A\cup \bigcup_{i\in I}V_i\\
+    X\setminus A,V_i\ \text{Überdeckung von $X$}\\
+    A\ \text{abgeschlossen}\implies X\setminus A\ \text{offen}\\
+    X\setminus A,V_i\ \text{offene Überdeckung}\\
+    X\ \text{kompakt}\implies\ \exists n:i_1,\cdots,i_n: X=X\setminus A\cup V_{i_1}\cup V_{i_1}\cup\cdots\cup V_{i_n}\\
+    \implies U_{i_1},\cdots,U_{i_n}\ \text{Überdeckung von $A$}
+  \end{gather*}
+\end{Bew}
+\subsection{Existenz von Maxima und Minima}
+\begin{Sat}
+  Sei $f:X\to Y$ stetig ($X,Y$ metrische Räume)
+  \[X\ \text{kompakt}\implies f(x)\ \text{kompakt}\]
+\end{Sat}
+\begin{Bew}
+  Sei $\left\{ U_i \right\}_{i\in I}$ eine offene Überdeckung von $f(x)$ $V_i:=f^{-1}(U_i)$ $\implies$ $\left\{ V_i \right\}_{i\in I}$ offene Überdeckung von $X$.
+  \[\implies\exists n:i_1,\cdots,i_n\in I\ X=v_{i_1}\cup\cdots\cup V_{i_n}\implies f(x)=U_{i_1}\cup\cdots\cup U_{i_n}\]
+\end{Bew}
+\begin{Sat}{von Maxima und Minima}
+  Sei $f:x\to\mb{R}$ stetig und $X$ kompakt. Dann nimmt $f$ ein Maximum und ein Minimum an.
+\end{Sat}
+\begin{Bew}
+  $f$ stetig und $X$ kompakt $\implies$ $f(x)\subset\mb{R}$ kompakt. $\implies$ $f(x)$ beschränkt und abgeschlossen.\\
+  beschränkt $\implies$ $f(x)$ besitzt ein Supremum und ein Infimum\\
+  abgeschlossen $\implies$ $\sup, \inf f\in f(x)$
+\end{Bew}
+\begin{Def}{gleichmässig stetig}
+  $f:X\to Y$, ($X,Y$ metrische Räume) heisst gleichmässig stetig, wenn
+  \[\forall\varepsilon>0\ \exists \delta>0:\forall x_1,x_2\subset X\ \text{mit}\ d_x(x_1,x_2)<\delta\]
+  gilt
+  \[d_y\left( f(x_1),f(x_2) \right)<\varepsilon\]
+\end{Def}
+\begin{Bem}
+  $f$ gleichmässig stetig $\implies$ $f$ stetig
+\end{Bem}
+\begin{Sat}
+  Sei $f:X\to Y$ $X$ kompakt
+  \[f\ \text{stetig}\implies f\ \text{gleichmässig stetig}\]
+\end{Sat}
+\begin{Bew}
+  Wie im Falle $X\subset\mb{R}$  
+\end{Bew}
+\begin{Lem}{Tubenlemma}
+  Sei $X$ ein metrischer Raum, $\mb{K}$ ein kompakter Raum, $x_0\in X$, $W\subset X\times \mb{K}$ offen mit $\left\{ x_0 \right\}times\mb{K}\subset W$.\\
+  Dann $\exists$ Umgebung von $x_0$ in $X$ s.d. \[U\times\mb{K}\subset W\]
+\end{Lem}
+\begin{Bew}
+  $W$ offen in der Produkttopologie.
+  \[\forall y,x\in \mb{K}, \left( x_0,y \right)\in W\]
+  $\exists$ Umgebung von $U_y$ von $x_0$ in $X$
+  $\exists$ Umgebung von $V_y$ von $x_0$ in $\mb{K}$
+  mit $U_y\times V_y\subset W$
+  \begin{gather*}
+    \bigcup_{y\in\mb{K}}V_j=\mb{K}\\
+    y\in V_y\ \forall y\\
+    \left\{ V_y \right\}_{y\in \mb{K}}\ \text{offene Überdecktung von $\mb{K}$}\ \text{$\mb{K}$ kompakt}\\
+    \implies \forall n,u_1,\cdots,u_n\in\mb{K},\ \mb{K}=V_{y_1}\cup\cdots\cup V_{y_n}\\
+    U:=U_{y_1}\cap U_{y_2}\cap\cdots\cap U_{y_n}\\
+    U\ni x_0\\
+    U\times\mb{K}\subset W\\
+    U\ \text{\underline{offen}}
+  \end{gather*}
+\end{Bew}
+\begin{Kor}
+  $\mb{K}$ kompakt und $L$ kompakt $\implies$ $\mb{K}\times L$ kompakt
+\end{Kor}
