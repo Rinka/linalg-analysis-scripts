@@ -1,0 +1,230 @@
+\begin{Bem}
+  $\mb{K}=[a;b]$
+  \begin{align*}
+    f:X\times[a;b]&\to\mb{C}\\
+    (x,y)&\mapsto f(x,y)
+  \end{align*}
+  \begin{align*}
+    \forall x\in X: f_x:[a;b]&\to\mb{C}\\
+    y&\mapsto f(x,y)
+  \end{align*}
+  stetig $\implies$ $\mathcal{R}$ auf $[a;b]$
+  $f_x=f\circ i_x$
+  \[i_x:\left\{ x \right\}\times[a;b]\to X\times[a;b]\]
+  \begin{gather*}
+    F(x):=\int^b_af(x,t)\md t
+    F:X\to\mb{C}
+  \end{gather*}
+\end{Bem}
+\begin{Sat}
+  $F$ stetig
+\end{Sat}
+\begin{Bew}
+  $\forall x_0\in X$ ist $F$ stetig in $x_0$. Sei $x_0\in X$
+  \[\phi(x,t):=f(x,t)-f(x_0,t)\]
+  stetig. Sei $\varepsilon>0$
+  \[W:=\left\{ (x,t)\in X\times[a;b]:|\phi(x,t)<\frac{\varepsilon}{b-a} \right\}\]
+  $\phi$ stetig $\implies$ $W$ offen
+  \[\phi(x_0,t)=0\ \forall t\implies \left\{ x_0 \right\}\times[a;b]\subset W\]
+  $\implies$ $\exists$ Umgebung $U$ von $x_0$ in $X$ mit
+  \[U\times [a;b]\subset W\]
+  $\forall x\in U$ gilt
+  \begin{gather*}
+    \Abs{F(x)-F(x_0)}=\Abs{\int^b_a\phi(x,t)\md t}\leq \int^b_A\Abs{\phi(x,t)}\md t < \int^b_a\frac{\varepsilon}{b-a}\md t=\varepsilon
+  \end{gather*}
+  Spezialfall $X=[c;d]$
+  \[f:[c;d]\times[a;b]\to\mb{C}\]
+  stetig
+  \[F:[c;d]\to\mb{C}\ \text{stetig}\]
+  $\implies$ Regelfunktion
+  \[\int^d_cF(x)\md x=\underbrace{\int^d_c\left( \int^b_af(x,y)\md y \right)\md x}_{\text{interiertes Integral}}\]
+\end{Bew}
+\begin{Not}{interiertes Integral}
+  \[\int_{[c;d]\times[a;b]}f(x,y)\md x\md y:=\int_c^dF(x)\md x\]
+\end{Not}
+\subsection{Zwischenwertsatz}
+\begin{Def}{zusammenhängender metrischer Raum}
+  Ein metrischer Raum $X$ heisst zusammenhängend, wenn es keine Zerlegung $X=U\cup V$ gibt, mit
+  \begin{enumerate}
+    \item $U,V$ disjunkt (d.h. $U\cap V=\varnothing$)
+    \item $U,V$ offen
+    \item $U,V$ nicht leer
+  \end{enumerate}
+\end{Def}
+\begin{Def}
+  Eine Teilmenge eines metrischern Raumes heisst zusammenhängend, wenn sie bezüglich der Spurtopologie so ist.
+\end{Def}
+\begin{Bsp}
+  $\varnothing$ ist zusammenhängend
+\end{Bsp}
+\begin{Bsp}
+  $\left\{ x \right\}\subset\mb{R}$ zusammenhängend
+\end{Bsp}
+\begin{Bsp}
+  $\mb{Q}\in\mb{R}$ \underline{nicht} zusammenhängend
+  \begin{align*}
+    U&=\left\{ x\in\mb{Q}:x\leq 0\ \text{oder}\ x^2<2 \right\}=\mb{Q}\cap\left( -\infty,\sqrt{2} \right)\\
+    V&=\left\{ x\in\mb{Q}:x>0\ \text{oder}\ x^2>2 \right\}=\mb{Q}\cap\left( \sqrt{2},+\infty \right)
+  \end{align*}
+  offen
+\end{Bsp}
+\begin{Sat}
+  Sei $X\subset\mb{R}$ und besitze $X$ mindestens zwei verschiedene Punkte
+  \[X\ \text{zusammenhängend}\ \Lra\ X\ \text{Intervall}\]
+\end{Sat}
+\begin{Bew}
+  $\Ra$ Kontrapositionsbeweis: Sei $X$ kein Intervall
+  \[\implies\exists u<s<v\ \text{mit} u,v\in X\ s\not\in X\]
+  \[U:=X\cap\left( -\infty;s \right),\ V=X\cap\left( s;+\infty \right)\]
+  $\implies$ $X$ nicht zusammenhängend\\
+  $\La$ Widerspruchbeweis: Sei $X$ \underline{nicht} zusammenhängendes Intervall
+  \begin{gather*}
+    \exists U,V\ \text{offen in}\ I\\
+  \end{gather*}
+  \begin{align*}
+    U,V&\neq \varnothing&\implies\exists u\in U, v\in V\\
+    U\cap V&=\varnothing&\implies u\neq v\\
+    U\cup V&=X&\\
+  \end{align*}
+  Annahme $u<v$:
+  \[X\ \text{Intervall}\implies [u;v]\subset X\]
+  Sei
+  \[s=\sup\left( [u;v]\cap U \right)\]
+  beschränkt $\subset [u,v]$
+  \[\implies s\in [u;v]\ s\leq v\]
+  $V$ offen
+  \[U=X\setminus V\]
+  \[\implies U\ \text{abgeschlossen} \implies s\in U\]
+  \[U\cap V=\varnothing\implies s<v\]
+  Sei $x\in X$ mit $x>s$ und $x\leq v$
+  \[\xRightarrow{s\sup}\ x\in V\implies (s;v]\in V\]
+  \[U\ \text{offen}\implies \exists \varepsilon>0\ \text{mid} \left( s-\varepsilon, s+\varepsilon \right)\cap X\in U\]
+  $X$ Intervall $v\in X$, $s<v$
+  \[\implies \lambda\in [s;s+\varepsilon)\cap X\in U\ \text{mit}\ \lambda\leq v\implies \lambda\in U\]
+  $(s;v]\subset V$ $\implies \lambda\in V$ Widerspruch, da $U\cap V=\varnothing$
+\end{Bew}
+\begin{Sat}
+  Sei $f:X\to Y$ stetig
+  \[X\ \text{zusammenhängend}\implies Y\ \text{zusammenhängend}\]
+\end{Sat}
+\begin{Bew}
+  Kontrapositionsbeweis: Sei $Y$ nicht zusammenhängend
+  \[\implies Y=U\cup V\]
+  \begin{align*}
+    U,V&\neq\varnothing\\
+    U\cap V&=\varnothing\\
+    U,V&\ \text{offen}
+  \end{align*}
+  \[\tilde U:=f^{-1}(U),\tilde V:=f^{-1}(V)\]
+  \[X=\tilde U\cup \tilde V\]
+  \begin{align*}
+    \tilde U, \tilde V&\neq \varnothing\\
+    \tilde U\cap \tilde V=\varnothing\\
+    \tilde U, \tilde V&\ \text{offen}
+  \end{align*}
+\end{Bew}
+\begin{Sat}{Zwischenwertsatz}
+  Sei $X$ zusammenhängend
+  \[f:X\to\mb{R}\ \text{stetig}\]
+  Für je zwei Punkte $a$ und $b$ $\in X$ nimmt $f$ alle Werte zwischen $f(a)$ und $f(b)$ an.
+\end{Sat}
+\begin{Bew}
+  Fall 1: $f(a)=f(b)$ nichts zu zeigen\\
+  Fall 2: $f(a)\neq f(b)$ und $f(x)$ zusammenhängend
+  \[\implies f(x)\ \text{Intervall}\]
+  $\implies$ $f(x)$ enthält alle Punkte zwischen $f(a)$ und $f(b)$
+\end{Bew}
+\begin{Def}{wegzusammenhängend}
+  Ein metrischer Raum $X$ heisst wegzusammenhängend, wenn es $\forall a,b\in X$ eine stetige Kurve
+  \[\gamma:[\alpha;\beta]\to X\]
+  gibt mit $\gamma(\alpha)=a$ und $\gamma(\beta)=b$. Man sagt, $\gamma$ verbinde $a$ und $b$.
+\end{Def}
+\begin{Bsp}
+  $\mb{R}\setminus\left\{ 0 \right\}$ ist nicht wegzusammenhängend. Beweis: Zwischenwertsatz.
+\end{Bsp}
+\begin{Def}{konvex}
+  Sei $V$ Vektorraum, $X\subset V$ heisst konvex, wenn $\forall a,b\in X$
+  \[\left\{ a+t(b-a):t\in [0;1] \right\}\subset X\]
+  (Strecke, die $a$ und $b$ verbindet)
+\end{Def}
+\begin{Lem}
+  Sei $V$ ein normierter Vektorraum, $X\subset V$
+  \[X\ \text{konvex}\implies X\ \text{wegzusammenhängend}\]
+\end{Lem}
+\begin{Bew}
+  Die Strecke ist eine stetige Kurve.
+\end{Bew}
+\begin{Sat}
+  $\mb{R}\setminus\left\{ 0 \right\}$ und $S^{n-1}$ sind für $n\geq 2$ wegzusammenhängend.
+\end{Sat}
+\begin{Lem}
+  \[X\ \text{wegzusammenhängend} \implies X\ \text{zusammenhängend}\]
+\end{Lem}
+\begin{Bew}
+  Widerspruchsbeweis: Sei $X$ wegzusammenhängend, nicht zusammenhängend.
+  \begin{align*}
+    X&=U\cup V\\
+    U,V&\ \text{offen}&\exists u\in U, v\in V\\
+    U,V&\neq\varnothing&u\neq v\\
+    U\cap V&=\varnothing
+  \end{align*}
+  $X$ wegzusammenhängend
+  \[\implies \gamma:[\alpha;\beta]\to X\]
+  $\gamma(\alpha)=u$, $\gamma(\beta)=v$
+  \begin{gather*}
+    \tilde U=\gamma^{-1}(U),\ \tilde V=\gamma^{-1}(V)\\
+  \end{gather*}
+  \begin{align*}
+    [\alpha;\beta]&=\tilde U\cup \tilde V\\
+    \tilde U,\tilde V&\ \text{offen}\\
+    \tilde U,\tilde V&\neq\varnothing\\
+    \tilde U\cap\tilde V&=\varnothing
+  \end{align*}
+  \[ [\alpha;\beta]\ \text{nicht zusammenhängend}\]
+\end{Bew}
+\begin{Kor}
+  $\mb{R}\setminus\left\{ 0 \right\}$ und $S^{n-1}$ sind für $n\geq 2$ zusammenhängend.
+\end{Kor}
+\begin{Bew}
+  $\mb{R}\setminus\left\{ 0 \right\}$ nicht zusammenhängend
+\end{Bew}
+\begin{Sat}
+  Sei $V$ ein normierter Vektorraum, $X\subset V$ offen
+  \[X\ \text{zusammenhängend}\implies X\ \text{wegzusammenhängend}\]
+  Zusätzlich können je zwei Punkte in $X$ durch einen Streckenzug verbunden werden.
+\end{Sat}
+\begin{Bem}
+  Sei 
+  \[X:=\left\{ \left( x,\sin\frac{1}{x} \right),x>0 \right\}\cup \left\{ (0,y),y\in [-1;1] \right\}\subset\mb{R}\]
+  \begin{itemize}
+    \item $X$ ist nicht offen
+    \item $X$ zusammenhängend
+    \item $X$ nicht wegzusammenhängend
+  \end{itemize}
+\end{Bem}
+\begin{Def}{Gebiet}
+  Eine zusammenhängende offene Teilmenge normierten Vektorraumes heisst Gebiet.
+\end{Def}
+\begin{Sat}
+  \[GL(n;\mb{R}=\left\{ A\in M(n\times n,\mb{R}), \det A\neq 0 \right\}\]
+  ist nicht zusammenhängend.
+  \[GL^+(n;\mb{R}=\left\{ A\in M(n\times n,\mb{R}), \det A> 0 \right\}\]
+  ist zusammenhängend.
+\end{Sat}
+\begin{Bew}
+  \[\det:GL(n,\mb{R})\to\mb{R}\setminus\left\{ 0 \right\}\ \text{stetig}\]
+  Wäre $GL$ zusammenhängend, dann wäre auch $\mb{R}\setminus\left\{ 0 \right\}$ zusammenhängend.
+\end{Bew}
+\begin{Sat}
+  Seien $X$ und $Y$ homöomorph. Dann
+  \[X\ \text{zusammenhängend}\ \Lra\ Y\text{zusammenhängend}\]
+\end{Sat}
+\begin{Kor}
+  $\mb{R}^n,n>1$ ist nicht homöomorph zu $\mb{R}$
+\end{Kor}
+\begin{Bew}
+  $n>1$ $\mb{R}^n\setminus\left\{ 0 \right\}$ zusammenhängend.\\
+  Widerspruchbeweis:
+  \[\exists f:\mb{R}^n\to\mb{R}\ \text{Homöomorphismus}\]
+  \[f|_{\mb{R}^n\setminus\left\{ 0 \right\}}:\underbrace{\mb{R}^n\setminus\left\{ 0 \right\}}_{\text{zusammenhängend}}\to\underbrace{\mb{R}\setminus f(0)}_{\text{nicht zusammenhängend}}\]
+\end{Bew}
